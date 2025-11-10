@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* declaration of global TOKENS for the design system */
+:root {
+  /* colors */
+  --primary: #3B82F6; 
+  --secondary: #0F172A;
+  --background: #0a0a0a;
+  --text: #E5E7EB;
+  --container: #1E293B;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --surface: #06B6D4;
+  --surface-light: #22D3EE;
+
+  /* typography */
+  --font-default: var(--font-inter);
+  --font-logo: var(--font-devonshire);
+  --font-title-header: var(--font-climate-crisis);
+
+  /* font-size */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.8rem;
+  --text-5xl: 4.5rem;
+  --text-6xl: 5.5rem;
+
+  /* font-weight */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  /* shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* where tailwind reeds and generate automatic classes based on global variables (:root {}) */
+@theme inline {
+  /* mapeamento de cores */
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --color-text: var(--text);
+  --color-container: var(--container);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+
+  /* fontes */
+  --font-default: var(--font-default);
+  --font-title: var(--font-title);
+  --font-logo: var(--font-logo);
+  --font-title-header: var(--font-title-header);
+
+  /* tamanhos e pesos */
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+  --text-4xl: var(--text-4xl);
+  --text-5xl: var(--text-5xl);
+  --text-6xl: var(--text-6xl);
+
+  --font-regular: var(--font-regular);
+  --font-medium: var(--font-medium);
+  --font-semibold: var(--font-semibold);
+  --font-bold: var(--font-bold);
+
+  /* radius */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-full: var(--radius-full);
+
+  /* sombras */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+}
