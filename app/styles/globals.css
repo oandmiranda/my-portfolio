@@ -10,7 +10,7 @@
   --container: #1E293B;
   --warning: #f59e0b;
   --error: #ef4444;
-  --surface: #06B6D4;
+  --surface: #9900d0;
   --surface-light: #22D3EE;
 
   /* typography */
@@ -19,22 +19,20 @@
   --font-title-header: var(--font-climate-crisis);
 
   /* font-size */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.8rem;
-  --text-5xl: 4.5rem;
-  --text-6xl: 5.5rem;
+  --text-sm: 0.75rem;
+  --text-base: 0.875rem;
+  --text-lg: 1rem;
+  --text-xl: 1.125rem;
+  --text-2xl: 1.25rem;
+  --text-3xl: 1.5rem;
+  --text-4xl: 1.875rem;
+  --text-5xl: 2.8rem;
+  --text-6xl: 4.5rem;
+  --text-7xl: 5.5rem;
 
-  /* font-weight */
-  --font-regular: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
+  /* border */
+  --border-width: 2px;
+  --border-top: var(--border-width) solid var(--surface);
 
   /* radius */
   --radius-sm: 0.25rem;
@@ -67,8 +65,7 @@
   --font-logo: var(--font-logo);
   --font-title-header: var(--font-title-header);
 
-  /* tamanhos e pesos */
-  --text-xs: var(--text-xs);
+  /* font-size */
   --text-sm: var(--text-sm);
   --text-base: var(--text-base);
   --text-lg: var(--text-lg);
@@ -78,11 +75,10 @@
   --text-4xl: var(--text-4xl);
   --text-5xl: var(--text-5xl);
   --text-6xl: var(--text-6xl);
+  --text-7xl: var(--text-7xl);
 
-  --font-regular: var(--font-regular);
-  --font-medium: var(--font-medium);
-  --font-semibold: var(--font-semibold);
-  --font-bold: var(--font-bold);
+  /* border */
+  --border-top: var(--border-top);
 
   /* radius */
   --radius-sm: var(--radius-sm);
@@ -94,4 +90,49 @@
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
+}
+
+/* Custom utility classes using design tokens */
+.border-base {
+  border-top: var(--border-top);
+}
+
+/* Image border decoration - offset 40px to bottom-right */
+.image-border-decoration {
+  position: relative;
+}
+
+.image-border-decoration::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: -12px;
+  bottom: -12px;
+  border: 2px solid var(--surface);
+  border-radius: var(--radius-md);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Smooth fade transition for carousel items at edges */
+.keen-slider {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.keen-slider__slide {
+  transition: opacity 0.3s ease-in-out;
 }
