@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${evonshire.variable} ${climateCrisis.variable}`}>
-      <body className="bg-background text-text py-4 px-6">
+      <body className="bg-background text-text text-base">
         {children}
       </body>
     </html>
