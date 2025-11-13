@@ -12,7 +12,7 @@ export default function Header() {
             /> */}
       <NavBar />
       <div className="flex justify-center items-center w-full h-screen">
-        <div className="flex flex-col justify-center items-center text-start w-full max-w-4xl gap-4 px-4">
+        <div className="flex flex-col justify-center items-start text-start w-full max-w-4xl gap-4 px-4">
             <p>Hi,</p>
             <h1 className="text-4xl font-title-header sm:text-5xl md:text-6xl">{`I'M MIRANDA.`}</h1>
             <h2 className="text-3xl sm:text-4xl">I build things for the web</h2>

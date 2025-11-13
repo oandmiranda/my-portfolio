@@ -1,6 +1,6 @@
 import { Menu as Wrapper, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import Link from 'next/link'
-import { MenuBurgerIcon } from './icons/burger'
+import { MenuBurgerIcon } from './burger'
 
 export default function Menu() {
   return (

@@ -1,14 +1,13 @@
 import Image from "next/image";
-import Slider from "./slider";
 import Title from "./title";
 
 export default function AboutSection() {
   return (
-    <section className="flex flex-col gap-4 px-4 sm:px-10 md:px-40 lg:px-70">
+    <section className="flex flex-col gap-4">
 
       <div className="flex items-center gap-2">
         <span>01.</span>
-        <Title size="text-xl">About Me</Title>
+        <Title size="text-2xl">About Me</Title>
       </div>
 
       <div className="flex gap-8">
@@ -28,10 +27,9 @@ export default function AboutSection() {
             exploring new tools to write cleaner code, improve performance, and
             create engaging user experiences.
             </p>
-          <Slider />
         </div>
 
-        <div className="hidden sm:block sm:w-80 sm:h-80 rounded-sm image-border-decoration">
+        <div className="hidden sm:block sm:w-80 sm:h-80 2xl:w-full 2xl:h-100  rounded-sm image-border-decoration">
             <Image 
               src={"/images/my-picture.jpeg"} 
               alt="my picture" 

@@ -5,7 +5,7 @@
   /* colors */
   --primary: #3B82F6; 
   --secondary: #0F172A;
-  --background: #0a0a0a;
+  --background: #04001b;
   --text: #E5E7EB;
   --container: #1E293B;
   --warning: #f59e0b;
@@ -19,6 +19,7 @@
   --font-title-header: var(--font-climate-crisis);
 
   /* font-size */
+  --text-xs: 0.6rem;
   --text-sm: 0.75rem;
   --text-base: 0.875rem;
   --text-lg: 1rem;
@@ -66,6 +67,7 @@
   --font-title-header: var(--font-title-header);
 
   /* font-size */
+  --text-xs: var(--text-xs);
   --text-sm: var(--text-sm);
   --text-base: var(--text-base);
   --text-lg: var(--text-lg);

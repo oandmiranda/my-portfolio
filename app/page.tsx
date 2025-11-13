@@ -1,7 +1,7 @@
-import { reverse } from "dns";
 import AboutSection from "./ui/aboutSection";
 import Card from "./ui/card";
 import Header from "./ui/header";
+import Slider from "./ui/slider";
 import Title from "./ui/title";
 
 const cardData = [
@@ -10,8 +10,8 @@ const cardData = [
     imageAlt: "miraflix-project",
     title: "Miraflix",
     description:
-      "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shdjfa;lkfdaksjdfn kahjsdfasdfasdfhsdf jksdfbkjaskdf;kjabsdfkj asldkfjsjdkfksjdhfshdbfjb sdhfb f sdfj sdfbsndf nsbdf.",
-    technologies: ["React", "TypeScript", "CSS"],
+      "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljff;kjabsdfkj a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdfsldkfjsjdkfksjdh.",
+    technologies: ["React", "Next.js", "TypeScript", "Styled-Components", "API Rest"],
     reverse: false
   },
   {
@@ -19,8 +19,8 @@ const cardData = [
     imageAlt: "project-two",
     title: "Coffee Shop",
     description:
-      "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shdjfa;lkfdaksjdfn kahjsdfasdfasdfhsdf jksdfbkjaskdf;kjabsdfkj asldkfjsjdkfksjdhfshdbfjb sdhfb f sdfj sdfbsndf nsbdf",
-    technologies: ["Next.js", "JavaScript", "Tailwind CSS"],
+      "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf  description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf",
+    technologies: ["React", "TypeScript", "Styled-Components", "Redux"],
     reverse: true
   },
 ];
@@ -29,16 +29,19 @@ export default function Home() {
   return (
     <main className="py-4">
       <Header />
-      <AboutSection />
 
-      <section className="flex flex-col justify-center items-start py-50 px-4 sm:px-10 md:px-40 lg:px-70">
-        <div className="flex items-center gap-2 mb-8">
-          <span>02.</span>
-          <Title size="text-xl">Some things Ive Built</Title>
-        </div>
-        {cardData.map((card) => (
-          <Card key={card.title} {...card} />
-        ))}
+      <section className="flex flex-col justify-center items-start px-4 sm:px-10 md:px-30 lg:px-55 xl:px-90">
+        <AboutSection />
+        <Slider />
+
+          <div className="flex items-center gap-2 mb-13 mt-40">
+            <span>02.</span>
+            <Title size="text-2xl">Some things Ive Built</Title>
+          </div>
+
+          {cardData.map((card) => (
+            <Card key={card.title} {...card} />
+          ))}
       </section>
     </main>
   );
