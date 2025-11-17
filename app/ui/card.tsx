@@ -2,6 +2,8 @@ import Image from "next/image";
 import Title from "./title";
 import Link from "next/link";
 import { Dot } from "lucide-react";
+import FadeIn from "./fadeIn";
+
 
 type CardProps = {
   imageSrc: string;
@@ -21,7 +23,8 @@ export default function Card({
   return (
     <section className="flex flex-col w-full mb-20 md:mb-30">
 
-      <Link href={"/"}>
+     <FadeIn>
+       <Link href={"/"}>
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6">
           <div className="w-full flex flex-col items-start z-2 gap-5 md:w-[45%] lg:w-[50%]">
             <Title size="text-lg sm:text-xl">{title}</Title>
@@ -62,6 +65,7 @@ export default function Card({
           </div>
         </div>
       </Link>
+     </FadeIn>
 
     </section>
   );
