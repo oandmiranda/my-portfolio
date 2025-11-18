@@ -1,3 +1,4 @@
+import FadeIn from "./fadeIn";
 import NavBar from "./navbar";
 import { Circle } from 'lucide-react';
 
@@ -13,7 +14,8 @@ export default function Header() {
             /> */}
       <NavBar />
       <div className="flex justify-center items-center w-full h-screen px-4 sm:px-10 md:px-30 lg:px-55 xl:px-90">
-        <div className="flex flex-col justify-center items-start text-start w-full max-w-4xl gap-4">
+        <FadeIn animation="fade" trigger="mount">
+          <div className="flex flex-col justify-center items-start text-start w-full max-w-4xl gap-4">
             <p>Hi,</p>
             <h1 className="text-4xl font-title-header sm:text-5xl md:text-6xl">{`I'M MIRANDA.`}</h1>
             <h2 className="text-3xl sm:text-4xl">I build things for the web</h2>
@@ -26,6 +28,7 @@ export default function Header() {
               <span>Available for work</span>
             </div>
         </div>
+        </FadeIn>
       </div>
     </div>
   );

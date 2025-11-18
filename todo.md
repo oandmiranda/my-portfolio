@@ -5,10 +5,10 @@
 - subtitle introducing me 
 - button [available for work] with beautiful animation 
 
-[] - maybe a video background in the header
-[] - logo should have animation
+[X] - logo should have animation
+[X] - it must have an animation to show the next component when scrolling the page
 [] - button ( in/pt ) to toggle between the two languages across the entire app in the middle of the header
-[] - it must have an animation to show the next component when scrolling the page
+[] - maybe a video background in the header
 
 
 # About me

@@ -29,15 +29,17 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="hidden sm:block sm:w-80 sm:h-80 2xl:w-full 2xl:h-100  rounded-sm image-border-decoration">
-            <Image
-              src={"/images/my-picture.jpeg"}
-              alt="my picture"
-              width={2000}
-              height={1000}
-              className="w-full h-full object-cover rounded-md"
-            />
-          </div>
+          <FadeIn animation="slideUp">
+            <div className="hidden sm:block sm:w-80 sm:h-80 lg:w-90 lg:h-90 2xl:h-100 w-full rounded-sm image-border-decoration">
+              <Image
+                src={"/images/my-picture.jpeg"}
+                alt="my picture"
+                width={2000}
+                height={1000}
+                className="w-full h-full object-cover rounded-md"
+              />
+            </div>
+          </FadeIn>
         </div>
       </FadeIn>
     </section>

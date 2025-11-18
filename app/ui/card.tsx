@@ -21,7 +21,7 @@ export default function Card({
   technologies,
 }: CardProps) {
   return (
-    <section className="flex flex-col w-full mb-20 md:mb-30">
+    <section className="flex flex-col mb-20 md:mb-30 w-full">
 
      <FadeIn>
        <Link href={"/"}>

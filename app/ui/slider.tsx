@@ -36,19 +36,19 @@ export default function Slider() {
       spacing: 6,
     },
     created(s) {
-      s.moveToIdx(4, true, animation);
+      s.moveToIdx(3, true, animation);
     },
     updated(s) {
-      s.moveToIdx(s.track.details.abs + 4, true, animation);
+      s.moveToIdx(s.track.details.abs + 3, true, animation);
     },
     animationEnded(s) {
-      s.moveToIdx(s.track.details.abs + 4, true, animation);
+      s.moveToIdx(s.track.details.abs + 3, true, animation);
     },
   });
 
   return (
-    <section className="flex flex-col items-center w-full">
-      <h2 className="mt-25">
+    <section className="flex flex-col items-center w-full bg-secondary rounded-2xl mt-25 py-5">
+      <h2 className="">
         Here are a few technologies I’ve been working with recently:
       </h2>
 

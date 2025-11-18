@@ -12,8 +12,14 @@ const cardData = [
     title: "Miraflix",
     description:
       "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljff;kjabsdfkj a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdfsldkfjsjdkfksjdh.",
-    technologies: ["React", "Next.js", "TypeScript", "Styled-Components", "API REST"],
-    reverse: false
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Styled-Components",
+      "API REST",
+    ],
+    reverse: false,
   },
   {
     imageSrc: "/images/image-test2.png",
@@ -22,7 +28,7 @@ const cardData = [
     description:
       "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf  description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf",
     technologies: ["React", "TypeScript", "Styled-Components", "Redux"],
-    reverse: true
+    reverse: true,
   },
 ];
 
@@ -34,15 +40,15 @@ export default function Home() {
       <section className="flex flex-col justify-center items-start px-4 sm:px-10 md:px-30 lg:px-55 xl:px-90">
         <AboutSection />
         <Slider />
-          <div className="flex gap-2 mb-13 mt-40">
-            <span>02.</span>
-            <Title size="text-2xl">Some things Ive Built</Title>
-          </div>
+        <div className="flex gap-2 mb-13 mt-40">
+          <span>02.</span>
+          <Title size="text-2xl">Some things Ive Built</Title>
+        </div>
           {cardData.map((card) => (
             <Card key={card.title} {...card} />
           ))}
+        <Footer />
       </section>
-          <Footer />
     </main>
   );
 }
