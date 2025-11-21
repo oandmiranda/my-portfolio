@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Title from "./title";
-import FadeIn from "./fadeIn";
+import FadeIn from "./animation";
 
 export default function AboutSection() {
   return (

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Title from "./title";
 import Link from "next/link";
 import { Dot } from "lucide-react";
-import FadeIn from "./fadeIn";
+import FadeIn from "./animation";
 
 
 type CardProps = {

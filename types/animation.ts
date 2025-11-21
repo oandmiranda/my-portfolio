@@ -1,4 +1,4 @@
-export type FadeInProps = {
+export type AnimationProps = {
   children: React.ReactNode;
   delay?: number;
   className?: string;

@@ -1,16 +1,16 @@
 "use client";
 
-import { FadeInProps } from "@/types/fadeIn";
+import { AnimationProps } from "@/types/animation";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-export default function FadeIn({
+export default function Animation({
   children,
   delay = 0,
   className,
   animation = "fade",
   trigger = "scroll",
-}: FadeInProps) {
+}: AnimationProps) {
   const ref = useRef(null);
 
   const isInView = useInView(ref, {
@@ -43,7 +43,7 @@ export default function FadeIn({
         opacity: 0,
         y: 30,
         scale: 1,
-        filter: "blur(5px)",
+        filter: "blur(2px)",
       },
       visible: {
         opacity: 1,

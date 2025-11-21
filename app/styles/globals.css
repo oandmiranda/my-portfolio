@@ -20,7 +20,7 @@
 
   /* font-size */
   --text-xs: 0.6rem;
-  --text-sm: 0.75rem;
+  --text-sm: 0.750rem;
   --text-base: 0.875rem;
   --text-lg: 1rem;
   --text-xl: 1.125rem;
@@ -30,6 +30,7 @@
   --text-5xl: 2.8rem;
   --text-6xl: 4.5rem;
   --text-7xl: 5.5rem;
+  --text-8xl: 7rem;
 
   /* border */
   --border-width: 2px;
@@ -78,6 +79,7 @@
   --text-5xl: var(--text-5xl);
   --text-6xl: var(--text-6xl);
   --text-7xl: var(--text-7xl);
+  --text-8xl: var(--text-8xl);
 
   /* border */
   --border-top: var(--border-top);
