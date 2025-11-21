@@ -1,0 +1,135 @@
+// components/ProjectsSection.tsx
+
+// scroll-scrubbing é aparentemente o nome do conceito
+"use client";
+
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import Card from "./card";
+import Animation from "./animation";
+
+// Dados simulados para os cards
+const cardData = [
+  {
+    imageSrc: "/images/image-test.png",
+    imageAlt: "miraflix-project",
+    title: "Miraflix",
+    description:
+      "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljff;kjabsdfkj a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdfsldkfjsjdkfksjdh.",
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Styled-Components",
+      "API REST",
+    ],
+    reverse: false,
+  },
+  {
+    imageSrc: "/images/image-test2.png",
+    imageAlt: "project-two",
+    title: "Coffee Shop",
+    description:
+      "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf  description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf",
+    technologies: ["React", "TypeScript", "Styled-Components", "Redux"],
+    reverse: true,
+  },
+];
+
+// ----------------------------------------------------
+// VARIANTS para a Animação dos CARDS (Staggered Effect)
+// ----------------------------------------------------
+const cardsContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const cardItemVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+};
+
+export default function ProjectsSection() {
+  const targetRef = useRef<HTMLDivElement>(null);
+
+  // 1. Monitorar o Scroll na Section
+  // A animação começa quando o topo do target atinge o fim da viewport ("start end")
+  // e termina quando o fim do target atinge o início da viewport ("end start").
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+
+  // 2. Mapear o Scroll para a Posição Y do Título (Movimento Suave)
+  // [0, 0.2] mapeia o scroll de 0% a 20% da section
+  // [150, 0] mapeia o Y de 150px (abaixo) para 0px (ancorado no centro).
+  const y = useTransform(scrollYProgress, [0, 0.2], [150, 0]);
+
+  // 3. Mapear o Scroll para o Blur do Título (Ofuscamento)
+  // [0.1, 0.2, 0.3, 0.6] - Define os pontos de scroll para a transformação
+  // [blur(8px), blur(0px), blur(0px), blur(4px)] - Define os valores de saída como STRING CSS
+  // 👈 CORREÇÃO: Isso resolve o erro 'blur.to is not a function'.
+  const blur = useTransform(
+    scrollYProgress,
+    [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
+    ["blur(5px)", "blur(0px)", "blur(0px)", "blur(1px)", "blur(8px)", "blur(10px)", "blur(11px)", "blur(12px)"]
+  );
+
+  // 4. Mapear a Opacidade do Título (Fade in & Dim)
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.1, 0.2, 0.1, 0.9],
+    [0, 1, 1, 0.6]
+  );
+
+  return (
+    // Dê uma altura grande (ex: 300vh) para permitir bastante rolagem para a animação.
+    <section ref={targetRef} className="relative py-40 flex flex-col">
+      {/* ---------------------------------------------------- */}
+      {/* TÍTULO "PROJETOS" (STICKY E ANIMADO)                   */}
+      {/* ---------------------------------------------------- */}
+      <Animation animation="slideUp" className="sticky top-1/3">
+        <motion.h1
+        style={{
+          y,
+          filter: blur, // 👈 Aplicando a string CSS diretamente
+          opacity,
+        }}
+        // top-1/3 centraliza o título verticalmente para começar a animação.
+        className="text-4xl font-bold text-center sm:text-5xl md:text-6xl"
+      >
+        PROJECTS
+      </motion.h1>
+      </Animation>
+      
+
+      {/* ---------------------------------------------------- */}
+      {/* CARDS DOS PROJETOS (APARECEM APÓS O TÍTULO ANCORAR)   */}
+      {/* ---------------------------------------------------- */}
+      <motion.div
+        // Empurra o container dos cards para que só apareçam após o título ter ancorado no topo.
+        className="relative pt-[calc(70vh)]"
+      >
+        <motion.div
+          variants={cardsContainerVariants}
+          initial="hidden"
+          // whileInView ativa o stagger dos cards quando o container entra na vista.
+          whileInView="visible"
+          viewport={{ once: true,}}
+        >
+          {cardData.map((card) => (
+            <motion.div key={card.title} variants={cardItemVariants}>
+              <Card key={card.title} {...card} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
