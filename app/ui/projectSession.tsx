@@ -1,18 +1,18 @@
-// components/ProjectsSection.tsx
 
 // scroll-scrubbing é aparentemente o nome do conceito
 "use client";
 
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Card from "./card";
 import Animation from "./animation";
+import { CardProps } from "@/types/card";
 
-// Dados simulados para os cards
-const cardData = [
+const cardData: CardProps[] = [
   {
-    imageSrc: "/images/image-test.png",
-    imageAlt: "miraflix-project",
+    imageSrc: "/images/miraflix-image.png",
+    imageAlt: "miraflix-image",
+    videoSrc: "/videos/miraflix-video.mp4",
     title: "Miraflix",
     description:
       "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljff;kjabsdfkj a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdfsldkfjsjdkfksjdh.",
@@ -24,19 +24,25 @@ const cardData = [
       "API REST",
     ],
     reverse: false,
+    gitHubLink: "https://github.com/oandmiranda/Mira-flix-frontend",
+    href: "https://mira-flix-frontend.vercel.app/",
+    findOutMore: "please visit the project repository to find out more about this project call Miraflix",
   },
   {
-    imageSrc: "/images/image-test2.png",
+    imageSrc: "/images/coffeeshop-image.png",
     imageAlt: "project-two",
+    videoSrc: "/videos/coffeeshop-video.mp4",
     title: "Coffee Shop",
     description:
       "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf  description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf",
     technologies: ["React", "TypeScript", "Styled-Components", "Redux"],
     reverse: true,
+    gitHubLink: "https://github.com/oandmiranda/Coffeeshop",
+    href: "https://coffeeshop-sage.vercel.app/",
+    findOutMore: "Find out more",
   },
 ];
 
-// ----------------------------------------------------
 // VARIANTS para a Animação dos CARDS (Staggered Effect)
 // ----------------------------------------------------
 const cardsContainerVariants: Variants = {
@@ -78,7 +84,7 @@ export default function ProjectsSection() {
   const blur = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
-    ["blur(5px)", "blur(0px)", "blur(0px)", "blur(1px)", "blur(8px)", "blur(10px)", "blur(11px)", "blur(12px)"]
+    ["blur(5px)", "blur(0px)", "blur(0px)", "blur(1px)", "blur(8px)", "blur(10px)", "blur(12px)", "blur(13px)"]
   );
 
   // 4. Mapear a Opacidade do Título (Fade in & Dim)
@@ -94,7 +100,7 @@ export default function ProjectsSection() {
       {/* ---------------------------------------------------- */}
       {/* TÍTULO "PROJETOS" (STICKY E ANIMADO)                   */}
       {/* ---------------------------------------------------- */}
-      <Animation animation="slideUp" className="sticky top-1/3">
+      <Animation animation="slideUp" className="sticky top-[44%]">
         <motion.h1
         style={{
           y,
@@ -102,7 +108,7 @@ export default function ProjectsSection() {
           opacity,
         }}
         // top-1/3 centraliza o título verticalmente para começar a animação.
-        className="text-4xl font-bold text-center sm:text-5xl md:text-6xl"
+        className="text-4xl font-bold text-center sm:text-5xl md:text-5xl"
       >
         PROJECTS
       </motion.h1>
@@ -114,7 +120,7 @@ export default function ProjectsSection() {
       {/* ---------------------------------------------------- */}
       <motion.div
         // Empurra o container dos cards para que só apareçam após o título ter ancorado no topo.
-        className="relative pt-[calc(70vh)]"
+        className="relative pt-[calc(67vh)]"
       >
         <motion.div
           variants={cardsContainerVariants}

@@ -4,15 +4,15 @@ import FadeIn from "./animation";
 
 export default function AboutSection() {
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col w-full gap-4" id="about">
       <FadeIn>
         <div className="flex items-center gap-2">
           <span>01.</span>
           <Title size="text-2xl">About Me</Title>
         </div>
 
-        <div className="flex gap-8">
-          <div className="w-full sm:w-[60%] md:w-[65%] border-base pt-4">
+        <div className="flex flex-col items-center md:flex-row gap-8 w-full">
+          <div className="w-full md:w-[65%] border-base pt-4">
             <p>
               Hey, I’m Miranda — a passionate Front-End Developer with a strong
               focus on building modern, responsive, and user-friendly web
@@ -30,7 +30,7 @@ export default function AboutSection() {
           </div>
 
           <FadeIn animation="slideUp">
-            <div className="hidden sm:block sm:w-80 sm:h-80 lg:w-90 lg:h-90 2xl:h-100 w-full rounded-sm image-border-decoration">
+            <div className="block w-full sm:h-80 lg:w-90 lg:h-100 2xl:h-110 rounded-sm border-purple-500/30 shadow-[0_0_20px_rgba(168,85,247,0.2)] image-border-decoration">
               <Image
                 src={"/images/my-picture.jpeg"}
                 alt="my picture"
