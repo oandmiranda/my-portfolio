@@ -10,7 +10,7 @@ export default function Home() {
     <main className="py-4">
       <Header />
 
-      <section className="flex flex-col justify-center items-start px-4 sm:px-10 md:px-30 lg:px-55 xl:px-90">
+      <section className="flex flex-col justify-center items-start px-4 sm:px-10 md:px-20 lg:px-35 xl:px-90">
         <AboutSection />
         <Slider />
         <ProjectsSection />

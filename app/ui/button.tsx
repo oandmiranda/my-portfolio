@@ -1,35 +1,40 @@
-"use client"
+"use client";
 
-import { Download } from "lucide-react";
+import { cloneElement, isValidElement } from "react";
 import HoverAnimationBox from "./hoverAnimation";
 import Link from "next/link";
 import { ButtonProps } from "@/types/button";
 
-export default function Button({hasHoverAnimation = false, children}: ButtonProps) {
+export default function Button({
+  icon,
+  hasHoverAnimation = false,
+  children,
+  href,
+  className,
+  onClick
+}: ButtonProps) {
+
+  const renderedIcon =
+    icon && isValidElement(icon)
+      ? cloneElement(icon, { className: "size-3.5" })
+      : null;
+
+  const Component = href ? Link : "button";
 
   const buttonContent = (
-    <Link
-      href={"/"}
-      className="flex items-center gap-1 bg-surface rounded-sm py-2.5 px-2"
+    <Component
+      href={href}
+      onClick={onClick}
+      className={`flex items-center gap-1 bg-surface rounded-sm px-2.5 py-2 cursor-pointer ${className}`}
     >
-      <span>
-        <Download className="size-3.5" />
-      </span>
+      {renderedIcon && <span>{renderedIcon}</span>}
       <span>{children}</span>
-    </Link>
+    </Component>
   );
 
-  return (
-    <>
-      { hasHoverAnimation ? (
-        <HoverAnimationBox>
-          {buttonContent}
-        </HoverAnimationBox>
-      ) : 
-        <div>
-          {buttonContent}
-        </div>
-      }
-    </>
+  return hasHoverAnimation ? (
+    <HoverAnimationBox>{buttonContent}</HoverAnimationBox>
+  ) : (
+    <div>{buttonContent}</div>
   );
 }
