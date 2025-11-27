@@ -12,6 +12,16 @@ export interface ProjectsSection {
   [key: string]: ProjectItem; 
 }
 
+export interface FooterItems {
+    resume: string;
+    socialMedias: string; 
+}
+
+export interface FooterSection {
+    [key: string]: FooterItems;
+}
+
+
 export interface SimpleNamespace {
   [key: string]: string;
 }
@@ -24,6 +34,7 @@ export interface LanguageContent {
   technologies: SimpleNamespace;
   sessions: SimpleNamespace;
   projects: ProjectsSection;
+  footer: FooterSection;
   // Adicione outras seções aqui!
 }
 

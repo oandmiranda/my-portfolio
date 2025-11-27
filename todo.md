@@ -7,7 +7,7 @@
 
 [X] - logo should have animation
 [X] - it must have an animation to show the next component when scrolling the page
-[] - button ( in/pt ) to toggle between the two languages across the entire app in the middle of the header
+[X] - button ( en/pt ) to toggle between english and porteguese using context
 [] - maybe a video background in the header
 [] - nav must be fixed while scrolling
 
@@ -22,6 +22,9 @@
 
 # Soft Skills
 [] - an area about soft skills
+
+# Contact area
+[X]
 
 
 # Extras

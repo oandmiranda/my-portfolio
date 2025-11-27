@@ -14,7 +14,7 @@ const navLink: NavLink[] = [
   { href: "/#about", key: "about" },
   { href: "/#experience", key: "experience" },
   { href: "/#projects", key: "projects" },
-  { href: "/#contact", key: "contact" },
+  { href: "/#contacts", key: "contact" },
 ];
 
 export default function NavBar() {

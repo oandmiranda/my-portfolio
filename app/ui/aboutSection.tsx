@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Title from "./title";
 import FadeIn from "./animation";
-// 💡 1. Importe o hook
 import { useLanguage } from "../context/languageContext";
 
 export default function AboutSection() {
-  // 💡 2. Recupere a função de tradução
+  
+  // chama a função de tradução
   const { t } = useLanguage();
 
   return (

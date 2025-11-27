@@ -1,4 +1,4 @@
-import { details } from "framer-motion/client";
+import { view } from "framer-motion/client";
 
 export const translations = {
   en: {
@@ -44,6 +44,15 @@ export const translations = {
         details: "I used React, Tailwind CSS, and Context API to build a responsive web application that allows users to browse different coffee products, add them to the cart, and securely checkout. The project includes features such as product filtering by category, cart state management, and integration with payment gateways.",  
       },
     },
+    footer: {
+      resume: {
+        title: "Resume:",
+        download: "View Resume",
+      },
+      socialMedias: {
+        title: "Connect with me:",
+      }
+    },
   },
   pt: {
     nav: {
@@ -87,6 +96,15 @@ export const translations = {
         description: "Coffee Shop é um site de comércio eletrônico que permite aos usuários navegar e comprar uma variedade de produtos de café. Inclui recursos como filtragem de produtos, carrinho de compras e checkout seguro.",
         details: "Eu usei React, Tailwind CSS e Context API para construir um aplicativo web responsivo que permite aos usuários navegar por diferentes produtos de café, adicioná-los ao carrinho e finalizar a compra com segurança. O projeto inclui recursos como filtragem de produtos por categoria, gerenciamento de estado do carrinho e integração com gateways de pagamento.",
       },
+    },
+    footer: {
+      resume: {
+        title: "Currículo:",
+        download: "Ver Currículo",
+      },
+      socialMedias: {
+        title: "Conecte-se comigo:",
+      }
     },
   },
 };

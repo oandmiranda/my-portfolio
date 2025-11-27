@@ -1,10 +1,13 @@
 "use client";
 
-import Link from "next/link";
-import { Github, Linkedin, Mail, ChevronsUp } from 'lucide-react';
+import { Github, Linkedin, Mail, ChevronsUp, Download } from 'lucide-react';
 import { motion, Variants } from 'framer-motion'; //
+import InformationArea from "./informationArea";
+import ContactArea from "./contactArea";
+import { useLanguage } from '../context/languageContext';
 
 export default function Footer() {
+    const { t } = useLanguage();
     const scrollToTop = () => {
         window.scrollTo({ top: 0});
     }
@@ -23,11 +26,24 @@ export default function Footer() {
     };
 
     return (
-        <section className="flex flex-col items-center gap-10 m-auto">
-            <div className="flex gap-6">
-                <Link href={"https://github.com/oandmiranda"} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-surface rounded-full"><Github className="size-8"/></Link>
-                <Link href={"https://www.linkedin.com/in/oandmiranda/"} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-surface rounded-full"><Linkedin className="size-8"/></Link>
-                <Link href={"/"} className="p-2.5 bg-surface rounded-full"><Mail className="size-8"/></Link>
+        <section className="flex flex-col items-center gap-10 m-auto w-full" id='contacts'>
+
+            <div className="flex flex-col gap-6 sm:flex-row sm:gap-2 w-full">
+                <InformationArea title={t("title", "footer", "resume")}>
+                    <ContactArea icon={<Download />} href="/">{t("download", "footer", "resume")}</ContactArea>
+                </InformationArea>
+
+                <InformationArea title={t("title", "footer", "socialMedias")}>
+                    <ContactArea icon={<Linkedin />} href="https://www.linkedin.com/in/oandmiranda/">Linkedin</ContactArea>
+                    <ContactArea icon={<Github />} href="https://github.com/oandmiranda">GitHub</ContactArea>
+                </InformationArea>
+                
+                <InformationArea title="E-mail:">
+                    <div className="flex items-center gap-1.5">
+                        <Mail size={20}/>
+                        <span className="text-sm">and.miranda1818@gmail.com</span>
+                    </div>
+                </InformationArea>
             </div>
             
             <motion.div

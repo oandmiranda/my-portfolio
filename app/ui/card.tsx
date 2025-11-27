@@ -36,7 +36,6 @@ export default function Card({
   technologies,
   gitHubLink,
   href,
-  findOutMore,
   details
 }: CardProps) {
   const [openModal, setOpenModal] = useState(false);
