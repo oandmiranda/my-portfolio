@@ -24,7 +24,7 @@ html {
   --font-title-header: var(--font-climate-crisis);
 
   /* font-size */
-  --text-xs: 0.6rem;
+  --text-xs: 0.55rem;
   --text-sm: 0.750rem;
   --text-md: 0.875rem;
   --text-base: 1rem;

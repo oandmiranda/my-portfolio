@@ -21,7 +21,8 @@ export interface LanguageContent {
   nav: SimpleNamespace;
   header: SimpleNamespace;
   aboutMe: SimpleNamespace;
-  tecnologies: SimpleNamespace;
+  technologies: SimpleNamespace;
+  sessions: SimpleNamespace;
   projects: ProjectsSection;
   // Adicione outras seções aqui!
 }
@@ -35,12 +36,14 @@ export interface TranslationsType {
 }
 
 
-// --- Tipo para o Contexto (Valor do useLanguage) ---
-
 // 🔑 ESSENCIAL: Define o formato exato que o useLanguage retorna.
 export interface LanguageContextType {
   language: 'en' | 'pt'; 
   toggleLanguage: () => void;
   // A função t usa 'keyof LanguageContent' para forçar o uso de seções válidas (nav, header, etc.)
-  t: (key: string, section: keyof LanguageContent) => string;
+  t: (
+    key: string, 
+    section: keyof LanguageContent, 
+    subKey?: string
+  ) => string;
 }

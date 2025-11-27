@@ -30,14 +30,22 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     setLanguage((prevLang) => (prevLang === "en" ? "pt" : "en"));
   };
 
-  const t: LanguageContextType['t'] = (key, section) => {
-    const typedTranslations = translations as TranslationsType;
+// função que acessa e retorna o valor traduzido com base na chave, seção e sub-chave
+const t = (key: string, section: keyof LanguageContent, subKey?: string) => {
+    // Começa na seção (ex: projects)
+    let content = translations[language][section]; 
 
-    // Acesso seguro e fallback
-    const translatedText = typedTranslations[language]?.[section]?.[key];
+    // Se houver uma sub-chave (ex: miraflix), acessa o próximo nível
+    if (subKey) {
+        // Usa Optional Chaining (?.) para garantir que o subKey exista
+        content = content[subKey];
+    }
     
-    return (translatedText as string) ?? key;
-  };
+    // Retorna a chave final ou o fallback (a própria key)
+    return content?.[key] ?? key; 
+};
+
+// ... o restante do Provider e do useLanguage
 
   const value: LanguageContextType = { language, toggleLanguage, t }; // Tipagem explícita aqui
 

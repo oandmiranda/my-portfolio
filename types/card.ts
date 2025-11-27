@@ -9,4 +9,5 @@ export type CardProps = {
   href: string;
   gitHubLink: string;
   findOutMore: string;
+  details?: string;
 };
