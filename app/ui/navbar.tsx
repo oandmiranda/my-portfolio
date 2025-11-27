@@ -2,22 +2,31 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { NavLink } from "@/types/navLink";
+import { NavLink } from "@/types/navLink"; // Verifique se o caminho está correto
 import { Download } from "lucide-react";
 import Animation from "./animation";
 import Button from "./button";
 import HoverAnimationBox from "./hoverAnimation";
+import { useLanguage } from "../context/languageContext";
+import LanguageToggle from "./languageToggle";
 
 const navLink: NavLink[] = [
-  { href: "/#about", name: "About" },
-  { href: "/#experience", name: "Experience" },
-  { href: "/#projects", name: "Projects" },
-  { href: "/#contact", name: "Contact" },
+  { href: "/#about", key: "about" },
+  { href: "/#experience", key: "experience" },
+  { href: "/#projects", key: "projects" },
+  { href: "/#contact", key: "contact" },
 ];
 
 export default function NavBar() {
+  const { t } = useLanguage();
+
   return (
-    <div className="flex justify-between items-center px-4 sm:px-5 md:px-8 lg-px-12">
+    // 1. Adicione 'relative' ao container pai para que o absolute funcione dentro dele
+    // 2. Troquei 'justify-around' e 'gap-50' por 'justify-between' e padding padrão (px-4...)
+    //    pois 'gap-50' (200px) costuma quebrar layouts em telas menores.
+    <div className="relative flex justify-between items-center px-4 sm:px-5 md:px-8 lg:px-12 py-4">
+      
+      {/* LADO ESQUERDO: Logo */}
       <Link href={"/"}>
         <HoverAnimationBox className="flex items-center gap-1.5 cursor-default">
           <Animation animation="secondary" trigger="mount">
@@ -43,11 +52,19 @@ export default function NavBar() {
         </HoverAnimationBox>
       </Link>
 
+      {/* 
+        'absolute', 'left-1/2' e '-translate-x-1/2' para garantir 
+         o centro matemático, independente dos vizinhos.
+      */}
+      <Animation className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <LanguageToggle />
+      </Animation>
+
       <Animation animation="slideUp">
-        <div className="flex text-text items-center gap-5 text-sm scale-[0.85] sm:scale-100 md:gap-8 md:text-md ">
+        <div className="flex text-text items-center gap-5 text-sm scale-[0.85] sm:scale-100 md:gap-8 md:text-md">
           {navLink.map((link, index) => (
             <Link key={index} href={link.href}>
-              <span>{link.name}</span>
+              <span>{t(link.key, 'nav')}</span>
             </Link>
           ))}
           <Button
@@ -55,7 +72,7 @@ export default function NavBar() {
             icon={<Download />}
             hasHoverAnimation
           >
-            Resume
+            {t("resume", 'nav')}
           </Button>
         </div>
       </Animation>

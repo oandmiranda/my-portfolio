@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "tailwind.config.js", "app/styles/tokens.js"  ],
+, "tailwind.config.js", "app/styles/tokens.js", "app/context/translation.ts", "app/context/languageContext.tsx"  ],
   "exclude": ["node_modules"]
 }

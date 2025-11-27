@@ -3,6 +3,7 @@
 import NavBar from "./navbar";
 import { Circle } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import { useLanguage } from "../context/languageContext";
 
 // O Maestro que controla o tempo
 export const containerVariants = {
@@ -30,6 +31,8 @@ export const itemVariants: Variants = {
 };
 
 export default function Header() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* <video
@@ -47,17 +50,16 @@ export default function Header() {
           animate="visible"
           className="flex flex-col justify-center items-start text-start w-full max-w-4xl gap-4"
         >
-          <motion.p variants={itemVariants}>Hi,</motion.p>
+          <motion.p variants={itemVariants}>{t("welcome", "header")},</motion.p>
           <motion.h1
             variants={itemVariants}
             className="text-4xl font-title-header sm:text-5xl md:text-6xl"
-          >{`I'M MIRANDA.`}</motion.h1>
+          >{t("name", "header")}</motion.h1>
           <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl">
-            I build things for the web
+            {t("tagline", "header")}
           </motion.h2>
           <motion.p variants={itemVariants} className="text-1xl">
-            Front-End Developer and tech enthusiastic – creating exceptional web
-            and app experiences
+            {t("bio", "header")}
           </motion.p>
 
           <motion.div
@@ -78,7 +80,7 @@ export default function Header() {
             <motion.span
               className="text-active"
             >
-              Available for work
+              {t("status", "header")}
             </motion.span>
           </motion.div>
         </motion.div>

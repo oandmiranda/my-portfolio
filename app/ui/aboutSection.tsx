@@ -1,31 +1,36 @@
+"use client";
+
 import Image from "next/image";
 import Title from "./title";
 import FadeIn from "./animation";
+// 💡 1. Importe o hook
+import { useLanguage } from "../context/languageContext";
 
 export default function AboutSection() {
+  // 💡 2. Recupere a função de tradução
+  const { t } = useLanguage();
+
   return (
     <section className="flex flex-col w-full gap-4" id="about">
       <FadeIn>
         <div className="flex items-center gap-2">
           <span>01.</span>
-          <Title size="text-2xl">About Me</Title>
+          {/* 💡 3. Tradução do Título */}
+          <Title size="text-2xl">{t("title", "aboutMe")}</Title>
         </div>
 
         <div className="flex flex-col items-center md:flex-row gap-8 w-full">
           <div className="w-full md:w-[65%] border-base pt-4">
-            <p>
-              Hey, I’m Miranda — a passionate Front-End Developer with a strong
-              focus on building modern, responsive, and user-friendly web
-              interfaces. My journey in tech started with a curiosity about how
-              things work behind the screen, and over time, it grew into a solid
-              career where I get to combine creativity and logic every day. I
-              have experience working with technologies like React, Next.js,
-              TypeScript, and Tailwind CSS, developing projects that connect
-              design and functionality seamlessly.
-              <br />
-              <br />
-              I’m constantly learning and exploring new tools to write cleaner
-              code, improve performance, and create engaging user experiences.
+            {/* 💡 4. Tradução do Conteúdo */}
+            {/* Nota: Como definimos uma única chave 'content' no objeto de tradução,
+                todo o texto virá junto. Se você quiser quebrar em parágrafos visuais,
+                o ideal seria criar 'paragraph1' e 'paragraph2' no translations.ts,
+                ou adicionar '\n' no texto e usar CSS 'whitespace-pre-line'.
+                
+                Por enquanto, usando a estrutura atual:
+            */}
+            <p className="whitespace-pre-line">
+              {t("content", "aboutMe")}
             </p>
           </div>
 

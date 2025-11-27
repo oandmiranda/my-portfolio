@@ -1,0 +1,49 @@
+
+// --- Tipos para as Traduções ---
+
+export interface ProjectItem {
+  title: string;
+  description: string;
+  github: string;
+  findOutMore: string;
+}
+
+export interface ProjectsSection {
+  [key: string]: ProjectItem; 
+}
+
+export interface SimpleNamespace {
+  [key: string]: string;
+}
+
+// O conteúdo de um idioma (translations.en ou translations.pt)
+export interface LanguageContent {
+  nav: SimpleNamespace;
+  header: SimpleNamespace;
+  aboutMe: SimpleNamespace;
+  technologies: SimpleNamespace;
+  sessions: SimpleNamespace;
+  projects: ProjectsSection;
+  // Adicione outras seções aqui!
+}
+
+// O objeto global de traduções
+export interface TranslationsType {
+  // O idioma só pode ser 'en' ou 'pt'
+  en: LanguageContent;
+  pt: LanguageContent;
+  [key: string]: LanguageContent; 
+}
+
+
+// 🔑 ESSENCIAL: Define o formato exato que o useLanguage retorna.
+export interface LanguageContextType {
+  language: 'en' | 'pt'; 
+  toggleLanguage: () => void;
+  // A função t usa 'keyof LanguageContent' para forçar o uso de seções válidas (nav, header, etc.)
+  t: (
+    key: string, 
+    section: keyof LanguageContent, 
+    subKey?: string
+  ) => string;
+}

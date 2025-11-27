@@ -7,6 +7,7 @@ import { CardProps } from "@/types/card";
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import HoverAnimationBox from "./hoverAnimation";
+import { useLanguage } from "../context/languageContext";
 
 // Define as props de transição
 const modalTransition = {
@@ -36,9 +37,11 @@ export default function Card({
   gitHubLink,
   href,
   findOutMore,
+  details
 }: CardProps) {
   const [openModal, setOpenModal] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const { t } = useLanguage();
 
   // referência para o elemento do modal
   const modalRef = useRef<HTMLDivElement>(null);
@@ -122,12 +125,12 @@ export default function Card({
               </Link>
             </HoverAnimationBox>
 
-            <p className="bg-secondary p-7 rounded-sm text-sm md:-mr-20">
+            <p className="bg-secondary p-4 rounded-sm text-sm md:-mr-20">
               {description}
             </p>
 
             <div className="flex justify-between items-center md:flex-col md:items-start gap-6 w-full">
-              <div className="flex flex-wrap gap-1.5 text-xs">
+              <div className="flex flex-wrap gap-1 text-xs">
                 {technologies.map((tech, index) => (
                   <div
                     key={index}
@@ -146,7 +149,7 @@ export default function Card({
                   rel="noopener noreferrer"
                   className="shrink-0 flex items-center gap-1 cursor-pointer"
                 >
-                  <p>Code</p>
+                  <p>{t("github", "projects")}</p>
                   <Image
                     src={"/github.svg"}
                     alt="github-icon"
@@ -162,7 +165,7 @@ export default function Card({
                   }}
                   className="shrink-0 flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
                 >
-                  <p>Find out more</p>
+                  <p>{t("findOutMore", "projects")}</p>
                   <SquaresUnite size={22} />
                 </div>
               </div>
@@ -205,10 +208,10 @@ export default function Card({
           {openModal && (
             <motion.div
               ref={modalRef}
-              className="absolute inset-0 flex flex-col items-start justify-between bg-secondary p-6 rounded-md z-20"
+              className="absolute inset-0 flex flex-col items-start justify-between bg-secondary p-2 rounded-md z-20"
               {...modalAnimationProps}
             >
-              <p className="text-sm">{findOutMore}</p>
+              <p className="text-sm p-3 w-[96%]">{details}</p>
 
               <motion.button
                 onClick={(e) => {

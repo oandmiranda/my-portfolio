@@ -7,41 +7,8 @@ import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import Card from "./card";
 import Animation from "./animation";
 import { CardProps } from "@/types/card";
+import { useLanguage } from "../context/languageContext";
 
-const cardData: CardProps[] = [
-  {
-    imageSrc: "/images/miraflix-image.png",
-    imageAlt: "miraflix-image",
-    videoSrc: "/videos/miraflix-video.mp4",
-    title: "Miraflix",
-    description:
-      "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljff;kjabsdfkj a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdfsldkfjsjdkfksjdh.",
-    technologies: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Styled-Components",
-      "API REST",
-    ],
-    reverse: false,
-    gitHubLink: "https://github.com/oandmiranda/Mira-flix-frontend",
-    href: "https://mira-flix-frontend.vercel.app/",
-    findOutMore: "please visit the project repository to find out more about this project call Miraflix",
-  },
-  {
-    imageSrc: "/images/coffeeshop-image.png",
-    imageAlt: "project-two",
-    videoSrc: "/videos/coffeeshop-video.mp4",
-    title: "Coffee Shop",
-    description:
-      "This is a description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf  description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf description for card 1,jksdkfjskdljfskjfklsdjf ksdljfjsdfhjshdfk shd f sdfj sdfbsndf nsbdf",
-    technologies: ["React", "TypeScript", "Styled-Components", "Redux"],
-    reverse: true,
-    gitHubLink: "https://github.com/oandmiranda/Coffeeshop",
-    href: "https://coffeeshop-sage.vercel.app/",
-    findOutMore: "Find out more",
-  },
-];
 
 // VARIANTS para a Animação dos CARDS (Staggered Effect)
 // ----------------------------------------------------
@@ -62,6 +29,49 @@ const cardItemVariants: Variants = {
 };
 
 export default function ProjectsSection() {
+  const { t } = useLanguage();
+
+  const cardData: CardProps[] = [
+  {
+    imageSrc: "/images/miraflix-image.png",
+    imageAlt: "miraflix-image",
+    videoSrc: "/videos/miraflix-video.mp4",
+    title: "Miraflix",
+    description:
+      t("description", "projects", "miraflix"),
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Styled-Components",
+      "API REST",
+      "PostgreSQL",
+      "Node.js",
+      "Express",
+      "JWT Auth"
+    ],
+    reverse: false,
+    gitHubLink: "https://github.com/oandmiranda/Mira-flix-frontend",
+    href: "https://mira-flix-frontend.vercel.app/",
+    findOutMore: "please visit the project repository to find out more about this project call Miraflix",
+    details: t("details", "projects", "miraflix"),
+  },
+  {
+    imageSrc: "/images/coffeeshop-image.png",
+    imageAlt: "project-two",
+    videoSrc: "/videos/coffeeshop-video.mp4",
+    title: "Coffee Shop",
+    description:
+      t("description", "projects", "coffeeShop"),
+    technologies: ["React", "TypeScript", "Styled-Components"],
+    reverse: true,
+    gitHubLink: "https://github.com/oandmiranda/Coffeeshop",
+    href: "https://coffeeshop-sage.vercel.app/",
+    findOutMore: "Find out more",
+    details: t("details", "projects", "coffeeShop"),
+  },
+];
+
   const targetRef = useRef<HTMLDivElement>(null);
 
   // 1. Monitorar o Scroll na Section
@@ -110,7 +120,7 @@ export default function ProjectsSection() {
         // top-1/3 centraliza o título verticalmente para começar a animação.
         className="text-4xl font-bold text-center sm:text-5xl md:text-5xl"
       >
-        PROJECTS
+        {t("projects", "sessions")}
       </motion.h1>
       </Animation>
       

@@ -4,6 +4,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import { TechLogo } from "@/types/tech";
+import { useLanguage } from "../context/languageContext";
 
 const animation = { duration: 10000, easing: (t: number) => t };
 
@@ -28,6 +29,8 @@ const technologies: TechLogo[] = [
 ];
 
 export default function Slider() {
+  const { t } = useLanguage();
+
   const [sliderRef] = useKeenSlider({
     loop: true,
     mode: "free-snap",
@@ -49,7 +52,7 @@ export default function Slider() {
   return (
     <section className="flex flex-col items-center w-full bg-secondary rounded-2xl mt-25 py-5">
       <h2 className="">
-        Here are a few technologies I’ve been working with recently:
+        {t("title", "technologies")}
       </h2>
 
       <div ref={sliderRef} className="keen-slider mt-8">
