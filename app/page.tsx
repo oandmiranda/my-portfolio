@@ -8,7 +8,7 @@ import Slider from "./ui/slider";
 export default function Home() {
   return (
     <LanguageProvider>
-      <main className="py-4">
+      <main className="py-1">
         <Header />
 
         <section className="flex flex-col justify-center items-start px-4 sm:px-10 md:px-20 lg:px-35 xl:px-90">

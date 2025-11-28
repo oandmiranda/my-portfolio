@@ -8,8 +8,9 @@
 [X] - logo should have animation
 [X] - it must have an animation to show the next component when scrolling the page
 [X] - button ( en/pt ) to toggle between english and porteguese using context
+[X] - the nav must be fixed and change the background
 [] - maybe a video background in the header
-[] - nav must be fixed while scrolling
+[] - burgerMenu
 
 
 # About me
