@@ -46,6 +46,7 @@ export default function AboutSection() {
           </Animation>
 
           <Card
+            enableGlow
             centerItems
             icon={<GraduationCap />}
             mainLabel={t("status", "aboutMe", "graduation")}

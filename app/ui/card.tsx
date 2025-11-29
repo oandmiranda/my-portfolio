@@ -1,6 +1,5 @@
 import { CardProps } from "@/types/card";
 import { cloneElement, isValidElement } from "react";
-import { motion } from "framer-motion";
 
 export default function Card({
   icon,
@@ -31,20 +30,9 @@ export default function Card({
 
   const alignmentClass = centerItems ? "items-center" : "items-start";
 
-  // Classe para garantir que o Card seja o ponto de referência (position: relative)
-  const relativeClass = "relative overflow-hidden";
-
-  // 🔑 Definições de cores e opacidades (ajuste conforme seu tema)
-  const initialGlow = { opacity: 0.1, scale: 0.9 };
-  const hoverGlow = { opacity: 0.5, scale: 1.2 };
-
   return (
-    <motion.section
-      initial="initial"
-      whileHover="hover"
-      // Combina a classe de posicionamento e as classes existentes
-      className={`flex flex-col justify-center gap-1 w-full bg-secondary rounded-md p-8 ${alignmentClass} ${className} ${relativeClass}`}
-      transition={{ duration: 0.3 }}
+    <section
+      className={`flex flex-col justify-center gap-1 w-full bg-secondary rounded-md p-8 ${alignmentClass} ${className}`}
     >
       <div className="flex items-center gap-2">
         {renderedIcon && <span>{renderedIcon}</span>}
@@ -65,6 +53,6 @@ export default function Card({
       )}
 
       {children && <div>{children}</div>}
-    </motion.section>
+    </section>
   );
 }

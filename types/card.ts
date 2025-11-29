@@ -7,4 +7,5 @@ export type CardProps = {
     children?: React.ReactNode;
     centerItems?: boolean;
     textType?: "default" | "specialTitle";
+    enableGlow?: boolean;
 }
