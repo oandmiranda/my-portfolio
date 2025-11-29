@@ -1,13 +1,12 @@
 
-// scroll-scrubbing é aparentemente o nome do conceito
 "use client";
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
-import Card from "./card";
+import Card from "./project";
 import Animation from "./animation";
-import { CardProps } from "@/types/card";
 import { useLanguage } from "../context/languageContext";
+import { ProjectProps } from "@/types/project";
 
 
 // VARIANTS para a Animação dos CARDS (Staggered Effect)
@@ -31,7 +30,7 @@ const cardItemVariants: Variants = {
 export default function ProjectsSection() {
   const { t } = useLanguage();
 
-  const cardData: CardProps[] = [
+  const projectData: ProjectProps[] = [
   {
     imageSrc: "/images/miraflix-image.png",
     imageAlt: "miraflix-image",
@@ -137,7 +136,7 @@ export default function ProjectsSection() {
           whileInView="visible"
           viewport={{ once: true,}}
         >
-          {cardData.map((card) => (
+          {projectData.map((card) => (
             <motion.div key={card.title} variants={cardItemVariants}>
               <Card key={card.title} {...card} />
             </motion.div>

@@ -115,10 +115,10 @@ html {
 .image-border-decoration::after {
   content: '';
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: -12px;
-  bottom: -12px;
+  top: 5px;
+  left: 5px;
+  right: -10px;
+  bottom: -5px;
   border: 2px solid var(--surface);
   border-radius: var(--radius-md);
   pointer-events: none;

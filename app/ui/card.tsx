@@ -1,229 +1,70 @@
-import Image from "next/image";
-import Title from "./title";
-import Link from "next/link";
-import { Dot, SquaresUnite, ExternalLink } from "lucide-react";
-import Animation from "./animation";
 import { CardProps } from "@/types/card";
-import { useState, useRef, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import HoverAnimationBox from "./hoverAnimation";
-import { useLanguage } from "../context/languageContext";
-
-// Define as props de transição
-const modalTransition = {
-  duration: 0.4,
-  scale: {
-    type: "spring",
-    visualDuration: 0.4,
-    bounce: 0.2,
-  },
-};
-
-// Define as Props de animação
-const modalAnimationProps = {
-  initial: { opacity: 0, scale: 0 },
-  animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 0 },
-  transition: modalTransition,
-};
+import { cloneElement, isValidElement } from "react";
+import { motion } from "framer-motion";
 
 export default function Card({
-  imageSrc,
-  imageAlt,
-  videoSrc,
-  title,
-  description,
-  technologies,
-  gitHubLink,
-  href,
-  details
+  icon,
+  mainLabel,
+  subLabel,
+  softSkills,
+  className,
+  children,
+  centerItems = false,
+  textType,
 }: CardProps) {
-  const [openModal, setOpenModal] = useState(false);
-  const [showVideo, setShowVideo] = useState(false);
-  const { t } = useLanguage();
+  const renderedIcon =
+    icon && isValidElement(icon)
+      ? cloneElement(icon, { className: "size-10" })
+      : null;
 
-  // referência para o elemento do modal
-  const modalRef = useRef<HTMLDivElement>(null);
-
-  // refereência para o elemento do video
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // efeito para detectar cliques fora
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      // Se o modal existe (ref.current) e o clique NÃO foi dentro dele
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
-        setOpenModal(false);
-      }
+  const getTextClassName = () => {
+    switch (textType) {
+      case "specialTitle":
+        return "text-2xl font-bold";
+      case "default":
+      default:
+        return "whitespace-pre-line";
     }
+  };
 
-    // Só adiciona o evento se o modal estiver aberto
-    if (openModal) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+  const textClassName = getTextClassName();
 
-    // Limpa o evento quando o componente desmontar ou o modal fechar
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [openModal]);
+  const alignmentClass = centerItems ? "items-center" : "items-start";
 
-  // Ajusta a velocidade do vídeo quando ele é mostrado
-  useEffect(() => {
-    if (showVideo && videoRef.current) {
-      videoRef.current.playbackRate = 0.9;
-    }
-  }, [showVideo]);
+  // Classe para garantir que o Card seja o ponto de referência (position: relative)
+  const relativeClass = "relative overflow-hidden";
+
+  // 🔑 Definições de cores e opacidades (ajuste conforme seu tema)
+  const initialGlow = { opacity: 0.1, scale: 0.9 };
+  const hoverGlow = { opacity: 0.5, scale: 1.2 };
 
   return (
-    <section
-      // 1. ADICIONADO: 'group' e 'relative' para o efeito funcionar
-      className="group relative flex flex-col mb-35 w-full"
-      id="projects"
-      onMouseEnter={() => setShowVideo(true)}
-      onMouseLeave={() => setShowVideo(false)}
+    <motion.section
+      initial="initial"
+      whileHover="hover"
+      // Combina a classe de posicionamento e as classes existentes
+      className={`flex flex-col justify-center gap-1 w-full bg-secondary rounded-md p-8 ${alignmentClass} ${className} ${relativeClass}`}
+      transition={{ duration: 0.3 }}
     >
-      {/* adiciona icone de link externo no canto superior direito quando hover na imagem/video */}
-      {showVideo && (
-        <Link href={href} target="_blank" rel="noopener noreferrer">
-          <Animation
-            // Container para o gradiente e o ícone
-            className="hidden absolute top-1 right-1 z-1 md:flex"
-            animation="fade"
-          >
-            <ExternalLink size={28} />
-          </Animation>
-        </Link>
+      <div className="flex items-center gap-2">
+        {renderedIcon && <span>{renderedIcon}</span>}
+        <span className={textClassName}>{mainLabel}</span>
+      </div>
+
+      {subLabel && <span className="text-sm text-center">{subLabel}</span>}
+
+      {softSkills && (
+        <>
+          <span className={textClassName}>Soft Skills</span>
+          <ul>
+            {softSkills.map((skill, index) => (
+              <li key={index}>{skill}</li>
+            ))}
+          </ul>
+        </>
       )}
 
-      {/* div para o card com borda animada */}
-      <Animation className="p-2">
-        <div
-          className="absolute -inset-3 rounded-2xl border border-purple-100/10 group-hover:bg-background 
-                     group-hover:border-purple-500/40 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] 
-                     transition-all duration-700 pointer-events-none"
-        />
-
-        <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6 relative z-10">
-          {/* text container */}
-          <div className="relative w-full flex flex-col items-start z-2 gap-3 md:w-[50%]">
-            <HoverAnimationBox>
-              <Link
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
-              >
-                <Title size="text-lg sm:text-xl">{title}</Title>
-                <span>
-                  <ExternalLink size={15} />
-                </span>
-              </Link>
-            </HoverAnimationBox>
-
-            <p className="bg-secondary p-4 rounded-sm text-sm md:-mr-20">
-              {description}
-            </p>
-
-            <div className="flex justify-between items-center md:flex-col md:items-start gap-6 w-full">
-              <div className="flex flex-wrap gap-1 text-xs">
-                {technologies.map((tech, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center whitespace-nowrap -space-x-1"
-                  >
-                    <Dot width={20} className="text-active" />
-                    <span>{tech}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col items-end gap-3 text-sm md:mt-6 md:flex-row md:items-center md:gap-10 md:text-md font-bold">
-                <Link
-                  href={gitHubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 flex items-center gap-1 cursor-pointer"
-                >
-                  <p>{t("github", "projects")}</p>
-                  <Image
-                    src={"/github.svg"}
-                    alt="github-icon"
-                    width={28}
-                    height={28}
-                  />
-                </Link>
-
-                <div
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setOpenModal(true);
-                  }}
-                  className="shrink-0 flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
-                >
-                  <p>{t("findOutMore", "projects")}</p>
-                  <SquaresUnite size={22} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* image/video container */}
-          <Link
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative w-full md:w-[50%] rounded-md overflow-hidden"
-          >
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              width={2000}
-              height={1000}
-              className={`w-full h-full object-cover rounded-md transition-opacity duration-300 ${
-                showVideo ? "opacity-0" : "opacity-100"
-              }`}
-            />
-
-            {showVideo && (
-              <video
-                ref={videoRef}
-                src={videoSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute top-0 w-full h-full object-cover rounded-md transition-opacity duration-300 opacity-100"
-              />
-            )}
-          </Link>
-        </div>
-
-        {/* openModal */}
-        <AnimatePresence>
-          {openModal && (
-            <motion.div
-              ref={modalRef}
-              className="absolute inset-0 flex flex-col items-start justify-between bg-secondary p-2 rounded-md z-20"
-              {...modalAnimationProps}
-            >
-              <p className="text-sm p-3 w-[96%]">{details}</p>
-
-              <motion.button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setOpenModal(false);
-                }}
-              >
-                <SquaresUnite className="cursor-pointer" />
-              </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </Animation>
-    </section>
+      {children && <div>{children}</div>}
+    </motion.section>
   );
 }

@@ -50,9 +50,9 @@ export default function Slider() {
   });
 
   return (
-    <section className="flex flex-col items-center w-full bg-secondary rounded-2xl mt-25 py-5">
+    <section className="flex flex-col items-center w-full bg-secondary rounded-2xl py-5 sm:col-span-2 md:col-span-3">
       <h2 className="">
-        {t("title", "technologies")}
+        {t("title", "aboutMe", "technologies")}
       </h2>
 
       <div ref={sliderRef} className="keen-slider mt-8">

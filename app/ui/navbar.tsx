@@ -59,7 +59,7 @@ export default function NavBar() {
       {/* LADO ESQUERDO: Logo */}
       <Link href={"/"}>
         <HoverAnimationBox className="flex items-center gap-1.5 cursor-default">
-          <Animation animation="secondary" trigger="mount">
+          <Animation type="secondary" trigger="mount">
             <div className="w-10 h-10 rounded-full overflow-hidden">
               <Image
                 src={"/images/my-picture.jpeg"}
@@ -71,7 +71,7 @@ export default function NavBar() {
             </div>
           </Animation>
 
-          <Animation animation="slideUp">
+          <Animation type="slideUp">
             <div className="hidden sm:flex flex-col">
               <span className="font-logo text-2xl whitespace-nowrap">
                 Anderson Miranda

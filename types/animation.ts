@@ -2,7 +2,7 @@ export type AnimationProps = {
   children: React.ReactNode;
   delay?: number;
   className?: string;
-  animation?: AnimationType;
+  type?: AnimationType;
   trigger?: TriggerType;
 };
 

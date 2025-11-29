@@ -8,7 +8,7 @@ export default function Animation({
   children,
   delay = 0,
   className,
-  animation = "fade",
+  type = "fade",
   trigger = "scroll",
 }: AnimationProps) {
   const ref = useRef(null);
@@ -48,7 +48,7 @@ export default function Animation({
       visible: {
         opacity: 1,
         y: 0,
-        scale: 0.9,
+        scale: 1,
         filter: "blur(0px)",
         transition: {
           duration: 1.8,
@@ -86,7 +86,7 @@ export default function Animation({
   return (
     <motion.div
       ref={ref}
-      variants={animations[animation]}
+      variants={animations[type]}
       initial="hidden"
       animate={shouldAnimate ? "visible" : "hidden"}
       className={className}

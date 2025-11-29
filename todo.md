@@ -12,17 +12,14 @@
 [] - maybe a video background in the header
 [] - burgerMenu
 
-
 # About me
-[X] - text on the left, image on the right
+- about me | photo
+- graduaded / english b2 | softSkills
+- techs  
 
 # Cards with projects
 [X] - when I move the cursor inside, it must show the video in the card
 [X] - button "saiba mais" talking a bit more about the project
-
-
-# Soft Skills
-[] - an area about soft skills
 
 # Contact area
 [X]
