@@ -10,6 +10,7 @@ import HoverAnimationBox from "./hoverAnimation";
 import { useLanguage } from "../context/languageContext";
 import LanguageToggle from "./languageToggle";
 import { useEffect, useState } from "react";
+import BurgerMenu from "./burgerMenu";
 
 const navLink: NavLink[] = [
   { href: "/#about", key: "about" },
@@ -19,7 +20,7 @@ const navLink: NavLink[] = [
 ];
 
 export default function NavBar() {
-  const [ scroll, setScroll ] = useState(false);
+  const [scroll, setScroll] = useState(false);
   const { t } = useLanguage();
 
   const changeColor = () => {
@@ -39,13 +40,12 @@ export default function NavBar() {
   }, []); // Sem a necessidade de [changeColor] na dependência
 
   // Aplicação das classes Tailwind CSS
- const navClasses = `
+  const navClasses = `
     flex fixed justify-between items-center transition-all duration-300
     px-4 sm:px-5 md:px-8 lg:px-12 py-4 w-full z-4
     ${
       // FIXAÇÃO E ESTILO CONDICIONAL (ÚNICA PARTE QUE MUDA)
-      scroll
-        && "backdrop-blur-md bg-white/20 dark:bg-black/20 shadow-md top-1"
+      scroll && "backdrop-blur-md bg-white/20 dark:bg-black/20 shadow-md top-1"
     }
   `;
 
@@ -55,59 +55,58 @@ export default function NavBar() {
     //    pois 'gap-50' (200px) costuma quebrar layouts em telas menores.
     <>
       <div className={navClasses}>
-      
-      {/* LADO ESQUERDO: Logo */}
-      <Link href={"/"}>
-        <HoverAnimationBox className="flex items-center gap-1.5 cursor-default">
-          <Animation type="secondary" trigger="mount">
-            <div className="w-10 h-10 rounded-full overflow-hidden">
-              <Image
-                src={"/images/my-picture.jpeg"}
-                alt="my-picture"
-                width={40}
-                height={40}
-                className="object-cover"
-              />
-            </div>
-          </Animation>
+        {/* LADO ESQUERDO: Logo */}
+        <Link href={"/"}>
+          <HoverAnimationBox className="flex items-center gap-1.5 cursor-default">
+            <Animation type="secondary" trigger="mount">
+              <div className="w-10 h-10 rounded-full overflow-hidden">
+                <Image
+                  src={"/images/my-picture.jpeg"}
+                  alt="my-picture"
+                  width={40}
+                  height={40}
+                  className="object-cover"
+                />
+              </div>
+            </Animation>
 
-          <Animation type="slideUp">
-            <div className="hidden sm:flex flex-col">
-              <span className="font-logo text-2xl whitespace-nowrap">
-                Anderson Miranda
-              </span>
-              <span className="text-xs">FrontEnd Engineer</span>
-            </div>
-          </Animation>
-        </HoverAnimationBox>
-      </Link>
+            <Animation type="slideUp">
+              <div className="hidden sm:flex flex-col">
+                <span className="font-logo text-2xl whitespace-nowrap">
+                  Anderson Miranda
+                </span>
+                <span className="text-xs">FrontEnd Engineer</span>
+              </div>
+            </Animation>
+          </HoverAnimationBox>
+        </Link>
 
-      {/* 
+        {/* 
         'absolute', 'left-1/2' e '-translate-x-1/2' para garantir 
          o centro matemático, independente dos vizinhos.
       */}
-      <Animation className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      <div className="flex items-center gap-5 text-sm scale-[0.85] sm:scale-100 md:gap-8 md:text-sm">
-          {navLink.map((link, index) => (
-            <Link key={index} href={link.href}>
-              <span>{t(link.key, 'nav')}</span>
-            </Link>
-          ))}
-          <Button
-            href={"https://www.google.com.br"}
-            icon={<Download />}
-            hasHoverAnimation
-          >
-            {t("resume", 'nav')}
-          </Button>
-        </div>
-        
-      </Animation>
+        <Animation className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="hidden lg:flex items-center gap-5 text-sm scale-[0.85] sm:scale-100 md:gap-8 md:text-sm">
+            {navLink.map((link, index) => (
+              <Link key={index} href={link.href}>
+                <span>{t(link.key, "nav")}</span>
+              </Link>
+            ))}
+            <Button
+              href={"https://www.google.com.br"}
+              icon={<Download />}
+              hasHoverAnimation
+            >
+              {t("resume", "nav")}
+            </Button>
+          </div>
+        </Animation>
 
-      <Animation animation="slideUp">
-        <LanguageToggle />
-      </Animation>
-    </div>
+        <Animation animation="slideUp" className="flex items-center gap-4">
+          <LanguageToggle />
+          <BurgerMenu />
+        </Animation>
+      </div>
     </>
   );
 }

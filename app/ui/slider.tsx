@@ -39,13 +39,13 @@ export default function Slider() {
       spacing: 6,
     },
     created(s) {
-      s.moveToIdx(3, true, animation);
+      s.moveToIdx(2, true, animation);
     },
     updated(s) {
-      s.moveToIdx(s.track.details.abs + 3, true, animation);
+      s.moveToIdx(s.track.details.abs + 2, true, animation);
     },
     animationEnded(s) {
-      s.moveToIdx(s.track.details.abs + 3, true, animation);
+      s.moveToIdx(s.track.details.abs + 2, true, animation);
     },
   });
 
