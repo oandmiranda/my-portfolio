@@ -1,85 +1,107 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Download, Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useLanguage } from "../context/languageContext";
+import { navLink } from "../data/navLinks";
+import Button from "./button";
 
 export default function BurgerMenu() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   const sidebarVariants = {
     open: {
-      x: 70,
+      x: 0,
       transition: {
         type: "spring",
-        stiffness: 300,
-        damping: 30
-      }
+        stiffness: 260,
+        damping: 35,
+      },
     },
     closed: {
       x: "-100%",
       transition: {
         type: "spring",
-        stiffness: 300,
-        damping: 40
-      }
-    }
-  }
+        stiffness: 260,
+        damping: 40,
+      },
+    },
+  };
 
   const itemVariants = {
     open: {
       opacity: 1,
       y: 0,
-      transition: {
-        delay: 0.05,
-        stiffness: 1000,
-        velocity: -100
-      }
+      transition: { delay: 0.02 },
     },
     closed: {
       opacity: 0,
-      y: 30,
-      transition: {
-        stiffness: 1000
-      }
-    }
-  }
+      y: 20,
+    },
+  };
 
   return (
     <nav className="relative lg:hidden">
-      {/* Botão */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="p-2 z-50 relative"
-      >
+      <button onClick={() => setIsOpen(!isOpen)} className="p-2 relative z-8">
         {isOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
-      {/* MENU (Sidebar) */}
+      {/* BACKDROP */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.35 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(false)}
+          className="fixed top-0 left-0 w-full h-screen bg-black z-6"
+        />
+      )}
+
+      {/* SIDEBAR */}
       <motion.aside
         variants={sidebarVariants}
         initial="closed"
         animate={isOpen ? "open" : "closed"}
-        className="fixed top-0 left-0 h-full w-64 text-white p-6 shadow-xl z-40"
+        className="
+          fixed top-0 left-0 
+          h-screen 
+          w-2/2
+          bg-black/85 
+          px-10 pt-20
+          z-7
+          flex flex-col
+          md:w-1/2
+        "
       >
         <motion.ul
-          className="space-y-6 mt-10"
+          className="space-y-8"
           initial="closed"
           animate={isOpen ? "open" : "closed"}
         >
-          {["Home", "Projects", "About", "Contact"].map((item, i) => (
+          {navLink.map((link, index) => (
             <motion.li
-              key={i}
+              key={index}
               variants={itemVariants}
-              whileHover={{ scale: 1.08 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="cursor-pointer text-lg"
+              className="cursor-pointer text-base flex items-center gap-3"
             >
-              {item}
+              {link.icon && <link.icon size={20} />}
+              <Link href={link.href}>{t(link.key, "nav")}</Link>
             </motion.li>
           ))}
+          <Button
+            href={"https://www.google.com.br"}
+            icon={<Download />}
+            className="w-26"
+          >
+            {t("resume", "nav")}
+          </Button>
         </motion.ul>
       </motion.aside>
     </nav>
-  )
+  );
 }

@@ -19,7 +19,8 @@ export default function LanguageToggle(): JSX.Element {
         group
         relative 
         flex items-center 
-        w-[100px] h-9 
+        w-[70px] h-6
+        sm:w-[90px] md:h-8 
         p-1
         bg-gray-200 dark:bg-gray-800 
         rounded-full 

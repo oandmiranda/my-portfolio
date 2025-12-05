@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { NavLink } from "@/types/navLink"; // Verifique se o caminho está correto
 import { Download } from "lucide-react";
 import Animation from "./animation";
 import Button from "./button";
@@ -11,13 +10,7 @@ import { useLanguage } from "../context/languageContext";
 import LanguageToggle from "./languageToggle";
 import { useEffect, useState } from "react";
 import BurgerMenu from "./burgerMenu";
-
-const navLink: NavLink[] = [
-  { href: "/#about", key: "about" },
-  { href: "/#experience", key: "experience" },
-  { href: "/#projects", key: "projects" },
-  { href: "/#contacts", key: "contact" },
-];
+import { navLink } from "../data/navLinks";
 
 export default function NavBar() {
   const [scroll, setScroll] = useState(false);
@@ -45,7 +38,7 @@ export default function NavBar() {
     px-4 sm:px-5 md:px-8 lg:px-12 py-4 w-full z-4
     ${
       // FIXAÇÃO E ESTILO CONDICIONAL (ÚNICA PARTE QUE MUDA)
-      scroll && "backdrop-blur-md bg-white/20 dark:bg-black/20 shadow-md top-1"
+      scroll && "backdrop-blur-md bg-white/20 dark:bg-black/20 shadow-md top-0"
     }
   `;
 
@@ -55,7 +48,6 @@ export default function NavBar() {
     //    pois 'gap-50' (200px) costuma quebrar layouts em telas menores.
     <>
       <div className={navClasses}>
-        {/* LADO ESQUERDO: Logo */}
         <Link href={"/"}>
           <HoverAnimationBox className="flex items-center gap-1.5 cursor-default">
             <Animation type="secondary" trigger="mount">
@@ -102,10 +94,10 @@ export default function NavBar() {
           </div>
         </Animation>
 
-        <Animation animation="slideUp" className="flex items-center gap-4">
+        <Animation type="slideUp" className="flex items-center gap-4 mr-0 sm:mr-20 lg:mr-0">
           <LanguageToggle />
-          <BurgerMenu />
         </Animation>
+        <BurgerMenu />
       </div>
     </>
   );

@@ -98,7 +98,7 @@ export const translations = {
         skill4: "skill 4 aqui",
       },
       technologies: {
-        title: "Here are a few technologies I’ve been working with recently:",
+        title: "Aqui estão algumas tecnologias que tenho trabalhado recentemente:",
       },
     },
     sessions: {

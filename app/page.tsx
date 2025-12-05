@@ -3,7 +3,6 @@ import AboutSection from "./ui/aboutSection";
 import Footer from "./ui/footer";
 import Header from "./ui/header";
 import ProjectsSection from "./ui/projectSession";
-import Slider from "./ui/slider";
 
 export default function Home() {
   return (
