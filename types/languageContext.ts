@@ -1,4 +1,3 @@
-
 // --- Tipos para as Traduções ---
 
 export interface ProjectItem {
@@ -8,19 +7,44 @@ export interface ProjectItem {
   findOutMore: string;
 }
 
+export interface AboutMeSection {
+  title: string;
+  content: string;
+  graduation: Graduation;
+  englishLevel: string;
+  softSkills: SoftSkills;
+  technologies: Technologies;
+}
+
+export interface Graduation {
+status: string;
+course: string;
+university: string;
+}
+
+export interface SoftSkills {
+  comunication: string;
+  solveProblems: string;
+  adaptability: string;
+  ownership: string;
+}
+
+export interface Technologies {
+  title: string;
+}
+
 export interface ProjectsSection {
-  [key: string]: ProjectItem; 
+  [key: string]: ProjectItem;
 }
 
 export interface FooterItems {
-    resume: string;
-    socialMedias: string; 
+  resume: string;
+  socialMedias: string;
 }
 
 export interface FooterSection {
-    [key: string]: FooterItems;
+  [key: string]: FooterItems;
 }
-
 
 export interface SimpleNamespace {
   [key: string]: string;
@@ -30,8 +54,7 @@ export interface SimpleNamespace {
 export interface LanguageContent {
   nav: SimpleNamespace;
   header: SimpleNamespace;
-  aboutMe: SimpleNamespace;
-  technologies: SimpleNamespace;
+  aboutMe: AboutMeSection;
   sessions: SimpleNamespace;
   projects: ProjectsSection;
   footer: FooterSection;
@@ -43,18 +66,13 @@ export interface TranslationsType {
   // O idioma só pode ser 'en' ou 'pt'
   en: LanguageContent;
   pt: LanguageContent;
-  [key: string]: LanguageContent; 
+  [key: string]: LanguageContent;
 }
-
 
 // 🔑 ESSENCIAL: Define o formato exato que o useLanguage retorna.
 export interface LanguageContextType {
-  language: 'en' | 'pt'; 
+  language: "en" | "pt";
   toggleLanguage: () => void;
   // A função t usa 'keyof LanguageContent' para forçar o uso de seções válidas (nav, header, etc.)
-  t: (
-    key: string, 
-    section: keyof LanguageContent, 
-    subKey?: string
-  ) => string;
+  t: (key: string, section: keyof LanguageContent, subKey?: string) => string;
 }

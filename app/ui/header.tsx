@@ -66,7 +66,7 @@ export default function Header() {
             variants={itemVariants}
             className="
               flex items-center gap-2 text-xs 
-              rounded-full p-1 
+              rounded-full px-2 py-1 
               bg-[#163e22]/70 backdrop-blur-md 
               border border-white/10  
             "

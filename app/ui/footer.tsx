@@ -52,7 +52,7 @@ export default function Footer() {
             >
                 <button 
                     onClick={scrollToTop} 
-                    className="ml-auto p-2 bg-primary rounded-full cursor-pointer"
+                    className="ml-auto p-2 bg-secondary rounded-full cursor-pointer"
                 >
                     <ChevronsUp className="size-13" />
                 </button>

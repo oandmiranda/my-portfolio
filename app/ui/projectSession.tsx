@@ -104,7 +104,6 @@ export default function ProjectsSection() {
   );
 
   return (
-    // Dê uma altura grande (ex: 300vh) para permitir bastante rolagem para a animação.
     <section ref={targetRef} className="relative pt-40 flex flex-col">
      
       <Animation animation="slideUp" className="sticky top-[44%]">

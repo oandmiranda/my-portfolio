@@ -36,7 +36,7 @@ export default function Project({
   technologies,
   gitHubLink,
   href,
-  details
+  details,
 }: ProjectProps) {
   const [openModal, setOpenModal] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
@@ -92,7 +92,7 @@ export default function Project({
           <Animation
             // Container para o gradiente e o ícone
             className="hidden absolute top-1 right-1 z-1 md:flex"
-            animation="fade"
+            type="fade"
           >
             <ExternalLink size={28} />
           </Animation>
@@ -102,9 +102,9 @@ export default function Project({
       {/* div para o card com borda animada */}
       <Animation className="p-2">
         <div
-          className="absolute -inset-3 rounded-2xl border border-purple-100/10 group-hover:bg-background 
-                     group-hover:border-purple-500/40 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.2)] 
-                     transition-all duration-700 pointer-events-none"
+          className="absolute -inset-3 rounded-2xl border border-[rgb(var(--secondary-rgb)/0.2)] group-hover:bg-background 
+             group-hover:border-[rgb(var(--secondary-rgb)/0.4)] group-hover:shadow-[rgb(var(--secondary-rgb)/0.5)] 
+             transition-all duration-700 pointer-events-none"
         />
 
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6 relative z-10">
@@ -124,7 +124,7 @@ export default function Project({
               </Link>
             </HoverAnimationBox>
 
-            <p className="bg-secondary p-4 rounded-sm text-sm md:-mr-20">
+            <p className="bg-secondary p-4 rounded-md text-sm md:-mr-20">
               {description}
             </p>
 
@@ -210,7 +210,7 @@ export default function Project({
               className="absolute inset-0 flex flex-col items-start justify-between bg-secondary p-2 rounded-md z-20"
               {...modalAnimationProps}
             >
-              <p className="text-sm p-3 w-[96%]">{details}</p>
+              <p className="text-sm p-3 w-[96%] leading-6">{details}</p>
 
               <motion.button
                 onClick={(e) => {

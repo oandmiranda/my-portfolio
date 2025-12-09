@@ -25,10 +25,10 @@ export const translations = {
       },
       englishLevel: "B2 English",
       softSkills: {
-        comunication: "content here",
-        discipline: "disciplined",
-        skill3: "skill 3 here",
-        skill4: "skill 4 here",
+        comunication: "Excellent communication",
+        solveProblems: "Problem-Solving",
+        adaptability: "Adaptability",
+        ownership: "Ownership",
       },
       technologies: {
         title: "Here are a few technologies I’ve been working with recently:",
@@ -84,7 +84,7 @@ export const translations = {
     aboutMe: {
       title: "Sobre mim",
       content:
-        "Olá, sou Miranda — uma desenvolvedora front-end apaixonada, com foco na criação de interfaces web modernas, responsivas e fáceis de usar. Minha jornada na área de tecnologia começou com a curiosidade sobre como as coisas funcionam nos bastidores e, com o tempo, se transformou em uma carreira sólida onde posso combinar criatividade e lógica diariamente. Tenho experiência com tecnologias como React, Next.js, TypeScript e Tailwind CSS, desenvolvendo projetos que conectam design e funcionalidade de forma impecável. Estou sempre aprendendo e explorando novas ferramentas para escrever um código mais limpo, melhorar o desempenho e criar experiências de usuário envolventes.",
+        "Olá, sou Miranda — um desenvolvedor front-end apaixonado, com foco na criação de interfaces web modernas, responsivas e fáceis de usar. Minha jornada na área de tecnologia começou com a curiosidade sobre como as coisas funcionam nos bastidores e, com o tempo, se transformou em uma carreira sólida onde posso combinar criatividade e lógica diariamente. Tenho experiência com tecnologias como React, Next.js, TypeScript e Tailwind CSS, desenvolvendo projetos que conectam design e funcionalidade de forma impecável. Estou sempre aprendendo e explorando novas ferramentas para escrever um código mais limpo, melhorar o desempenho e criar experiências de usuário envolventes.",
       graduation: {
         status: "Graduado",
         course: "Análise e Desenvolvimento de Sistemas",
@@ -92,13 +92,14 @@ export const translations = {
       },
       englishLevel: "Inglês B2",
       softSkills: {
-        comunication: "conteúdo aqui",
-        discipline: "disciplinado",
-        skill3: "skill 3 aqui",
-        skill4: "skill 4 aqui",
+        comunication: "Excelente comunicação",
+        solveProblems: "Resolução de problemas",
+        adaptability: "Adaptabilidade",
+        ownership: "Postura de dono",
       },
       technologies: {
-        title: "Aqui estão algumas tecnologias que tenho trabalhado recentemente:",
+        title:
+          "Aqui estão algumas tecnologias que tenho trabalhado recentemente:",
       },
     },
     sessions: {

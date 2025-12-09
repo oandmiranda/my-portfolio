@@ -87,7 +87,7 @@ export default function BurgerMenu() {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="cursor-pointer text-base flex items-center gap-3"
+              className="cursor-pointer text-base flex items-center gap-3 hover:text-tertiary transition-all duration-300"
             >
               {link.icon && <link.icon size={20} />}
               <Link href={link.href}>{t(link.key, "nav")}</Link>

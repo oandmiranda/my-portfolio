@@ -14,7 +14,7 @@ export default function ContactArea({icon, href = "", children}: ContactAreaProp
               : null;
 
     return (
-        <Link href={href} className="flex items-center gap-2 border border-amber-100 p-2.5 rounded-md" target="_blank" rel="noopener noreferrer">
+        <Link href={href} className="flex items-center gap-2 border border-secondary p-2.5 rounded-md" target="_blank" rel="noopener noreferrer">
             {renderedIcon && <span >{renderedIcon}</span>}
             {children}
         </Link>

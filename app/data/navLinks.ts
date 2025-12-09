@@ -1,8 +1,5 @@
 import { NavLink } from "@/types/navLink";
-import { FolderOpenDot } from 'lucide-react';
-import { BriefcaseBusiness } from 'lucide-react';
-import { UserStar } from 'lucide-react';
-import { Mail } from 'lucide-react';
+import { UserStar, Mail, BriefcaseBusiness, FolderOpenDot} from 'lucide-react';
 
 export const navLink: NavLink[] = [
   { icon: UserStar, href: "/#about", key: "about" },

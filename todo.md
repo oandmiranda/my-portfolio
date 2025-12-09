@@ -11,12 +11,13 @@
 [X] - the nav must be fixed and change the background
 [X] - burgerMenu
 [] - maybe a video background in the header
+[] - when click on link in burger Menu, go out of the component
 
 # About me
 - about me | photo
 - graduaded / english b2 | softSkills
 - techs  
-[] hover animation in each card
+[X] hover animation in each card
 
 # Cards with projects
 [X] - when I move the cursor inside, it must show the video in the card
@@ -27,7 +28,7 @@
 
 
 # Extras
-[] analyze different types of animation to the all page
-[] fix all styles
 [] fix bug at Button component
+[] fix all styles
 [] fix bug at toogle language button
+[] analyze different types of animation to the all page

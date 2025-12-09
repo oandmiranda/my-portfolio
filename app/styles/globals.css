@@ -7,16 +7,27 @@ html {
 /* declaration of global TOKENS for the design system */
 :root {
   /* colors */
-  --primary: #3B82F6; 
-  --secondary: #121c32;
-  --background: #04001b;
-  --text: #E5E7EB;
-  --container: #1E293B;
+  --primary: #111111;
+  --secondary: #10b981;
+  --secondary-rgb: 16 185 129;
+  --tertiary: #8fe7c7;
+  --background: #0b0b0b;
+  --text: #f5f5f4;
+  --container: #141616;
   --active: #26db70;
-  --warning: #f59e0b;
-  --error: #ef4444;
-  --surface: #9900d0;
-  --surface-light: #22D3EE;
+  --surface: #14b8a6;
+
+  
+  /* option 2 */
+
+  /* --primary: #0B1221;
+--secondary: #6366F1;
+--tertiary: #A78BFA;
+--background: #05070F;
+--text: #F1F5F9;
+--container: #1E1B4B;
+--active: #22C55E;
+--surface: #C084FC; */
 
   /* typography */
   --font-default: var(--font-inter);
@@ -25,7 +36,7 @@ html {
 
   /* font-size */
   --text-xs: 0.55rem;
-  --text-sm: 0.750rem;
+  --text-sm: 0.75rem;
   --text-md: 0.875rem;
   --text-base: 1rem;
   --text-l: 1.125rem;
@@ -58,14 +69,13 @@ html {
   /* mapeamento de cores */
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --secondary-rgb: var(--secondary-rgb);
+  --color-tertiary: var(--tertiary);
   --color-background: var(--background);
   --color-text: var(--text);
   --color-container: var(--container);
   --color-active: var(--active);
-  --color-warning: var(--warning);
-  --color-error: var(--error);
   --color-surface: var(--surface);
-  --color-surface-light: var(--surface-light);
 
   /* fontes */
   --font-default: var(--font-default);
@@ -113,7 +123,7 @@ html {
 }
 
 .image-border-decoration::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 5px;
   left: 5px;

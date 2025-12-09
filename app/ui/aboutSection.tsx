@@ -5,6 +5,7 @@ import { GraduationCap, Lightbulb, Languages } from "lucide-react";
 import Title from "./title";
 import Animation from "./animation";
 import { useLanguage } from "../context/languageContext";
+import { translations } from "@/app/context/translations"
 import Slider from "./slider";
 import Card from "./card";
 
@@ -12,26 +13,20 @@ export default function AboutSection() {
   // chama a função de tradução
   const { t } = useLanguage();
 
-  const softSkillsList = [
-    t("comunication", "aboutMe", "softSkills"),
-    t("discipline", "aboutMe", "softSkills"),
-    t("skill3", "aboutMe", "softSkills"),
-    t("skill4", "aboutMe", "softSkills"),
-  ];
+const softSkillsList = Object.keys(
+  translations.en.aboutMe.softSkills
+).map((key) => t(key, "aboutMe", "softSkills"));
 
   return (
     <section className="flex flex-col w-full" id="about">
       <Animation type="fade">
-        <div className="flex items-center gap-2 mb-4">
-          <span>01.</span>
-          <Title size="text-2xl">{t("title", "aboutMe")}</Title>
-        </div>
+          <Title size="text-2xl mb-3">{t("title", "aboutMe")}</Title>
 
         {/* cards section */}
-        <div className="flex flex-col gap-2.5 w-full md:grid md:grid-cols-3">
+        <div className="flex flex-col gap-3.5 w-full md:grid md:grid-cols-3">
           <Card
             mainLabel={t("content", "aboutMe")}
-            className="md:col-span-2 h-full"
+            className="md:col-span-2 h-full text-md leading-6"
           />
 
           <Animation type="slideUp">
@@ -50,12 +45,13 @@ export default function AboutSection() {
             centerItems
             icon={<GraduationCap />}
             mainLabel={t("status", "aboutMe", "graduation")}
-            textType="specialTitle"
             subLabel={t("course", "aboutMe", "graduation")}
+            textType="specialTitle"
             className="md:col-span-1"
           />
 
           <Card
+            enableGlow
             centerItems
             icon={<Languages />}
             mainLabel={t("englishLevel", "aboutMe")}
@@ -64,6 +60,7 @@ export default function AboutSection() {
           />
 
           <Card
+            enableGlow
             centerItems
             icon={<Lightbulb />}
             softSkills={softSkillsList}

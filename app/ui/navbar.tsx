@@ -81,7 +81,7 @@ export default function NavBar() {
           <div className="hidden lg:flex items-center gap-5 text-sm scale-[0.85] sm:scale-100 md:gap-8 md:text-sm">
             {navLink.map((link, index) => (
               <Link key={index} href={link.href}>
-                <span>{t(link.key, "nav")}</span>
+                <span className="hover:text-tertiary transition-all duration-400">{t(link.key, "nav")}</span>
               </Link>
             ))}
             <Button
