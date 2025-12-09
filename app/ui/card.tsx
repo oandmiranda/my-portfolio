@@ -20,7 +20,7 @@ export default function Card({
             size-10 transition-all duration-500 
             ${
               enableGlow
-                ? "group-hover:scale-122 group-hover:text-secondary"
+                ? "group-hover:scale-124 group-hover:text-secondary"
                 : ""
             }
           `,
@@ -56,18 +56,11 @@ export default function Card({
     <section
       className={`
         flex flex-col justify-center gap-1 h-60 w-full 
-        bg-primary rounded-md p-8 
+        bg-primary rounded-md p-8 shadow-softGlow
         ${alignmentClass} 
         ${glowClasses} 
         ${className}
       `}
-      style={{
-        boxShadow: `
-    0 -6px 10px rgba(255, 255, 255, 0.08),
-    0 4px 20px rgba(0, 0, 0, 0.45),
-    0 0 5px rgba(16,185,129,0.12)
-  `,
-      }}
     >
       {enableGlow && (
         <div

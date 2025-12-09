@@ -23,7 +23,7 @@ const softSkillsList = Object.keys(
           <Title size="text-2xl mb-3">{t("title", "aboutMe")}</Title>
 
         {/* cards section */}
-        <div className="flex flex-col gap-3.5 w-full md:grid md:grid-cols-3">
+        <div className="flex flex-col gap-base w-full md:grid md:grid-cols-3">
           <Card
             mainLabel={t("content", "aboutMe")}
             className="md:col-span-2 h-full text-md leading-6"

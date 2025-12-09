@@ -28,7 +28,7 @@ export default function Footer() {
     return (
         <section className="flex flex-col items-center gap-10 m-auto w-full" id='contacts'>
 
-            <div className="flex flex-col gap-6 sm:flex-row sm:gap-2 w-full">
+            <div className="flex flex-col gap-6px sm:flex-row sm:gap-base w-full">
                 <InformationArea title={t("title", "footer", "resume")}>
                     <ContactArea icon={<Download />} href="/">{t("download", "footer", "resume")}</ContactArea>
                 </InformationArea>

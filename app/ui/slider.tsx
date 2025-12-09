@@ -50,7 +50,7 @@ export default function Slider() {
   });
 
   return (
-    <section className="flex flex-col items-center w-full bg-primary rounded-2xl py-5 sm:col-span-2 md:col-span-3">
+    <section className="flex flex-col items-center w-full bg-primary rounded-2xl py-5 shadow-softGlow sm:col-span-2 md:col-span-3">
       <h2 className="p-4">
         {t("title", "aboutMe", "technologies")}
       </h2>

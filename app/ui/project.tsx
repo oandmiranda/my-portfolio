@@ -103,7 +103,7 @@ export default function Project({
       <Animation className="p-2">
         <div
           className="absolute -inset-3 rounded-2xl border border-[rgb(var(--secondary-rgb)/0.2)] group-hover:bg-background 
-             group-hover:border-[rgb(var(--secondary-rgb)/0.4)] group-hover:shadow-[rgb(var(--secondary-rgb)/0.5)] 
+             group-hover:border-[rgb(var(--secondary-rgb)/0.4)] group-hover:shadow-project
              transition-all duration-700 pointer-events-none"
         />
 
@@ -176,7 +176,7 @@ export default function Project({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative w-full md:w-[50%] rounded-md overflow-hidden"
+            className="relative w-full md:w-[50%] rounded-md overflow-hidden shadow-softGlow"
           >
             <Image
               src={imageSrc}

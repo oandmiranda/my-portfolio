@@ -25,7 +25,7 @@ export default function Button({
     <Component
       href={href}
       onClick={onClick}
-      className={`flex items-center gap-1 bg-secondary rounded-sm px-2.5 py-2 cursor-pointer ${className}`}
+      className={`flex items-center gap-1 bg-secondary rounded-sm px-2.5 py-2 cursor-pointer shadow-softGlow ${className}`}
     >
       {renderedIcon && <span>{renderedIcon}</span>}
       <span>{children}</span>

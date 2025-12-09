@@ -32,3 +32,5 @@
 [] fix all styles
 [] fix bug at toogle language button
 [] analyze different types of animation to the all page
+[] fix bug at languageToggleButton (when is on the middle of ui, there's a bug at button)
+[] fix all tokens

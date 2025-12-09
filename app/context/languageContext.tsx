@@ -56,6 +56,5 @@ const t = (key: string, section: keyof LanguageContent, subKey?: string) => {
   );
 };
 
-// 3. Hook de consumo (useLanguage)
 // O hook usa useContext(LanguageContext), que já está tipado como LanguageContextType.
 export const useLanguage = () => useContext(LanguageContext);

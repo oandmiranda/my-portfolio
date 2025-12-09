@@ -68,7 +68,7 @@ export default function Header() {
               flex items-center gap-2 text-xs 
               rounded-full px-2 py-1 
               bg-[#163e22]/70 backdrop-blur-md 
-              border border-white/10  
+              border border-white/10 shadow-base 
             "
           >
             <motion.span

@@ -6,9 +6,6 @@ import { useLanguage } from "../context/languageContext";
 export default function LanguageToggle(): JSX.Element {
   const { language, toggleLanguage } = useLanguage();
 
-  // 💡 Configuração da Transição (Ajuste aqui se quiser mais lento ou rápido)
-  // stiffness: 200 (Menor = Mais lento/suave)
-  // damping: 25 (Controla o "balanço" ao parar)
   const springTransition = { type: "spring", stiffness: 200, damping: 25 };
 
   return (
@@ -45,7 +42,7 @@ export default function LanguageToggle(): JSX.Element {
       {language === "en" ? (
         <motion.div
           layoutId="active-bg"
-          className="absolute left-1 top-1 bottom-1 w-[calc(50%-4px)] bg-white dark:bg-gray-600 rounded-full shadow-sm z-10"
+          className="absolute left-1 top-1 bottom-1 w-[calc(50%-4px)] bg-secondary rounded-full shadow-softGlow z-10"
           transition={springTransition} 
         />
       ) : null}
@@ -56,7 +53,7 @@ export default function LanguageToggle(): JSX.Element {
       {language === "pt" ? (
          <motion.div
          layoutId="active-bg"
-         className="absolute right-1 top-1 bottom-1 w-[calc(50%-4px)] bg-white dark:bg-gray-600 rounded-full shadow-sm z-10"
+         className="absolute right-1 top-1 bottom-1 w-[calc(50%-4px)] bg-secondary rounded-full shadow-softGlow z-10"
          transition={springTransition}
        />
       ) : null}

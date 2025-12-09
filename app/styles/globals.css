@@ -19,8 +19,8 @@ html {
 
   
   /* option 2 */
-
-  /* --primary: #0B1221;
+/* 
+--primary: #0B1221;
 --secondary: #6366F1;
 --tertiary: #A78BFA;
 --background: #05070F;
@@ -62,7 +62,21 @@ html {
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-softGlow: 
+    0 -6px 20px rgba(255, 255, 255, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.45),
+    0 0 5px rgba(16,185,129,0.12);
+  --shadow-project: 
+    0 -6px 20px rgba(8, 61, 22, 0.775),
+    0 4px 10px rgba(0, 0, 0, 0.45),
+    0 0 5px rgba(7, 138, 62, 0.812);
+
+    /* spacing */
+--gap-sm: 6px;
+--gap-base: 10px;
 }
+
+
 
 /* where tailwind reeds and generate automatic classes based on global variables (:root {}) */
 @theme inline {
@@ -110,7 +124,14 @@ html {
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
+  --shadow-softGlow: var(--shadow-softGlow);
+  --shadow-project: var(--shadow-project);
+
+/* spacing */
+  --gap-sm: var(--gap-sm);
+  --gap-base: var(--gap-base);
 }
+
 
 /* Custom utility classes using design tokens */
 .border-base {
