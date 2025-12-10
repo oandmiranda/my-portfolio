@@ -18,12 +18,12 @@ const softSkillsList = Object.keys(
 ).map((key) => t(key, "aboutMe", "softSkills"));
 
   return (
-    <section className="flex flex-col w-full" id="about">
+    <section className="flex flex-col w-full scroll-mt-20" id="about">
       <Animation type="fade">
-          <Title size="text-2xl mb-3">{t("title", "aboutMe")}</Title>
+          <Title>{t("title", "aboutMe")}</Title>
 
         {/* cards section */}
-        <div className="flex flex-col gap-base w-full md:grid md:grid-cols-3">
+        <div className="flex flex-col gap-base w-full mt-2 md:grid md:grid-cols-3">
           <Card
             mainLabel={t("content", "aboutMe")}
             className="md:col-span-2 h-full text-md leading-6"

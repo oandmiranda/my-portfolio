@@ -81,7 +81,7 @@ export default function Project({
   return (
     <section
       // 1. ADICIONADO: 'group' e 'relative' para o efeito funcionar
-      className="group relative flex flex-col mb-35 w-full"
+      className="group relative flex flex-col mb-40 w-full scroll-mt-50"
       id="projects"
       onMouseEnter={() => setShowVideo(true)}
       onMouseLeave={() => setShowVideo(false)}
@@ -117,7 +117,7 @@ export default function Project({
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
-                <Title size="text-lg sm:text-xl">{title}</Title>
+                <Title size="text-lg">{title}</Title>
                 <span>
                   <ExternalLink size={15} />
                 </span>

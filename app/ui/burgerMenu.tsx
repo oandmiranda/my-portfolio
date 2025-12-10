@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Download, Menu, X } from "lucide-react";
+import { ChartNoAxesGantt, X } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "../context/languageContext";
 import { navLink } from "../data/navLinks";
-import Button from "./button";
+import DownloadButton from "./downloadButton";
 
 export default function BurgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,11 +14,11 @@ export default function BurgerMenu() {
 
   const sidebarVariants = {
     open: {
-      x: 0,
+      x: 5,
       transition: {
         type: "spring",
-        stiffness: 260,
-        damping: 35,
+        stiffness: 220,
+        damping: 40,
       },
     },
     closed: {
@@ -26,7 +26,7 @@ export default function BurgerMenu() {
       transition: {
         type: "spring",
         stiffness: 260,
-        damping: 40,
+        damping: 35,
       },
     },
   };
@@ -35,18 +35,18 @@ export default function BurgerMenu() {
     open: {
       opacity: 1,
       y: 0,
-      transition: { delay: 0.02 },
+      transition: { delay: 0.1 },
     },
     closed: {
       opacity: 0,
-      y: 20,
+      y: 0,
     },
   };
 
   return (
     <nav className="relative lg:hidden">
-      <button onClick={() => setIsOpen(!isOpen)} className="p-2 relative z-8">
-        {isOpen ? <X size={28} /> : <Menu size={28} />}
+      <button onClick={() => setIsOpen(!isOpen)} className="p-2 relative z-8 cursor-pointer">
+        {isOpen ? <X size={28} /> : <ChartNoAxesGantt size={28} />}
       </button>
 
       {/* BACKDROP */}
@@ -90,16 +90,17 @@ export default function BurgerMenu() {
               className="cursor-pointer text-base flex items-center gap-3 hover:text-tertiary transition-all duration-300"
             >
               {link.icon && <link.icon size={20} />}
-              <Link href={link.href}>{t(link.key, "nav")}</Link>
+              <Link
+                href={link.href}
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
+                {t(link.key, "nav")}
+              </Link>
             </motion.li>
           ))}
-          <Button
-            href={"https://www.google.com.br"}
-            icon={<Download />}
-            className="w-26"
-          >
-            {t("resume", "nav")}
-          </Button>
+          <DownloadButton />
         </motion.ul>
       </motion.aside>
     </nav>

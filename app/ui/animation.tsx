@@ -32,7 +32,7 @@ export default function Animation({
         scale: 1,
         filter: "blur(0px)",
         transition: {
-          duration: 1.8,
+          duration: 1.9,
           delay,
           ease: [0.18, 1, 1, 1],
         },

@@ -2,17 +2,17 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Download } from "lucide-react";
 import Animation from "./animation";
-import Button from "./button";
 import HoverAnimationBox from "./hoverAnimation";
 import { useLanguage } from "../context/languageContext";
 import LanguageToggle from "./languageToggle";
 import { useEffect, useState } from "react";
 import BurgerMenu from "./burgerMenu";
 import { navLink } from "../data/navLinks";
+import DownloadButton from "./downloadButton";
 
 export default function NavBar() {
+
   const [scroll, setScroll] = useState(false);
   const { t } = useLanguage();
 
@@ -32,10 +32,9 @@ export default function NavBar() {
     };
   }, []); // Sem a necessidade de [changeColor] na dependência
 
-  // Aplicação das classes Tailwind CSS
   const navClasses = `
     flex fixed justify-between items-center transition-all duration-300
-    px-4 sm:px-5 md:px-8 lg:px-12 py-4 w-full z-4
+    px-4 sm:px-5 md:px-8 lg:px-12 py-4 w-full z-4 h-20
     ${
       // FIXAÇÃO E ESTILO CONDICIONAL (ÚNICA PARTE QUE MUDA)
       scroll && "backdrop-blur-md bg-white/20 dark:bg-black/20 shadow-md top-0"
@@ -81,20 +80,19 @@ export default function NavBar() {
           <div className="hidden lg:flex items-center gap-5 text-sm scale-[0.85] sm:scale-100 md:gap-8 md:text-sm">
             {navLink.map((link, index) => (
               <Link key={index} href={link.href}>
-                <span className="hover:text-tertiary transition-all duration-400">{t(link.key, "nav")}</span>
+                <span className="hover:text-tertiary transition-all duration-400">
+                  {t(link.key, "nav")}
+                </span>
               </Link>
             ))}
-            <Button
-              href={"https://www.google.com.br"}
-              icon={<Download />}
-              hasHoverAnimation
-            >
-              {t("resume", "nav")}
-            </Button>
+            <DownloadButton />
           </div>
         </Animation>
 
-        <Animation type="slideUp" className="flex items-center gap-4 mr-0 sm:mr-20 lg:mr-0">
+        <Animation
+          type="slideUp"
+          className="flex items-center gap-4 mr-0 sm:mr-20 lg:mr-0"
+        >
           <LanguageToggle />
         </Animation>
         <BurgerMenu />

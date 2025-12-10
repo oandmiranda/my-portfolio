@@ -10,27 +10,26 @@
 [X] - button ( en/pt ) to toggle between english and porteguese using context
 [X] - the nav must be fixed and change the background
 [X] - burgerMenu
+[X] - when click on link in burger Menu, go out of the component
 [] - maybe a video background in the header
-[] - when click on link in burger Menu, go out of the component
 
-# About me
+# About me [X]
 - about me | photo
 - graduaded / english b2 | softSkills
 - techs  
 [X] hover animation in each card
 
-# Cards with projects
+# Cards with projects [X]
 [X] - when I move the cursor inside, it must show the video in the card
 [X] - button "saiba mais" talking a bit more about the project
 
-# Contact area
-[X]
+# Contact area [X]
 
 
 # Extras
-[] fix bug at Button component
+[X] fix bug at Button component
+[] choosing typograph
 [] fix all styles
-[] fix bug at toogle language button
-[] analyze different types of animation to the all page
 [] fix bug at languageToggleButton (when is on the middle of ui, there's a bug at button)
+[] fix bug on Slider (começa a correr rapido do nada)
 [] fix all tokens

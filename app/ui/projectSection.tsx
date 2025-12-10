@@ -106,7 +106,7 @@ export default function ProjectsSection() {
   return (
     <section ref={targetRef} className="relative pt-40 flex flex-col">
      
-      <Animation animation="slideUp" className="sticky top-[44%]">
+      <Animation type="slideUp" className="sticky top-[44%]">
         <motion.h1
         style={{
           y,

@@ -10,22 +10,32 @@ export default function Button({
   hasHoverAnimation = false,
   children,
   href,
+  bgTransparent,
+  shadowType,
   className,
-  onClick
+  onClick,
 }: ButtonProps) {
-
   const renderedIcon =
     icon && isValidElement(icon)
-      ? cloneElement(icon, { className: "size-3.5" })
+      ? cloneElement(icon, { className: "size-4" })
       : null;
 
-  const Component = href ? Link : "button";
+  const isLink = Boolean(href);
+  const Component = isLink ? Link : "button";
+
+  const baseClasses = `buttonBaseClasses`;
+
+  const cursorClass = isLink ? "cursor-pointer" : "cursor-default";
 
   const buttonContent = (
     <Component
-      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...(isLink ? { href } : { type: "button" })}
       onClick={onClick}
-      className={`flex items-center gap-1 bg-secondary rounded-sm px-2.5 py-2 cursor-pointer shadow-softGlow ${className}`}
+      className={`${baseClasses} ${cursorClass} ${
+        bgTransparent ? "bg-transparent" : "bg-secondary"
+      } ${shadowType} ${className}`}
     >
       {renderedIcon && <span>{renderedIcon}</span>}
       <span>{children}</span>
@@ -35,6 +45,6 @@ export default function Button({
   return hasHoverAnimation ? (
     <HoverAnimationBox>{buttonContent}</HoverAnimationBox>
   ) : (
-    <div>{buttonContent}</div>
+    buttonContent
   );
 }

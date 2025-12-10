@@ -7,7 +7,7 @@ html {
 /* declaration of global TOKENS for the design system */
 :root {
   /* colors */
-  --primary: #111111;
+  --primary: #111211;
   --secondary: #10b981;
   --secondary-rgb: 16 185 129;
   --tertiary: #8fe7c7;
@@ -63,13 +63,13 @@ html {
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
   --shadow-softGlow: 
-    0 -6px 20px rgba(255, 255, 255, 0.08),
+    0 -6px 20px rgba(200, 200, 200, 0.08),
     0 4px 10px rgba(0, 0, 0, 0.45),
     0 0 5px rgba(16,185,129,0.12);
   --shadow-project: 
     0 -6px 20px rgba(8, 61, 22, 0.775),
     0 4px 10px rgba(0, 0, 0, 0.45),
-    0 0 5px rgba(7, 138, 62, 0.812);
+    0 0 5px rgba(7, 138, 62, 0.512);
 
     /* spacing */
 --gap-sm: 6px;
@@ -156,6 +156,11 @@ html {
   z-index: -1;
 }
 
+.availableButtonStyle {
+  background-color: rgb(22 62 34 / 0.7);
+    border: 1px solid rgb(255 255 255 / 0.1);
+}
+
 /* Smooth fade transition for carousel items at edges */
 .keen-slider {
   mask-image: linear-gradient(
@@ -176,4 +181,12 @@ html {
 
 .keen-slider__slide {
   transition: opacity 0.3s ease-in-out;
+}
+
+.buttonBaseClasses {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 0.40rem;
+  padding: 8px 10px;
 }

@@ -14,6 +14,7 @@ export const translations = {
       bio: "I build modern, responsive, and user-friendly web interfaces.",
       status: "available for work",
     },
+    
     aboutMe: {
       title: "About Me",
       content:
@@ -38,6 +39,21 @@ export const translations = {
       experience: "Experience",
       projects: "Projects",
     },
+    experience: {
+      title: "Professional Experience",
+      jobStatus: "2025 - VOLUNTEER",
+      slogan: "Company specialized in regulated promotions",
+      job: "Front End Engineer",
+      content:
+        "I started as a junior developer full of expectations and, at the same time, pretty insecure. At first, everything felt much simpler in theory than in practice. Even though I had already studied a lot, writing code in a real environment—with deadlines, standards, and other people reviewing my work—was a shock. I took a long time to understand large projects and was afraid of asking questions that seemed too obvious. Over time, I realized that making mistakes was part of the process. Bugs that took hours to fix often had simple solutions, but they taught me how to read error messages better, debug more calmly, and avoid changing code impulsively. I also learned the importance of version control, especially after dealing with a few Git conflicts that left me confused at first.",
+      jobTechnologies: {
+        react: "React",
+        javaScript: "JavaScript",
+        typeScript: "TypeScript",
+        git: "Git",
+        styledComponents: "Styled Components"
+      }
+    },
     projects: {
       github: "Code",
       findOutMore: "Find out more",
@@ -57,6 +73,7 @@ export const translations = {
       },
     },
     footer: {
+      title: "My contacts",
       resume: {
         title: "Resume:",
         download: "View Resume",
@@ -103,8 +120,23 @@ export const translations = {
       },
     },
     sessions: {
-      experience: "Experiência profissional",
+      experience: "Experiência",
       projects: "Projetos",
+    },
+    experience: {
+      title: "Experiência Profissional",
+      jobStatus: "2025 - VOLUNTÁRIO",
+      job: "Desenvolvedor Front End",
+      slogan: "Empresa especializada em promoções regulamentadas",
+      content:
+        "Comecei como programador júnior cheio de expectativas e, ao mesmo tempo, bastante inseguro. No início, tudo parecia mais simples na teoria do que na prática. Mesmo já tendo estudado bastante, escrever código em um ambiente real, com prazos, padrões e outras pessoas revisando o que eu fazia, foi um choque. Eu demorava para entender projetos grandes e ficava com medo de fazer perguntas que parecessem óbvias demais. Com o tempo, percebi que errar fazia parte do processo. Bugs que levavam horas para serem resolvidos muitas vezes tinham soluções simples, mas me ensinavam a ler melhor mensagens de erro, a debugar com mais calma e a não sair alterando código no impulso. Também aprendi a importância de versionamento, especialmente depois de alguns conflitos no Git que me deixaram perdido no começo.",
+      jobTechnologies: {
+        react: "React",
+        javaScript: "JavaScript",
+        typeScript: "TypeScript",
+        git: "Git",
+        styledComponents: "Styled Components"
+      }
     },
     projects: {
       github: "Código",
@@ -125,6 +157,7 @@ export const translations = {
       },
     },
     footer: {
+      title: "Meus contatos",
       resume: {
         title: "Currículo:",
         download: "Ver Currículo",

@@ -30,14 +30,33 @@ export interface SoftSkills {
 }
 
 export interface Technologies {
-  title: string;
+  label: string;
 }
 
 export interface ProjectsSection {
   [key: string]: ProjectItem;
 }
 
+export interface ExperienceSection {
+  title: string;
+  jobStatus: string;
+  company?: string;
+  slogan: string;
+  job: string;
+  content: string;
+  jobTechnologies: JobTechnologies;
+}
+
+export interface JobTechnologies {
+  react: string;
+  javaScript: string;
+  typeScript: string;
+  git: string;
+  styledComponents: string;
+}
+
 export interface FooterItems {
+  title: string;
   resume: string;
   socialMedias: string;
 }
@@ -55,6 +74,7 @@ export interface LanguageContent {
   nav: SimpleNamespace;
   header: SimpleNamespace;
   aboutMe: AboutMeSection;
+  experience: ExperienceSection;
   sessions: SimpleNamespace;
   projects: ProjectsSection;
   footer: FooterSection;
