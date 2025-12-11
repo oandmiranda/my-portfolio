@@ -1,13 +1,12 @@
 
-// scroll-scrubbing é aparentemente o nome do conceito
 "use client";
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
-import Card from "./card";
+import Card from "./project";
 import Animation from "./animation";
-import { CardProps } from "@/types/card";
 import { useLanguage } from "../context/languageContext";
+import { ProjectProps } from "@/types/project";
 
 
 // VARIANTS para a Animação dos CARDS (Staggered Effect)
@@ -31,7 +30,7 @@ const cardItemVariants: Variants = {
 export default function ProjectsSection() {
   const { t } = useLanguage();
 
-  const cardData: CardProps[] = [
+  const projectData: ProjectProps[] = [
   {
     imageSrc: "/images/miraflix-image.png",
     imageAlt: "miraflix-image",
@@ -105,12 +104,9 @@ export default function ProjectsSection() {
   );
 
   return (
-    // Dê uma altura grande (ex: 300vh) para permitir bastante rolagem para a animação.
-    <section ref={targetRef} className="relative py-40 flex flex-col">
-      {/* ---------------------------------------------------- */}
-      {/* TÍTULO "PROJETOS" (STICKY E ANIMADO)                   */}
-      {/* ---------------------------------------------------- */}
-      <Animation animation="slideUp" className="sticky top-[44%]">
+    <section ref={targetRef} className="relative pt-40 flex flex-col">
+     
+      <Animation type="slideUp" className="sticky top-[44%]">
         <motion.h1
         style={{
           y,
@@ -118,7 +114,7 @@ export default function ProjectsSection() {
           opacity,
         }}
         // top-1/3 centraliza o título verticalmente para começar a animação.
-        className="text-4xl font-bold text-center sm:text-5xl md:text-5xl"
+        className="font-title font-bold text-center text-4xl sm:text-5xl md:text-5xl"
       >
         {t("projects", "sessions")}
       </motion.h1>
@@ -139,7 +135,7 @@ export default function ProjectsSection() {
           whileInView="visible"
           viewport={{ once: true,}}
         >
-          {cardData.map((card) => (
+          {projectData.map((card) => (
             <motion.div key={card.title} variants={cardItemVariants}>
               <Card key={card.title} {...card} />
             </motion.div>

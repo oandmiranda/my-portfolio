@@ -3,7 +3,7 @@
 import { createContext, useState, useContext, ReactNode } from "react";
 import { translations } from "./translations";
 // Importe o objeto translations e os tipos
-import { LanguageContextType, TranslationsType, LanguageContent } from '@/types/languageContext';
+import { LanguageContextType, LanguageContent } from '@/types/languageContext';
 
 // --- 1. Definição do Valor Padrão (RESOLVE O ERRO ts(2339)) ---
 // Este valor DEVE ser totalmente tipado e corresponder à LanguageContextType.
@@ -56,6 +56,5 @@ const t = (key: string, section: keyof LanguageContent, subKey?: string) => {
   );
 };
 
-// 3. Hook de consumo (useLanguage)
 // O hook usa useContext(LanguageContext), que já está tipado como LanguageContextType.
 export const useLanguage = () => useContext(LanguageContext);

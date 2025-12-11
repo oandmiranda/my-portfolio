@@ -7,25 +7,37 @@ html {
 /* declaration of global TOKENS for the design system */
 :root {
   /* colors */
-  --primary: #3B82F6; 
-  --secondary: #121c32;
-  --background: #04001b;
-  --text: #E5E7EB;
-  --container: #1E293B;
+  --primary: #111211;
+  --secondary: #10b981;
+  --secondary-rgb: 16 185 129;
+  --tertiary: #8fe7c7;
+  --background: #0b0b0b;
+  --text: #f5f5f4;
+  --container: #141616;
   --active: #26db70;
-  --warning: #f59e0b;
-  --error: #ef4444;
-  --surface: #9900d0;
-  --surface-light: #22D3EE;
+  --surface: #14b8a6;
+
+  
+  /* option 2 */
+/* 
+--primary: #0B1221;
+--secondary: #6366F1;
+--tertiary: #A78BFA;
+--background: #05070F;
+--text: #F1F5F9;
+--container: #1E1B4B;
+--active: #22C55E;
+--surface: #C084FC; */
 
   /* typography */
-  --font-default: var(--font-inter);
-  --font-logo: var(--font-devonshire);
-  --font-title-header: var(--font-climate-crisis);
+  --font-default: var(--font-ibm-plex-sans);
+  --font-logo: var(--font-allura);
+  --font-title: var(--font-sora);
+  --font-title-header: var(--font-paytone-one);
 
   /* font-size */
   --text-xs: 0.55rem;
-  --text-sm: 0.750rem;
+  --text-sm: 0.75rem;
   --text-md: 0.875rem;
   --text-base: 1rem;
   --text-l: 1.125rem;
@@ -51,26 +63,39 @@ html {
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-softGlow: 
+    0 -6px 20px rgba(200, 200, 200, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.45),
+    0 0 5px rgba(16,185,129,0.12);
+  --shadow-project: 
+    0 -6px 20px rgba(8, 61, 22, 0.775),
+    0 4px 10px rgba(0, 0, 0, 0.45),
+    0 0 5px rgba(7, 138, 62, 0.512);
+
+    /* spacing */
+--gap-sm: 6px;
+--gap-base: 10px;
 }
+
+
 
 /* where tailwind reeds and generate automatic classes based on global variables (:root {}) */
 @theme inline {
   /* mapeamento de cores */
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --secondary-rgb: var(--secondary-rgb);
+  --color-tertiary: var(--tertiary);
   --color-background: var(--background);
   --color-text: var(--text);
   --color-container: var(--container);
   --color-active: var(--active);
-  --color-warning: var(--warning);
-  --color-error: var(--error);
   --color-surface: var(--surface);
-  --color-surface-light: var(--surface-light);
 
   /* fontes */
   --font-default: var(--font-default);
-  --font-title: var(--font-title);
   --font-logo: var(--font-logo);
+  --font-title: var(--font-title);
   --font-title-header: var(--font-title-header);
 
   /* font-size */
@@ -100,7 +125,14 @@ html {
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
+  --shadow-softGlow: var(--shadow-softGlow);
+  --shadow-project: var(--shadow-project);
+
+/* spacing */
+  --gap-sm: var(--gap-sm);
+  --gap-base: var(--gap-base);
 }
+
 
 /* Custom utility classes using design tokens */
 .border-base {
@@ -113,16 +145,21 @@ html {
 }
 
 .image-border-decoration::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: -12px;
-  bottom: -12px;
+  top: 5px;
+  left: 5px;
+  right: -10px;
+  bottom: -5px;
   border: 2px solid var(--surface);
   border-radius: var(--radius-md);
   pointer-events: none;
   z-index: -1;
+}
+
+.availableButtonStyle {
+  background-color: rgb(22 62 34 / 0.7);
+    border: 1px solid rgb(255 255 255 / 0.1);
 }
 
 /* Smooth fade transition for carousel items at edges */
@@ -145,4 +182,12 @@ html {
 
 .keen-slider__slide {
   transition: opacity 0.3s ease-in-out;
+}
+
+.buttonBaseClasses {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 0.40rem;
+  padding: 8px 10px;
 }

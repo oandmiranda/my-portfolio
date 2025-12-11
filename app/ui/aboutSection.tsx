@@ -1,52 +1,75 @@
 "use client";
 
 import Image from "next/image";
+import { GraduationCap, Lightbulb, Languages } from "lucide-react";
 import Title from "./title";
-import FadeIn from "./animation";
-// 💡 1. Importe o hook
+import Animation from "./animation";
 import { useLanguage } from "../context/languageContext";
+import { translations } from "@/app/context/translations"
+import Slider from "./slider";
+import Card from "./card";
 
 export default function AboutSection() {
-  // 💡 2. Recupere a função de tradução
+  // chama a função de tradução
   const { t } = useLanguage();
 
+const softSkillsList = Object.keys(
+  translations.en.aboutMe.softSkills
+).map((key) => t(key, "aboutMe", "softSkills"));
+
   return (
-    <section className="flex flex-col w-full gap-4" id="about">
-      <FadeIn>
-        <div className="flex items-center gap-2">
-          <span>01.</span>
-          {/* 💡 3. Tradução do Título */}
-          <Title size="text-2xl">{t("title", "aboutMe")}</Title>
-        </div>
+    <section className="flex flex-col w-full scroll-mt-20" id="about">
+      <Animation type="fade">
+          <Title className="font-title">{t("title", "aboutMe")}</Title>
 
-        <div className="flex flex-col items-center md:flex-row gap-8 w-full">
-          <div className="w-full md:w-[65%] border-base pt-4">
-            {/* 💡 4. Tradução do Conteúdo */}
-            {/* Nota: Como definimos uma única chave 'content' no objeto de tradução,
-                todo o texto virá junto. Se você quiser quebrar em parágrafos visuais,
-                o ideal seria criar 'paragraph1' e 'paragraph2' no translations.ts,
-                ou adicionar '\n' no texto e usar CSS 'whitespace-pre-line'.
-                
-                Por enquanto, usando a estrutura atual:
-            */}
-            <p className="whitespace-pre-line">
-              {t("content", "aboutMe")}
-            </p>
-          </div>
+        {/* cards section */}
+        <div className="flex flex-col gap-base w-full mt-2 md:grid md:grid-cols-3">
+          <Card
+            mainLabel={t("content", "aboutMe")}
+            className="md:col-span-2 h-full text-md leading-6"
+          />
 
-          <FadeIn animation="slideUp">
-            <div className="block w-full sm:h-80 lg:w-90 lg:h-100 2xl:h-110 rounded-sm border-purple-500/30 shadow-[0_0_20px_rgba(168,85,247,0.2)] image-border-decoration">
+          <Animation type="slideUp">
+            <Card className="h-60 sm:h-70 md:h-full border-purple-500/30 shadow-[0_0_20px_rgba(168,85,247,0.2)] image-border-decoration md:col-span-1">
               <Image
                 src={"/images/my-picture.jpeg"}
                 alt="my picture"
-                width={2000}
-                height={1000}
-                className="w-full h-full object-cover rounded-md"
+                layout="fill"
+                className="object-cover rounded-md"
               />
-            </div>
-          </FadeIn>
+            </Card>
+          </Animation>
+
+          <Card
+            enableGlow
+            centerItems
+            icon={<GraduationCap />}
+            mainLabel={t("status", "aboutMe", "graduation")}
+            subLabel={t("course", "aboutMe", "graduation")}
+            textType="specialTitle"
+            className="md:col-span-1"
+          />
+
+          <Card
+            enableGlow
+            centerItems
+            icon={<Languages />}
+            mainLabel={t("englishLevel", "aboutMe")}
+            textType="specialTitle"
+            className="md:col-span-1"
+          />
+
+          <Card
+            enableGlow
+            centerItems
+            icon={<Lightbulb />}
+            softSkills={softSkillsList}
+            textType="specialTitle"
+            className="md:col-span-1"
+          />
+          <Slider />
         </div>
-      </FadeIn>
+      </Animation>
     </section>
   );
 }

@@ -1,13 +1,11 @@
 export type CardProps = {
-  imageSrc: string;
-  imageAlt: string;
-  videoSrc: string;
-  title: string;
-  description: string;
-  technologies: string[];
-  reverse: boolean;
-  href: string;
-  gitHubLink: string;
-  findOutMore: string;
-  details?: string;
-};
+    icon?: React.ReactNode;
+    mainLabel?: string;
+    subLabel?: string;
+    softSkills?: string[];
+    className?: string;
+    children?: React.ReactNode;
+    centerItems?: boolean;
+    textType?: "default" | "specialTitle";
+    enableGlow?: boolean;
+}

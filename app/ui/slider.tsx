@@ -39,20 +39,20 @@ export default function Slider() {
       spacing: 6,
     },
     created(s) {
-      s.moveToIdx(3, true, animation);
+      s.moveToIdx(2, true, animation);
     },
     updated(s) {
-      s.moveToIdx(s.track.details.abs + 3, true, animation);
+      s.moveToIdx(s.track.details.abs + 2, true, animation);
     },
     animationEnded(s) {
-      s.moveToIdx(s.track.details.abs + 3, true, animation);
+      s.moveToIdx(s.track.details.abs + 2, true, animation);
     },
   });
 
   return (
-    <section className="flex flex-col items-center w-full bg-secondary rounded-2xl mt-25 py-5">
-      <h2 className="">
-        {t("title", "technologies")}
+    <section className="flex flex-col items-center w-full bg-primary rounded-2xl py-5 shadow-softGlow sm:col-span-2 md:col-span-3">
+      <h2 className="p-4 text-sm md:text-base">
+        {t("title", "aboutMe", "technologies")}
       </h2>
 
       <div ref={sliderRef} className="keen-slider mt-8">

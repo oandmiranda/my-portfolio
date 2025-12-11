@@ -34,7 +34,7 @@ export default function Header() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <section className="min-h-screen flex flex-col">
       {/* <video
                 className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
                 src="/videos/video_draft.mov"
@@ -53,7 +53,7 @@ export default function Header() {
           <motion.p variants={itemVariants}>{t("welcome", "header")},</motion.p>
           <motion.h1
             variants={itemVariants}
-            className="text-4xl font-title-header sm:text-5xl md:text-6xl"
+            className="font-title-header text-4xl sm:text-5xl md:text-6xl"
           >{t("name", "header")}</motion.h1>
           <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl">
             {t("tagline", "header")}
@@ -66,9 +66,9 @@ export default function Header() {
             variants={itemVariants}
             className="
               flex items-center gap-2 text-xs 
-              rounded-full p-1 
-              bg-[#163e22]/70 backdrop-blur-md 
-              border border-white/10  
+              rounded-full px-2 py-1 
+              availableButtonStyle
+              shadow-base 
             "
           >
             <motion.span
@@ -85,6 +85,6 @@ export default function Header() {
           </motion.div>
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }
