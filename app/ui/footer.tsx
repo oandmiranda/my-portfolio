@@ -29,16 +29,16 @@ export default function Footer() {
     },
   };
 
-  const buttonHoverClasss = `hover:shadow-project transition-all duration-400`;
+  const buttonHoverClasss = `hover:shadow-project transition-all duration-700`;
 
   return (
     <section
       className="flex flex-col items-start m-auto w-full"
       id="contacts"
     >
-      <Title>{t("title", "footer")}</Title>
+      <Title className="font-title">{t("title", "footer")}</Title>
       <div className="flex flex-col mt-2 gap-8 md:flex-row md:gap-base w-full">
-        <InformationArea title={t("title", "footer", "resume")}>
+        <InformationArea>
           <DownloadButton
             shadowType="shadow-softGlow"
             className={buttonHoverClasss}
@@ -83,13 +83,13 @@ export default function Footer() {
       <motion.div
         variants={floatVariants}
         animate="float"
-        className="m-auto mt-12"
+        className="m-auto mt-12 mb-10"
       >
         <button
           onClick={scrollToTop}
           className="ml-auto p-2 bg-secondary rounded-full cursor-pointer"
         >
-          <ChevronsUp className="size-13" />
+          <ChevronsUp className="size-8 md:size-13" />
         </button>
       </motion.div>
     </section>

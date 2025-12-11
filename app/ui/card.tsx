@@ -30,7 +30,7 @@ export default function Card({
   const getTextClassName = () => {
     switch (textType) {
       case "specialTitle":
-        return "text-2xl font-bold";
+        return "text-xl lg:text-2xl font-bold";
       case "default":
       default:
         return "whitespace-pre-line";
@@ -55,7 +55,7 @@ export default function Card({
   return (
     <section
       className={`
-        flex flex-col justify-center gap-1 h-60 w-full 
+        flex flex-col justify-center gap-1 h-65 w-full 
         bg-primary rounded-md p-8 shadow-softGlow
         ${alignmentClass} 
         ${glowClasses} 
@@ -107,7 +107,7 @@ export default function Card({
             {softSkills.map((skill, index) => (
               <li key={index} className="flex gap-2 items-center">
                 <Check className="text-active" size={15}/>
-                <span className="text-sm lg:text-md">{skill}</span>
+                <span className="text-sm">{skill}</span>
               </li>
             ))}
           </ul>

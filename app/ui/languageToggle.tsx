@@ -6,7 +6,7 @@ import { useLanguage } from "../context/languageContext";
 export default function LanguageToggle(): JSX.Element {
   const { language, toggleLanguage } = useLanguage();
 
-  const springTransition = { type: "spring", stiffness: 200, damping: 25 };
+  const springTransition = { type: "spring" as const, stiffness: 200, damping: 25 };
 
   return (
     <button
@@ -36,27 +36,15 @@ export default function LanguageToggle(): JSX.Element {
         |
       </span>
 
-      {/* 💡 LADO ESQUERDO (Ativo quando EN) 
-         Adicionei a prop 'transition' com a configuração mais lenta 
-      */}
-      {language === "en" ? (
-        <motion.div
-          layoutId="active-bg"
-          className="absolute left-1 top-1 bottom-1 w-[calc(50%-4px)] bg-secondary rounded-full shadow-softGlow z-10"
-          transition={springTransition} 
-        />
-      ) : null}
-
-      {/* 💡 LADO DIREITO (Ativo quando PT) 
-         Adicionei a prop 'transition' com a configuração mais lenta 
-      */}
-      {language === "pt" ? (
-         <motion.div
-         layoutId="active-bg"
-         className="absolute right-1 top-1 bottom-1 w-[calc(50%-4px)] bg-secondary rounded-full shadow-softGlow z-10"
-         transition={springTransition}
-       />
-      ) : null}
+      {/* Background animado com posição fixa */}
+      <motion.div
+        className="absolute top-1 bottom-1 w-[calc(50%-4px)] bg-secondary rounded-full shadow-softGlow z-10"
+        animate={{
+          left: language === "en" ? 4 : "auto",
+          right: language === "en" ? "auto" : 4,
+        }}
+        transition={springTransition}
+      />
 
 
       {/* Texto EN */}

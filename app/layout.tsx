@@ -1,6 +1,6 @@
 import "./styles/globals.css";
 import type { Metadata } from "next";
-import { climateCrisis, evonshire, inter } from "./styles/fonts";
+import { ibmPlexSans, sora, paytoneOne, allura } from "./styles/fonts";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${evonshire.variable} ${climateCrisis.variable}`}>
-      <body className="bg-background text-text text-base">
+    <html lang="en" className={`${ibmPlexSans.variable} ${sora.variable} ${paytoneOne.variable} ${allura.variable}`}>
+      <body className="bg-background text-text text-base font-default">
         {children}
       </body>
     </html>

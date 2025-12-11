@@ -1,5 +1,5 @@
 export type DataAreaProps = {
     children: React.ReactNode;
-    title: string;
+    title?: string;
     className?: string;
 }

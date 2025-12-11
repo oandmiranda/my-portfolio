@@ -53,7 +53,7 @@ export default function Header() {
           <motion.p variants={itemVariants}>{t("welcome", "header")},</motion.p>
           <motion.h1
             variants={itemVariants}
-            className="text-4xl font-title-header sm:text-5xl md:text-6xl"
+            className="font-title-header text-4xl sm:text-5xl md:text-6xl"
           >{t("name", "header")}</motion.h1>
           <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl">
             {t("tagline", "header")}

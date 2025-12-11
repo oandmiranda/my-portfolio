@@ -114,7 +114,7 @@ export default function ProjectsSection() {
           opacity,
         }}
         // top-1/3 centraliza o título verticalmente para começar a animação.
-        className="text-4xl font-bold text-center sm:text-5xl md:text-5xl"
+        className="font-title font-bold text-center text-4xl sm:text-5xl md:text-5xl"
       >
         {t("projects", "sessions")}
       </motion.h1>

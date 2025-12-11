@@ -28,8 +28,8 @@
 
 # Extras
 [X] fix bug at Button component
-[] choosing typograph
+[X] refactor experience section at mobile
+[X] choosing typographs
+[X] fix bug at languageToggleButton (when is on the middle of ui, there's a bug at button)
+[] fix all tokens (spacing, duration of shadows, padding.. everything)
 [] fix all styles
-[] fix bug at languageToggleButton (when is on the middle of ui, there's a bug at button)
-[] fix bug on Slider (começa a correr rapido do nada)
-[] fix all tokens

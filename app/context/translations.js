@@ -29,6 +29,7 @@ export const translations = {
         comunication: "Excellent communication",
         solveProblems: "Problem-Solving",
         adaptability: "Adaptability",
+        fastLearning: "Fast learning",
         ownership: "Ownership",
       },
       technologies: {
@@ -96,7 +97,7 @@ export const translations = {
       name: "Eu sou o Miranda",
       tagline: "Eu construo coisas para a web.",
       bio: "Eu construo interfaces web modernas, responsivas e fáceis de usar.",
-      status: "Disponível para trabalho",
+      status: "Disponível para trabalhar",
     },
     aboutMe: {
       title: "Sobre mim",
@@ -112,6 +113,7 @@ export const translations = {
         comunication: "Excelente comunicação",
         solveProblems: "Resolução de problemas",
         adaptability: "Adaptabilidade",
+        fastLearning: "Aprendizado rápido",
         ownership: "Postura de dono",
       },
       technologies: {

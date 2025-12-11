@@ -63,7 +63,7 @@ export default function NavBar() {
 
             <Animation type="slideUp">
               <div className="hidden sm:flex flex-col">
-                <span className="font-logo text-2xl whitespace-nowrap">
+                <span className="font-logo text-xl whitespace-nowrap">
                   Anderson Miranda
                 </span>
                 <span className="text-xs">FrontEnd Engineer</span>
@@ -95,7 +95,8 @@ export default function NavBar() {
         >
           <LanguageToggle />
         </Animation>
-        <BurgerMenu />
+
+          <BurgerMenu />
       </div>
     </>
   );

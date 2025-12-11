@@ -30,9 +30,10 @@ html {
 --surface: #C084FC; */
 
   /* typography */
-  --font-default: var(--font-inter);
-  --font-logo: var(--font-devonshire);
-  --font-title-header: var(--font-climate-crisis);
+  --font-default: var(--font-ibm-plex-sans);
+  --font-logo: var(--font-allura);
+  --font-title: var(--font-sora);
+  --font-title-header: var(--font-paytone-one);
 
   /* font-size */
   --text-xs: 0.55rem;
@@ -93,8 +94,8 @@ html {
 
   /* fontes */
   --font-default: var(--font-default);
-  --font-title: var(--font-title);
   --font-logo: var(--font-logo);
+  --font-title: var(--font-title);
   --font-title-header: var(--font-title-header);
 
   /* font-size */

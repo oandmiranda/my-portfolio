@@ -26,6 +26,7 @@ export interface SoftSkills {
   comunication: string;
   solveProblems: string;
   adaptability: string;
+  fastLearning: string;
   ownership: string;
 }
 

@@ -117,7 +117,7 @@ export default function Project({
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
-                <Title size="text-lg">{title}</Title>
+                <Title size="font-title text-lg">{title}</Title>
                 <span>
                   <ExternalLink size={15} />
                 </span>

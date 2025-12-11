@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Animation from "./animation";
 import { ChartNoAxesGantt, X } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "../context/languageContext";
@@ -16,7 +17,7 @@ export default function BurgerMenu() {
     open: {
       x: 5,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 220,
         damping: 40,
       },
@@ -24,7 +25,7 @@ export default function BurgerMenu() {
     closed: {
       x: "-100%",
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 260,
         damping: 35,
       },
@@ -45,9 +46,11 @@ export default function BurgerMenu() {
 
   return (
     <nav className="relative lg:hidden">
-      <button onClick={() => setIsOpen(!isOpen)} className="p-2 relative z-8 cursor-pointer">
-        {isOpen ? <X size={28} /> : <ChartNoAxesGantt size={28} />}
-      </button>
+      <Animation type="slideUp" trigger="mount">
+        <button onClick={() => setIsOpen(!isOpen)} className="p-2 relative z-8 cursor-pointer">
+          {isOpen ? <X size={28} /> : <ChartNoAxesGantt size={28} />}
+        </button>
+      </Animation>
 
       {/* BACKDROP */}
       {isOpen && (

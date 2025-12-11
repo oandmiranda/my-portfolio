@@ -51,7 +51,7 @@ export default function Slider() {
 
   return (
     <section className="flex flex-col items-center w-full bg-primary rounded-2xl py-5 shadow-softGlow sm:col-span-2 md:col-span-3">
-      <h2 className="p-4">
+      <h2 className="p-4 text-sm md:text-base">
         {t("title", "aboutMe", "technologies")}
       </h2>
 

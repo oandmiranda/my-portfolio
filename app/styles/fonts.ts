@@ -1,21 +1,35 @@
-import { Devonshire, Inter, Climate_Crisis
- } from 'next/font/google';
+import {
+  IBM_Plex_Sans,
+  Sora,
+  Paytone_One,
+  Allura
 
-export const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+} from "next/font/google";
+
+export const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  variable: "--font-ibm-plex-sans",
 });
 
+// export const devonshire = Devonshire({
+//   weight: "400",
+//   variable: "--font-devonshire",
+//   subsets: ["latin"],
+// });
 
-export const evonshire = Devonshire({
-  weight: "400",
-  variable: "--font-devonshire",
+export const sora = Sora({
   subsets: ["latin"],
-}); 
+  variable: "--font-sora",
+});
 
-// title font
-export const climateCrisis = Climate_Crisis({
+export const paytoneOne = Paytone_One({
   weight: "400",
-  variable: "--font-climate-crisis",
   subsets: ["latin"],
+  variable: "--font-paytone-one",
+});
+
+export const allura = Allura({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-allura",
 });
