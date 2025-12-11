@@ -34,7 +34,7 @@ export default function Animation({
         transition: {
           duration: 1.9,
           delay,
-          ease: [0.18, 1, 1, 1],
+          ease: "easeOut",
         },
       },
     },
@@ -53,7 +53,7 @@ export default function Animation({
         transition: {
           duration: 1.8,
           delay,
-          ease: [0.29, 1, 1, 1],
+          ease: "easeOut",
         },
       },
     },
@@ -73,7 +73,7 @@ export default function Animation({
         transition: {
           duration: 1.8,
           delay,
-          ease: [0.18, 1, 1, 1],
+          ease: "easeOut",
         },
       },
     },
@@ -86,7 +86,7 @@ export default function Animation({
   return (
     <motion.div
       ref={ref}
-      variants={animations[type]}
+      variants={animations[type] as unknown as import("framer-motion").Variants}
       initial="hidden"
       animate={shouldAnimate ? "visible" : "hidden"}
       className={className}

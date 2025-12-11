@@ -91,7 +91,7 @@ export default function Project({
         <Link href={href} target="_blank" rel="noopener noreferrer">
           <Animation
             // Container para o gradiente e o ícone
-            className="hidden absolute top-1 right-1 z-1 md:flex"
+            className="hidden bg-container rounded-sm p-0.5 absolute top-1 right-1 z-1 md:flex"
             type="fade"
           >
             <ExternalLink size={28} />

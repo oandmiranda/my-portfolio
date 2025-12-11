@@ -27,7 +27,6 @@ export const translations = {
       englishLevel: "B2 English",
       softSkills: {
         comunication: "Excellent communication",
-        solveProblems: "Problem-Solving",
         adaptability: "Adaptability",
         fastLearning: "Fast learning",
         ownership: "Ownership",
@@ -111,7 +110,6 @@ export const translations = {
       englishLevel: "Inglês B2",
       softSkills: {
         comunication: "Excelente comunicação",
-        solveProblems: "Resolução de problemas",
         adaptability: "Adaptabilidade",
         fastLearning: "Aprendizado rápido",
         ownership: "Postura de dono",
