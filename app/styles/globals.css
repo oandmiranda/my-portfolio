@@ -78,7 +78,6 @@ html {
 }
 
 
-
 /* where tailwind reeds and generate automatic classes based on global variables (:root {}) */
 @theme inline {
   /* mapeamento de cores */
