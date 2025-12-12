@@ -7,6 +7,7 @@ import { useLanguage } from "../context/languageContext";
 import DownloadButton from "./downloadButton";
 import Button from "./button";
 import Title from "./title";
+import Link from "next/link";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -32,11 +33,10 @@ export default function Footer() {
   const buttonHoverClass = `hover:shadow-project transition-all duration-700`;
 
   return (
-    <section
-      className="flex flex-col items-start m-auto w-full"
-      id="contacts"
-    >
-      <Title className="font-title text-sm-title md:text-md-title">{t("title", "footer")}</Title>
+    <section className="flex flex-col items-start m-auto w-full" id="contacts">
+      <Title className="font-title text-sm-title md:text-md-title">
+        {t("title", "footer")}
+      </Title>
       <div className="w-full flex flex-col mt-2 gap-8 md:flex-row md:gap-base md:text-md">
         <InformationArea>
           <DownloadButton
@@ -76,7 +76,7 @@ export default function Footer() {
             shadowType="shadow-softGlow"
             className={buttonHoverClass}
           >
-            and.miranda1818@gmail.com
+            <Link href={"mailto: and.miranda1818@gmail.com"}>and.miranda1818@gmail.com</Link>
           </Button>
         </InformationArea>
       </div>

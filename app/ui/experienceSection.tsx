@@ -51,7 +51,7 @@ export default function ExperienceSection() {
 
           <div className="flex flex-wrap gap-base text-active">
             {technologiesList.map((tech, index) => (
-              <Button key={index} shadowType="shadow-softGlow" className="cursor-alias text-sm text-darkColor bg-secondary">
+              <Button key={index} shadowType="shadow-softGlow" className="cursor-alias text-sm text-text-darkColor bg-secondary">
                 {tech}
               </Button>
             ))}

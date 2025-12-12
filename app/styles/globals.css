@@ -13,7 +13,7 @@ html {
   --tertiary: #2DD4BF;
   --background: #010000;
   --text-whiteColor: #f5f5f4;
-  --darkColor: #000000;
+  --text-darkColor: #000000;
   --container: #141616;
   --active: #26db70;
 
@@ -92,7 +92,7 @@ html {
   --color-tertiary: var(--tertiary);
   --color-background: var(--background);
   --color-text-whiteColor: var(--text-whiteColor);
-  --color-darkColor: var(--darkColor);
+  --color-text-darkColor: var(--text-darkColor);
   --color-container: var(--container);
   --color-active: var(--active);
 

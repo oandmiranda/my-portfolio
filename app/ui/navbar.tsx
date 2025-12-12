@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import BurgerMenu from "./burgerMenu";
 import { navLink } from "../data/navLinks";
 import DownloadButton from "./downloadButton";
+import { motion, Variants } from "framer-motion";
 
 export default function NavBar() {
 
@@ -24,41 +25,49 @@ export default function NavBar() {
     }
   };
 
-  // O useEffect simples, igual ao do seu projeto anterior
   useEffect(() => {
     window.addEventListener("scroll", changeColor);
     return () => {
       window.removeEventListener("scroll", changeColor);
     };
-  }, []); // Sem a necessidade de [changeColor] na dependência
+  }, []); 
 
   const navClasses = `
     flex fixed justify-between items-center transition-all duration-300
     px-4 sm:px-5 md:px-8 lg:px-10 py-4 w-full z-4 h-20
     ${
-      // FIXAÇÃO E ESTILO CONDICIONAL (ÚNICA PARTE QUE MUDA)
       scroll && "backdrop-blur-md bg-white/20 dark:bg-black/20 shadow-md top-0"
     }
   `;
 
+  // flutua a imagem de logo no eixo y
+  const floatVariants: Variants = {
+    float: {
+      y: [0, -3, 0], 
+      transition: {
+        duration: 2.6, 
+        ease: "easeInOut", 
+        repeat: Infinity, 
+        repeatType: "loop", 
+      },
+    },
+  };
+
   return (
-    // 1. Adicione 'relative' ao container pai para que o absolute funcione dentro dele
-    // 2. Troquei 'justify-around' e 'gap-50' por 'justify-between' e padding padrão (px-4...)
-    //    pois 'gap-50' (200px) costuma quebrar layouts em telas menores.
     <>
       <div className={navClasses}>
         <Link href={"/"}>
           <HoverAnimationBox className="flex items-center gap-1.5 cursor-default">
             <Animation type="secondary" trigger="mount">
-              <div className="w-10 h-10 rounded-full overflow-hidden">
+              <motion.div variants={floatVariants} animate="float" className="w-10 h-10 rounded-full overflow-hidden">
                 <Image
-                  src={"/images/my-picture.jpeg"}
+                  src={"/images/image-logo.jpg"}
                   alt="my-picture"
                   width={40}
                   height={40}
-                  className="object-cover scale-[1.6]"
+                  className="object-cover scale-[1.1]"
                 />
-              </div>
+              </motion.div>
             </Animation>
 
             <Animation type="slideUp">
