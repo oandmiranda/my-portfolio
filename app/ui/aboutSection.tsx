@@ -1,29 +1,37 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import { GraduationCap, Lightbulb, Languages } from "lucide-react";
-import Title from "./title";
 import Animation from "./animation";
 import { useLanguage } from "../context/languageContext";
-import { translations } from "@/app/context/translations"
+import { translations } from "@/app/context/translations";
 import Slider from "./slider";
 import Card from "./card";
+import ScrollTitle from "./scrollTitle";
 
 export default function AboutSection() {
-  // chama a função de tradução
   const { t } = useLanguage();
 
-const softSkillsList = Object.keys(
-  translations.en.aboutMe.softSkills
-).map((key) => t(key, "aboutMe", "softSkills"));
+  // cada seção precisa do seu próprio ref
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const softSkillsList = Object.keys(translations.en.aboutMe.softSkills).map(
+    (key) => t(key, "aboutMe", "softSkills")
+  );
 
   return (
-    <section className="flex flex-col w-full scroll-mt-20" id="about">
-      <Animation type="fade">
-          <Title className="font-title text-sm-title md:text-md-title">{t("title", "aboutMe")}</Title>
+    <section ref={sectionRef} className="flex flex-col w-full scroll-mt-20" id="about">
+      
+      <Animation type="slideUp" className="sticky top-[44%]">
+        <ScrollTitle sectionRef={sectionRef}>
+          {t("title", "aboutMe")}
+        </ScrollTitle>
+      </Animation>
 
-        {/* cards section */}
-        <div className="flex flex-col gap-base w-full mt-2 md:grid md:grid-cols-3">
+      <Animation type="fade">
+        <div className="pt-[calc(78vh)] flex flex-col gap-base w-full mt-2 md:grid md:grid-cols-3">
+
           <Card
             mainLabel={t("content", "aboutMe")}
             className="md:col-span-2 h-full text-md leading-6 px-(--p-sm) md:px-(--p-base)"
@@ -34,7 +42,7 @@ const softSkillsList = Object.keys(
               <Image
                 src={"/images/my-picture.jpeg"}
                 alt="my picture"
-                layout="fill"
+                fill
                 className="object-cover rounded-md"
               />
             </Card>
@@ -67,6 +75,7 @@ const softSkillsList = Object.keys(
             textType="specialTitle"
             className="md:col-span-1"
           />
+
           <Slider />
         </div>
       </Animation>

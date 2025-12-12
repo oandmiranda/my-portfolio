@@ -1,16 +1,14 @@
-
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Card from "./project";
-import Animation from "./animation";
 import { useLanguage } from "../context/languageContext";
 import { ProjectProps } from "@/types/project";
+import ScrollTitle from "./scrollTitle";
+import Animation from "./animation";
 
-
-// VARIANTS para a Animação dos CARDS (Staggered Effect)
-// ----------------------------------------------------
+// VARIANTS ----------------------------------------------------
 const cardsContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -30,110 +28,67 @@ const cardItemVariants: Variants = {
 export default function ProjectsSection() {
   const { t } = useLanguage();
 
+  // SECTION REF PARA CONTROLAR O SCROLL CORRETAMENTE
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   const projectData: ProjectProps[] = [
-  {
-    imageSrc: "/images/miraflix-image.png",
-    imageAlt: "miraflix-image",
-    videoSrc: "/videos/miraflix-video.mp4",
-    title: "Miraflix",
-    description:
-      t("description", "projects", "miraflix"),
-    technologies: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Styled-Components",
-      "API REST",
-      "PostgreSQL",
-      "Node.js",
-      "Express",
-      "JWT Auth"
-    ],
-    reverse: false,
-    gitHubLink: "https://github.com/oandmiranda/Mira-flix-frontend",
-    href: "https://mira-flix-frontend.vercel.app/",
-    findOutMore: "please visit the project repository to find out more about this project call Miraflix",
-    details: t("details", "projects", "miraflix"),
-  },
-  {
-    imageSrc: "/images/coffeeshop-image.png",
-    imageAlt: "project-two",
-    videoSrc: "/videos/coffeeshop-video.mp4",
-    title: "Coffee Shop",
-    description:
-      t("description", "projects", "coffeeShop"),
-    technologies: ["React", "TypeScript", "Styled-Components"],
-    reverse: true,
-    gitHubLink: "https://github.com/oandmiranda/Coffeeshop",
-    href: "https://coffeeshop-sage.vercel.app/",
-    findOutMore: "Find out more",
-    details: t("details", "projects", "coffeeShop"),
-  },
-];
-
-  const targetRef = useRef<HTMLDivElement>(null);
-
-  // 1. Monitorar o Scroll na Section
-  // A animação começa quando o topo do target atinge o fim da viewport ("start end")
-  // e termina quando o fim do target atinge o início da viewport ("end start").
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  // 2. Mapear o Scroll para a Posição Y do Título (Movimento Suave)
-  // [0, 0.2] mapeia o scroll de 0% a 20% da section
-  // [150, 0] mapeia o Y de 150px (abaixo) para 0px (ancorado no centro).
-  const y = useTransform(scrollYProgress, [0, 0.2], [150, 0]);
-
-  // 3. Mapear o Scroll para o Blur do Título (Ofuscamento)
-  // [0.1, 0.2, 0.3, 0.6] - Define os pontos de scroll para a transformação
-  // [blur(8px), blur(0px), blur(0px), blur(4px)] - Define os valores de saída como STRING CSS
-  // 👈 CORREÇÃO: Isso resolve o erro 'blur.to is not a function'.
-  const blur = useTransform(
-    scrollYProgress,
-    [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
-    ["blur(5px)", "blur(0px)", "blur(0px)", "blur(1px)", "blur(8px)", "blur(10px)", "blur(12px)", "blur(13px)"]
-  );
-
-  // 4. Mapear a Opacidade do Título (Fade in & Dim)
-  const opacity = useTransform(
-    scrollYProgress,
-    [0.1, 0.2, 0.1, 0.9],
-    [0, 1, 1, 0.6]
-  );
+    {
+      imageSrc: "/images/miraflix-image.png",
+      imageAlt: "miraflix-image",
+      videoSrc: "/videos/miraflix-video.mp4",
+      title: "Miraflix",
+      description: t("description", "projects", "miraflix"),
+      technologies: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Styled-Components",
+        "API REST",
+        "PostgreSQL",
+        "Node.js",
+        "Express",
+        "JWT Auth",
+      ],
+      reverse: false,
+      gitHubLink: "https://github.com/oandmiranda/Mira-flix-frontend",
+      href: "https://mira-flix-frontend.vercel.app/",
+      findOutMore:
+        "please visit the project repository to find out more about this project call Miraflix",
+      details: t("details", "projects", "miraflix"),
+    },
+    {
+      imageSrc: "/images/coffeeshop-image.png",
+      imageAlt: "project-two",
+      videoSrc: "/videos/coffeeshop-video.mp4",
+      title: "Coffee Shop",
+      description: t("description", "projects", "coffeeShop"),
+      technologies: ["React", "TypeScript", "Styled-Components"],
+      reverse: true,
+      gitHubLink: "https://github.com/oandmiranda/Coffeeshop",
+      href: "https://coffeeshop-sage.vercel.app/",
+      findOutMore: "Find out more",
+      details: t("details", "projects", "coffeeShop"),
+    },
+  ];
 
   return (
-    <section ref={targetRef} className="relative pt-40 flex flex-col">
-     
+    <section ref={sectionRef} className="relative pt-40 flex flex-col">
+      {/* TÍTULO ANIMADO COM SCROLL CONTROLADO PELA SECTION */}
       <Animation type="slideUp" className="sticky top-[44%]">
-        <motion.h1
-        style={{
-          y,
-          filter: blur, // 👈 Aplicando a string CSS diretamente
-          opacity,
-        }}
-        // top-1/3 centraliza o título verticalmente para começar a animação.
-        className="font-title font-bold text-center text-4xl sm:text-5xl md:text-5xl"
-      >
-        {t("projects", "sessions")}
-      </motion.h1>
+        <ScrollTitle
+          sectionRef={sectionRef}
+        >
+          {t("projects", "sessions")}
+        </ScrollTitle>
       </Animation>
-      
 
-      {/* ---------------------------------------------------- */}
-      {/* CARDS DOS PROJETOS (APARECEM APÓS O TÍTULO ANCORAR)   */}
-      {/* ---------------------------------------------------- */}
-      <motion.div
-        // Empurra o container dos cards para que só apareçam após o título ter ancorado no topo.
-        className="relative pt-[calc(67vh)]"
-      >
+      {/* CARDS ------------------------------------------------ */}
+      <motion.div className="relative pt-[calc(78vh)]">
         <motion.div
           variants={cardsContainerVariants}
           initial="hidden"
-          // whileInView ativa o stagger dos cards quando o container entra na vista.
           whileInView="visible"
-          viewport={{ once: true,}}
+          viewport={{ once: true }}
         >
           {projectData.map((card) => (
             <motion.div key={card.title} variants={cardItemVariants}>
