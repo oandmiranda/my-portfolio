@@ -43,7 +43,7 @@ export default function Header() {
                 muted
             /> */}
       <NavBar />
-      <div className="flex flex-col justify-center items-center w-full h-screen px-(--p-sm) sm:px-10 md:px-30 lg:px-55 xl:px-90">
+      <div className="flex flex-col justify-center items-center w-full h-screen px-(--p-base) sm:px-10 md:px-30 lg:px-55 xl:px-90">
         <motion.div
           variants={containerVariants}
           initial="hidden"

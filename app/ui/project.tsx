@@ -123,7 +123,7 @@ export default function Project({
               </Link>
             </HoverAnimationBox>
 
-            <p className="bg-secondary text-darkColor font-semibold p-(--p-sm) rounded-md text-sm md:-mr-20">
+            <p className="bg-secondary text-darkColor font-semibold p-(--p-sm) rounded-md text-sm md:-mr-20 whitespace-pre-line">
               {description}
             </p>
 
