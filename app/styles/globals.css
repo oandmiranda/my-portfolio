@@ -8,15 +8,18 @@ html {
 :root {
   /* colors */
   --primary: #111211;
-  --secondary: #10b981;
+  --secondary: #10B981;
   --secondary-rgb: 16 185 129;
-  --tertiary: #8fe7c7;
-  --background: #0b0b0b;
-  --text: #f5f5f4;
+  --tertiary: #2DD4BF;
+  --background: #010000;
+  --text-whiteColor: #f5f5f4;
+  --darkColor: #000000;
   --container: #141616;
   --active: #26db70;
-  --surface: #14b8a6;
 
+  --p-sm: 14px;
+  --p-base: 28px;
+  
   
   /* option 2 */
 /* 
@@ -38,9 +41,11 @@ html {
   /* font-size */
   --text-xs: 0.55rem;
   --text-sm: 0.75rem;
+  --text-sm-title: 1.2rem;
+  --text-md-title: 1.4rem;
   --text-md: 0.875rem;
   --text-base: 1rem;
-  --text-l: 1.125rem;
+  --text-lg: 1.125rem;
   --text-xl: 1.25rem;
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
@@ -51,7 +56,7 @@ html {
 
   /* border */
   --border-width: 2px;
-  --border-top: var(--border-width) solid var(--surface);
+  --border-top: var(--border-width) solid var(--tertiary);
 
   /* radius */
   --radius-sm: 0.25rem;
@@ -64,17 +69,17 @@ html {
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
   --shadow-softGlow: 
-    0 -6px 20px rgba(200, 200, 200, 0.08),
+    0 -6px 10px rgba(200, 200, 200, 0.152),
     0 4px 10px rgba(0, 0, 0, 0.45),
     0 0 5px rgba(16,185,129,0.12);
   --shadow-project: 
-    0 -6px 20px rgba(8, 61, 22, 0.775),
-    0 4px 10px rgba(0, 0, 0, 0.45),
-    0 0 5px rgba(7, 138, 62, 0.512);
+    0 -6px 20px rgba(16, 185, 129, 0.22),
+    0 4px 12px rgba(0, 0, 0, 0.55),       
+    0 0 8px rgba(45, 212, 191, 0.28);  
 
     /* spacing */
---gap-sm: 6px;
---gap-base: 10px;
+  --gap-sm: 6px;
+  --gap-base: 12px;
 }
 
 
@@ -86,10 +91,13 @@ html {
   --secondary-rgb: var(--secondary-rgb);
   --color-tertiary: var(--tertiary);
   --color-background: var(--background);
-  --color-text: var(--text);
+  --color-text-whiteColor: var(--text-whiteColor);
+  --color-darkColor: var(--darkColor);
   --color-container: var(--container);
   --color-active: var(--active);
-  --color-surface: var(--surface);
+
+  --p-sm: var(--p-sm);
+  --p-base: var(--p-base);
 
   /* fontes */
   --font-default: var(--font-default);
@@ -100,6 +108,8 @@ html {
   /* font-size */
   --text-xs: var(--text-xs);
   --text-sm: var(--text-sm);
+  --text-sm-title: var(--text-sm-title);
+  --text-md-title: var(--text-md-title);
   --text-md: var(--text-md);
   --text-base: var(--text-base);
   --text-lg: var(--text-lg);
@@ -150,7 +160,7 @@ html {
   left: 5px;
   right: -10px;
   bottom: -5px;
-  border: 2px solid var(--surface);
+  border: 2px solid var(--tertiary);
   border-radius: var(--radius-md);
   pointer-events: none;
   z-index: -1;

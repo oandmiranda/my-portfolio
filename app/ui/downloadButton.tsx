@@ -2,7 +2,7 @@ import { Download } from "lucide-react";
 import { useLanguage } from "../context/languageContext";
 import { DownloadButtonProps } from "@/types/downloadButton";
 
-export default function DownloadButton({ bgTransparent, justifyStart, shadowType, className}: DownloadButtonProps) {
+export default function DownloadButton({ bgTransparent, justifyStart, shadowType, className, iconColor = "text-text"}: DownloadButtonProps) {
   const { t } = useLanguage();
 
   const handleDownload = () => {
@@ -19,7 +19,7 @@ export default function DownloadButton({ bgTransparent, justifyStart, shadowType
       } ${justifyStart ? "justify-start" : "justify-center"} ${className}`}
       onClick={handleDownload}
     >
-      <Download size={18} />
+      <Download size={18} className={iconColor}/>
       <span>{t("resume", "nav")}</span>
     </div>
   );

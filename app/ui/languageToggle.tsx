@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/languageContext";
 
-export default function LanguageToggle(): JSX.Element {
+export default function LanguageToggle() {
   const { language, toggleLanguage } = useLanguage();
 
   const springTransition = { type: "spring" as const, stiffness: 200, damping: 25 };

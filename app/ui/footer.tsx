@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, MailCheck, ChevronsUp } from "lucide-react";
+import { Github, Linkedin, MailOpen, ChevronsUp } from "lucide-react";
 import { motion, Variants } from "framer-motion"; //
 import InformationArea from "./dataArea";
 import { useLanguage } from "../context/languageContext";
@@ -29,19 +29,20 @@ export default function Footer() {
     },
   };
 
-  const buttonHoverClasss = `hover:shadow-project transition-all duration-700`;
+  const buttonHoverClass = `hover:shadow-project transition-all duration-700`;
 
   return (
     <section
       className="flex flex-col items-start m-auto w-full"
       id="contacts"
     >
-      <Title className="font-title">{t("title", "footer")}</Title>
-      <div className="flex flex-col mt-2 gap-8 md:flex-row md:gap-base w-full">
+      <Title className="font-title text-sm-title md:text-md-title">{t("title", "footer")}</Title>
+      <div className="w-full flex flex-col mt-2 gap-8 md:flex-row md:gap-base md:text-md">
         <InformationArea>
           <DownloadButton
             shadowType="shadow-softGlow"
-            className={buttonHoverClasss}
+            className={buttonHoverClass}
+            iconColor="text-secondary"
             justifyStart
             bgTransparent
           />
@@ -53,7 +54,7 @@ export default function Footer() {
             icon={<Linkedin />}
             shadowType="shadow-softGlow"
             href="https://www.linkedin.com/in/oandmiranda/"
-            className={buttonHoverClasss}
+            className={buttonHoverClass}
           >
             Linkedin
           </Button>
@@ -62,7 +63,7 @@ export default function Footer() {
             icon={<Github />}
             shadowType="shadow-softGlow"
             href="https://github.com/oandmiranda"
-            className={buttonHoverClasss}
+            className={buttonHoverClass}
           >
             GitHub
           </Button>
@@ -71,9 +72,9 @@ export default function Footer() {
         <InformationArea title="E-mail:">
           <Button
             bgTransparent
-            icon={<MailCheck />}
+            icon={<MailOpen />}
             shadowType="shadow-softGlow"
-            className={buttonHoverClasss}
+            className={buttonHoverClass}
           >
             and.miranda1818@gmail.com
           </Button>

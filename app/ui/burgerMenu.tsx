@@ -15,7 +15,7 @@ export default function BurgerMenu() {
 
   const sidebarVariants = {
     open: {
-      x: 5,
+      x: -15,
       transition: {
         type: "spring" as const,
         stiffness: 220,
@@ -71,7 +71,7 @@ export default function BurgerMenu() {
         className="
           fixed top-0 left-0 
           h-screen 
-          w-2/2
+          w-[70%]
           bg-black/85 
           px-10 pt-20
           z-7
@@ -90,7 +90,7 @@ export default function BurgerMenu() {
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="cursor-pointer text-base flex items-center gap-3 hover:text-tertiary transition-all duration-300"
+              className="cursor-pointer text-sm md:text-base flex items-center gap-3 hover:text-tertiary transition-all duration-300"
             >
               {link.icon && <link.icon size={20} />}
               <Link

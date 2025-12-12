@@ -34,7 +34,7 @@ export default function NavBar() {
 
   const navClasses = `
     flex fixed justify-between items-center transition-all duration-300
-    px-4 sm:px-5 md:px-8 lg:px-12 py-4 w-full z-4 h-20
+    px-4 sm:px-5 md:px-8 lg:px-10 py-4 w-full z-4 h-20
     ${
       // FIXAÇÃO E ESTILO CONDICIONAL (ÚNICA PARTE QUE MUDA)
       scroll && "backdrop-blur-md bg-white/20 dark:bg-black/20 shadow-md top-0"

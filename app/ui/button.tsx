@@ -1,6 +1,6 @@
 "use client";
 
-import { cloneElement, isValidElement } from "react";
+import { isValidElement } from "react";
 import HoverAnimationBox from "./hoverAnimation";
 import Link from "next/link";
 import { ButtonProps } from "@/types/button";
@@ -15,23 +15,21 @@ export default function Button({
   className,
   onClick,
 }: ButtonProps) {
-  const renderedIcon =
-    icon && isValidElement(icon)
-      ? cloneElement(icon, { className: "size-4" })
-      : null;
+  const renderedIcon = isValidElement(icon) ? (
+    <span className="size-4 text-secondary">{icon}</span>
+  ) : null;
 
   const isLink = Boolean(href);
-  const Component = isLink ? Link : "button";
+  const cursorClass = isLink ? "cursor-pointer" : "cursor-default";
 
   const baseClasses = `buttonBaseClasses`;
 
-  const cursorClass = isLink ? "cursor-pointer" : "cursor-default";
 
-  const buttonContent = (
-    <Component
+  const buttonContent = isLink ? (
+    <Link
+      href={href as unknown as string}
       target="_blank"
       rel="noopener noreferrer"
-      {...(isLink ? { href } : { type: "button" })}
       onClick={onClick}
       className={`${baseClasses} ${cursorClass} ${
         bgTransparent ? "bg-transparent" : "bg-secondary"
@@ -39,7 +37,18 @@ export default function Button({
     >
       {renderedIcon && <span>{renderedIcon}</span>}
       <span>{children}</span>
-    </Component>
+    </Link>
+  ) : (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`${baseClasses} ${cursorClass} ${
+        bgTransparent ? "bg-transparent" : "bg-secondary"
+      } ${shadowType} ${className}`}
+    >
+      {renderedIcon && <span>{renderedIcon}</span>}
+      <span>{children}</span>
+    </button>
   );
 
   return hasHoverAnimation ? (

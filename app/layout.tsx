@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${ibmPlexSans.variable} ${sora.variable} ${paytoneOne.variable} ${allura.variable}`}>
-      <body className="bg-background text-text text-base font-default">
+      <body>
         {children}
       </body>
     </html>

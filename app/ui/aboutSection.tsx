@@ -20,13 +20,13 @@ const softSkillsList = Object.keys(
   return (
     <section className="flex flex-col w-full scroll-mt-20" id="about">
       <Animation type="fade">
-          <Title className="font-title">{t("title", "aboutMe")}</Title>
+          <Title className="font-title text-sm-title md:text-md-title">{t("title", "aboutMe")}</Title>
 
         {/* cards section */}
         <div className="flex flex-col gap-base w-full mt-2 md:grid md:grid-cols-3">
           <Card
             mainLabel={t("content", "aboutMe")}
-            className="md:col-span-2 h-full text-md leading-6"
+            className="md:col-span-2 h-full text-md leading-6 px-(--p-sm) md:px-(--p-base)"
           />
 
           <Animation type="slideUp">

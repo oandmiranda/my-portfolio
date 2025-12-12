@@ -1,5 +1,5 @@
 export type CardProps = {
-    icon?: React.ReactNode;
+    icon?: React.ReactElement;
     mainLabel?: string;
     subLabel?: string;
     softSkills?: string[];

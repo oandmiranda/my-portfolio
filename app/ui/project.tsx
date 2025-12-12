@@ -80,7 +80,7 @@ export default function Project({
 
   return (
     <section
-      // 1. ADICIONADO: 'group' e 'relative' para o efeito funcionar
+      // adiciona 'group' e 'relative' para o efeito funcionar
       className="group relative flex flex-col mb-40 w-full scroll-mt-50"
       id="projects"
       onMouseEnter={() => setShowVideo(true)}
@@ -90,8 +90,7 @@ export default function Project({
       {showVideo && (
         <Link href={href} target="_blank" rel="noopener noreferrer">
           <Animation
-            // Container para o gradiente e o ícone
-            className="hidden bg-container rounded-sm p-0.5 absolute top-1 right-1 z-1 md:flex"
+            className="hidden rounded-md p-0.5 absolute top-1 right-1 z-1 md:flex"
             type="fade"
           >
             <ExternalLink size={28} />
@@ -100,7 +99,7 @@ export default function Project({
       )}
 
       {/* div para o card com borda animada */}
-      <Animation className="p-2">
+      <Animation className="p-(--p-sm) md:p-(p-base) mx-2 md:mx-0">
         <div
           className="absolute -inset-3 rounded-2xl border border-[rgb(var(--secondary-rgb)/0.2)] group-hover:bg-background 
              group-hover:border-[rgb(var(--secondary-rgb)/0.4)] group-hover:shadow-project
@@ -109,7 +108,7 @@ export default function Project({
 
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6 relative z-10">
           {/* text container */}
-          <div className="relative w-full flex flex-col items-start z-2 gap-3 md:w-[50%]">
+          <div className="relative w-full flex flex-col items-start z-2 gap-6 md:gap-4 md:w-[50%]">
             <HoverAnimationBox>
               <Link
                 href={href}
@@ -117,14 +116,14 @@ export default function Project({
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
-                <Title size="font-title text-lg">{title}</Title>
+                <Title size="font-title text-base md:text-lg">{title}</Title>
                 <span>
                   <ExternalLink size={15} />
                 </span>
               </Link>
             </HoverAnimationBox>
 
-            <p className="bg-secondary p-4 rounded-md text-sm md:-mr-20">
+            <p className="bg-secondary text-darkColor font-semibold p-(--p-sm) rounded-md text-sm md:-mr-20">
               {description}
             </p>
 
@@ -140,33 +139,33 @@ export default function Project({
                   </div>
                 ))}
               </div>
+            </div>
 
-              <div className="flex flex-col items-end gap-3 text-sm md:mt-6 md:flex-row md:items-center md:gap-10 md:text-md font-bold">
-                <Link
-                  href={gitHubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 flex items-center gap-1 cursor-pointer"
-                >
-                  <p>{t("github", "projects")}</p>
-                  <Image
-                    src={"/github.svg"}
-                    alt="github-icon"
-                    width={28}
-                    height={28}
-                  />
-                </Link>
+            <div className="flex items-center gap-12 text-sm md:mt-6 md:gap-10 md:text-md font-semibold">
+              <Link
+                href={gitHubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 flex items-center gap-1 cursor-pointer"
+              >
+                <p>{t("github", "projects")}</p>
+                <Image
+                  src={"/github.svg"}
+                  alt="github-icon"
+                  width={28}
+                  height={28}
+                />
+              </Link>
 
-                <div
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setOpenModal(true);
-                  }}
-                  className="shrink-0 flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
-                >
-                  <p>{t("findOutMore", "projects")}</p>
-                  <SquaresUnite size={22} />
-                </div>
+              <div
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOpenModal(true);
+                }}
+                className="shrink-0 flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+              >
+                <p>{t("findOutMore", "projects")}</p>
+                <SquaresUnite size={22} />
               </div>
             </div>
           </div>
@@ -207,10 +206,12 @@ export default function Project({
           {openModal && (
             <motion.div
               ref={modalRef}
-              className="absolute inset-0 flex flex-col items-start justify-between bg-secondary p-2 rounded-md z-20"
+              className="absolute inset-0 flex flex-col items-start justify-between bg-secondary p-2 rounded-md z-20 md:justify-end"
               {...modalAnimationProps}
             >
-              <p className="text-sm p-3 w-[96%] leading-6">{details}</p>
+              <p className="text-sm p-(--p-sm) w-[96%] text-darkColor font-semibold leading-6 whitespace-pre-line overflow-auto mb-4">
+                {details}
+              </p>
 
               <motion.button
                 onClick={(e) => {
@@ -218,7 +219,7 @@ export default function Project({
                   setOpenModal(false);
                 }}
               >
-                <SquaresUnite className="cursor-pointer" />
+                <SquaresUnite className="cursor-pointer text-text" />
               </motion.button>
             </motion.div>
           )}

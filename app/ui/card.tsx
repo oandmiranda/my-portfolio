@@ -13,19 +13,19 @@ export default function Card({
   textType,
   enableGlow = false,
 }: CardProps) {
-  const renderedIcon =
-    icon && isValidElement(icon)
-      ? cloneElement(icon, {
-          className: `
-            size-10 transition-all duration-500 
-            ${
-              enableGlow
-                ? "group-hover:scale-124 group-hover:text-secondary"
-                : ""
-            }
-          `,
-        })
-      : null;
+  const iconClassName = `
+    size-10 transition-all duration-500 
+    ${
+      enableGlow ? "group-hover:scale-124 group-hover:text-secondary" : ""
+    }
+  `;
+
+  const renderedIcon = isValidElement(icon)
+    ? cloneElement(icon as React.ReactElement<{ className?: string }>, {
+        className: iconClassName,
+      })
+    : null;
+
 
   const getTextClassName = () => {
     switch (textType) {
@@ -50,12 +50,12 @@ export default function Card({
     `
     : "";
 
-  const labelHoverColor = `group-hover:tracking-wide group-hover:text-text`;
+  const labelHoverColor = `group-hover:tracking-wide group-hover:text-white`;
 
   return (
     <section
       className={`
-        flex flex-col justify-center gap-1 h-65 w-full 
+        flex flex-col justify-center gap-1 h-60 w-full 
         bg-primary rounded-md p-8 shadow-softGlow
         ${alignmentClass} 
         ${glowClasses} 

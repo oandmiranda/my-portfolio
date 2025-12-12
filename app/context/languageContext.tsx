@@ -2,23 +2,17 @@
 
 import { createContext, useState, useContext, ReactNode } from "react";
 import { translations } from "./translations";
-// Importe o objeto translations e os tipos
 import { LanguageContextType, LanguageContent } from '@/types/languageContext';
 
-// --- 1. Definição do Valor Padrão (RESOLVE O ERRO ts(2339)) ---
-// Este valor DEVE ser totalmente tipado e corresponder à LanguageContextType.
 const defaultContextValue: LanguageContextType = {
-    // Definimos os valores padrão para o TypeScript
-    language: 'en',
-    toggleLanguage: () => {}, // Função vazia para placeholder
-    t: (key: string, section: keyof LanguageContent) => key, // Função placeholder
+  language: 'en',
+  toggleLanguage: () => {}, 
+  t: (() => "") as LanguageContextType["t"],
 };
 
-// 2. Criação do Contexto
-// Passamos o tipo LanguageContextType e o defaultContextValue.
+// Passa o tipo LanguageContextType e o defaultContextValue.
 const LanguageContext = createContext<LanguageContextType>(defaultContextValue);
 
-// ... (Restante do Componente Provider) ...
 interface LanguageProviderProps {
     children: ReactNode;
 }
@@ -32,17 +26,27 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
 
 // função que acessa e retorna o valor traduzido com base na chave, seção e sub-chave
 const t = (key: string, section: keyof LanguageContent, subKey?: string) => {
-    // Começa na seção (ex: projects)
-    let content = translations[language][section]; 
+  // atende qualquer estrutura por segurança (as any), já que
+  // as seções têm formatos diferentes (objetos simples, objetos aninhados, etc.)
+    const allTranslations = translations as unknown as Record<string, Record<string, unknown>>;
+    const langObj = allTranslations?.[language];
+  if (!langObj) return key;
 
-    // Se houver uma sub-chave (ex: miraflix), acessa o próximo nível
-    if (subKey) {
-        // Usa Optional Chaining (?.) para garantir que o subKey exista
-        content = content[subKey];
-    }
-    
-    // Retorna a chave final ou o fallback (a própria key)
-    return content?.[key] ?? key; 
+    const sectionObj = (langObj as Record<string, unknown>)[section as string] as
+      | Record<string, unknown>
+      | undefined;
+    if (!sectionObj) return key;
+
+  // Se houver subKey, acessamos esse nível primeiro
+  if (subKey) {
+      const subObj = sectionObj?.[subKey as string] as Record<string, unknown> | undefined;
+      if (!subObj) return key;
+      const val = subObj?.[key as string] as unknown;
+      return typeof val === "string" ? (val as string) : key;
+  }
+
+    const val = sectionObj?.[key as string] as unknown;
+    return typeof val === "string" ? (val as string) : key;
 };
 
 // ... o restante do Provider e do useLanguage
