@@ -25,7 +25,7 @@ export const translations = {
         course: "Systems Analysis and Development",
         university: "Universidade Anhanguera",
       },
-      englishLevel: "B2 English",
+      englishLevel: "B2+ English",
       softSkills: {
         comunication: "Excellent communication",
         adaptability: "Adaptability",
@@ -46,7 +46,7 @@ export const translations = {
       slogan: "Company specialized in regulated promotions",
       job: "Front End Engineer",
       content:
-        "During this experience, I had direct contact with real products, real clients, and demands that required responsibility and consistent delivery. I worked side by side with a senior developer, which accelerated my technical growth and expanded my understanding of how a product is truly built. During this period, I learned and applied important concepts such as UX-first, code review, robust typing, TypeScript generics, and developing with more autonomy.\n\nI was responsible for developing internal company components — including generic tables, dashboard data handling, debugging, and refactoring parts of the system. This experience gave me clarity on how to write better code, communicate effectively, collaborate within a real product workflow, and always think about the people who will use what I’m building.",
+        "In this role, I work directly with products for major clients and handle demands that require responsibility and consistent delivery. I work closely with a senior developer, which has accelerated my technical growth and expanded my understanding of how a product should truly be built. During this time, I became familiar with important concepts and workflows such as UX-first development, clear communication in code reviews, Git Flow, strong typing, reusability, generic thinking, and working with greater autonomy.\n\nI was responsible for developing internal company components, including generic tables, dashboard data integration, debugging, refactoring parts of the system and others features. This experience has helped me improve the way I code, communicate effectively, collaborate within real product workflows, and always think about the end user of what I am building.",
       jobTechnologies: {
         react: "React",
         javaScript: "JavaScript",
@@ -109,7 +109,7 @@ export const translations = {
         course: "Análise e Desenvolvimento de Sistemas",
         university: "Universidade Anhanguera",
       },
-      englishLevel: "Inglês B2",
+      englishLevel: "Inglês B2+",
       softSkills: {
         comunication: "Excelente comunicação",
         adaptability: "Adaptabilidade",
@@ -131,7 +131,7 @@ export const translations = {
       job: "Desenvolvedor Front End",
       slogan: "Empresa especializada em promoções regulamentadas",
       content:
-        "Durante essa experiência, tive contato direto com produto real, cliente real e demandas que exigiam responsabilidade e entrega. Trabalhei lado a lado com um desenvolvedor sênior, o que acelerou minha evolução técnica e ampliou minha visão sobre como um produto é realmente construído. Nesse período, aprendi e apliquei conceitos importantes como UX-first, code review, tipagem robusta, generics no TypeScript e desenvolvimento com mais autonomia.\n\n Fui responsável pelo desenvolvimento de componentes internos da empresa — incluindo tabelas genéricas, alimentação de dashboards, debugging e refatoração de partes do sistema. Essa experiência me deu clareza sobre como escrever código melhor, comunicar de forma eficiente, colaborar dentro de um fluxo real de produto e pensar sempre em quem vai usar o que estou construindo.",
+        "Nessa experiência, tenho contato direto com produtos de grandes clientes e demandas que exigem responsabilidade e entregas consistentes. Trabalho lado a lado com um desenvolvedor sênior, o que acelerou minha evolução técnica e ampliou minha visão sobre como um produto deve realmente ser construído. Nesse período, me familiarizei com conceitos e fluxos importantes como UX-first, comunicação clara em code review, Git Flow, tipagem robusta, reutilização, pensamento genérico e desenvolvimento com mais autonomia.\n\nFui responsável pelo desenvolvimento de componentes internos da empresa — incluindo tabelas genéricas, alimentação de dashboards, debugging e refatoração de partes do sistema, entre outras features. Essa experiência tem me dado clareza sobre como desenvolver melhor, comunicar de forma eficiente, colaborar dentro de um fluxo real de produto e pensar sempre em quem vai usar o que estou construindo.",
       jobTechnologies: {
         react: "React",
         javaScript: "JavaScript",
