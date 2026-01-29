@@ -1,7 +1,7 @@
 export type ProjectProps = {
   imageSrc: string;
   imageAlt: string;
-  videoSrc: string;
+  videoSrc?: string;
   title: string;
   description: string;
   technologies: string[];

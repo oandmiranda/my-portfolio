@@ -8,7 +8,6 @@ import { ProjectProps } from "@/types/project";
 import ScrollTitle from "./scrollTitle";
 import Animation from "./animation";
 
-// VARIANTS ----------------------------------------------------
 const cardsContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -35,7 +34,6 @@ export default function ProjectsSection() {
     {
       imageSrc: "/images/miraflix-image.png",
       imageAlt: "miraflix-image",
-      videoSrc: "/videos/miraflix-video.mp4",
       title: "Miraflix",
       description: t("description", "projects", "miraflix"),
       technologies: [
@@ -59,7 +57,6 @@ export default function ProjectsSection() {
     {
       imageSrc: "/images/coffeeshop-image.png",
       imageAlt: "project-two",
-      videoSrc: "/videos/coffeeshop-video.mp4",
       title: "Coffee Shop",
       description: t("description", "projects", "coffeeShop"),
       technologies: ["React", "TypeScript", "Styled-Components"],
@@ -82,7 +79,6 @@ export default function ProjectsSection() {
         </ScrollTitle>
       </Animation>
 
-      {/* CARDS ------------------------------------------------ */}
       <motion.div className="relative pt-[calc(78vh)]">
         <motion.div
           variants={cardsContainerVariants}

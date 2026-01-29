@@ -6,9 +6,11 @@ import { GraduationCap, Lightbulb, Languages } from "lucide-react";
 import Animation from "./animation";
 import { useLanguage } from "../context/languageContext";
 import { translations } from "@/app/context/translations";
-import Slider from "./slider";
 import Card from "./card";
 import ScrollTitle from "./scrollTitle";
+import dynamic from "next/dynamic";
+// Isso impede o Next de tentar renderizar no server e gerar erro em runtime
+const Slider = dynamic(() => import("./slider"), { ssr: false });
 
 export default function AboutSection() {
   const { t } = useLanguage();
