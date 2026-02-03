@@ -34,6 +34,7 @@ export default function ProjectsSection() {
     {
       imageSrc: "/images/miraflix-image.png",
       imageAlt: "miraflix-image",
+      videoSrc: "/videos/miraflix-video.mp4",
       title: "Miraflix",
       description: t("description", "projects", "miraflix"),
       technologies: [
@@ -57,6 +58,7 @@ export default function ProjectsSection() {
     {
       imageSrc: "/images/coffeeshop-image.png",
       imageAlt: "project-two",
+      videoSrc: "/videos/coffeeshop-video.mp4",
       title: "Coffee Shop",
       description: t("description", "projects", "coffeeShop"),
       technologies: ["React", "TypeScript", "Styled-Components"],
@@ -72,9 +74,7 @@ export default function ProjectsSection() {
     <section ref={sectionRef} className="relative pt-40 flex flex-col">
       {/* TÍTULO ANIMADO COM SCROLL CONTROLADO PELA SECTION */}
       <Animation type="slideUp" className="sticky top-[44%]">
-        <ScrollTitle
-          sectionRef={sectionRef}
-        >
+        <ScrollTitle sectionRef={sectionRef}>
           {t("projects", "sessions")}
         </ScrollTitle>
       </Animation>
