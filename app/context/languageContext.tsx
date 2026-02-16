@@ -10,7 +10,6 @@ const defaultContextValue: LanguageContextType = {
   t: (() => "") as LanguageContextType["t"],
 };
 
-// Passa o tipo LanguageContextType e o defaultContextValue.
 const LanguageContext = createContext<LanguageContextType>(defaultContextValue);
 
 interface LanguageProviderProps {
@@ -26,32 +25,27 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
 
 // função que acessa e retorna o valor traduzido com base na chave, seção e sub-chave
 const t = (key: string, section: keyof LanguageContent, subKey?: string) => {
-  // atende qualquer estrutura por segurança (as any), já que
-  // as seções têm formatos diferentes (objetos simples, objetos aninhados, etc.)
-    const allTranslations = translations as unknown as Record<string, Record<string, unknown>>;
-    const langObj = allTranslations?.[language];
+  const allTranslations = translations as unknown as Record<string, Record<string, unknown>>;
+  const langObj = allTranslations?.[language];
   if (!langObj) return key;
 
-    const sectionObj = (langObj as Record<string, unknown>)[section as string] as
-      | Record<string, unknown>
-      | undefined;
-    if (!sectionObj) return key;
+  let current = (langObj as Record<string, unknown>)[section as string];
+  if (!current) return key;
 
-  // Se houver subKey, acessamos esse nível primeiro
+  // permite caminho profundo: "englishLevel.traits / softSkills.label"
   if (subKey) {
-      const subObj = sectionObj?.[subKey as string] as Record<string, unknown> | undefined;
-      if (!subObj) return key;
-      const val = subObj?.[key as string] as unknown;
-      return typeof val === "string" ? (val as string) : key;
+    const pathParts = subKey.split(".");
+    for (const part of pathParts) {
+      current = (current as Record<string, unknown>)?.[part];
+      if (!current) return key;
+    }
   }
 
-    const val = sectionObj?.[key as string] as unknown;
-    return typeof val === "string" ? (val as string) : key;
+  const val = (current as Record<string, unknown>)?.[key];
+  return typeof val === "string" ? val : key;
 };
 
-// ... o restante do Provider e do useLanguage
-
-  const value: LanguageContextType = { language, toggleLanguage, t }; // Tipagem explícita aqui
+  const value: LanguageContextType = { language, toggleLanguage, t }; 
 
   return (
     <LanguageContext.Provider value={value}>
@@ -60,5 +54,4 @@ const t = (key: string, section: keyof LanguageContent, subKey?: string) => {
   );
 };
 
-// O hook usa useContext(LanguageContext), que já está tipado como LanguageContextType.
 export const useLanguage = () => useContext(LanguageContext);

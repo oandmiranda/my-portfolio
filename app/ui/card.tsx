@@ -6,7 +6,7 @@ export default function Card({
   icon,
   mainLabel,
   subLabel,
-  softSkills,
+  details,
   className,
   children,
   centerItems = false,
@@ -73,8 +73,8 @@ export default function Card({
         />
       )}
 
-      {/* Só renderiza esse bloco quando NÃO tiver softSkills */}
-      {!softSkills && (
+      {/* Só renderiza esse bloco quando NÃO tiver details */}
+      {!details && (
         <div className="flex items-center gap-2">
           {renderedIcon && <span>{renderedIcon}</span>}
           <span
@@ -89,7 +89,7 @@ export default function Card({
 
       {subLabel && <span className="text-sm text-center">{subLabel}</span>}
 
-      {softSkills && (
+      {details && (
         <div className="flex md:flex-col items-center gap-6 md:gap-4">
           <div className="flex items-center gap-2">
             {renderedIcon && <span>{renderedIcon}</span>}
@@ -99,12 +99,12 @@ export default function Card({
                 enableGlow ? labelHoverColor : ""
               }`}
             >
-              Soft Skills
+              {mainLabel}
             </span>
           </div>
 
           <ul className="flex flex-col items-start justify-start gap-2.5">
-            {softSkills.map((skill, index) => (
+            {details.map((skill, index) => (
               <li key={index} className="flex gap-2 items-center">
                 <Check className="text-active" size={15}/>
                 <span className="text-sm">{skill}</span>

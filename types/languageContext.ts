@@ -11,22 +11,35 @@ export interface AboutMeSection {
   title: string;
   content: string;
   graduation: Graduation;
-  englishLevel: string;
+  englishLevel: EnglishLevel;
   softSkills: SoftSkills;
   technologies: Technologies;
 }
 
 export interface Graduation {
-status: string;
-course: string;
-university: string;
+  status: string;
+  course: string;
+  university: string;
+}
+
+export interface EnglishLevel {
+  label: string;
+  traits: {
+    speaking: string;
+    reading: string;
+    listening: string;
+    writing: string;
+  };
 }
 
 export interface SoftSkills {
-  comunication: string;
-  adaptability: string;
-  fastLearning: string;
-  ownership: string;
+  label: string;
+  details: {
+    comunication: string;
+    adaptability: string;
+    fastLearning: string;
+    ownership: string;
+  };
 }
 
 export interface Technologies {

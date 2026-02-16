@@ -1,3 +1,5 @@
+import { details } from "framer-motion/client";
+
 export const translations = {
   en: {
     nav: {
@@ -10,8 +12,7 @@ export const translations = {
     header: {
       welcome: "How’s it going ?",
       name: "I'm Miranda!",
-      tagline:
-        "I create fluid experiences and build modern web interfaces.",
+      tagline: "I create fluid experiences and build modern web interfaces.",
       bio: "Autonomous Front-end developer focused on product, performance, functional design, and consistent delivery.",
       status: "Available for work",
     },
@@ -25,12 +26,23 @@ export const translations = {
         course: "Systems Analysis and Development",
         university: "Universidade Anhanguera",
       },
-      englishLevel: "B2+ English",
+      englishLevel: {
+        label: "B2+ English",
+        traits: {
+          speaking: "Speaking",
+          reading: "Reading",
+          listening: "Listening",
+          Writing: "Writing",
+        },
+      },
       softSkills: {
-        comunication: "Excellent communication",
-        adaptability: "Adaptability",
-        fastLearning: "Fast learning",
-        ownership: "Ownership",
+        label: "SoftSkills",
+        details: {
+          comunication: "Excellent communication",
+          adaptability: "Adaptability",
+          fastLearning: "Fast learning",
+          ownership: "Ownership",
+        },
       },
       technologies: {
         title: "Technologies I’ve been using recently:",
@@ -109,16 +121,26 @@ export const translations = {
         course: "Análise e Desenvolvimento de Sistemas",
         university: "Universidade Anhanguera",
       },
-      englishLevel: "Inglês B2+",
+      englishLevel: {
+        label: "Inglês B2+",
+        traits: {
+          speaking: "Conversação",
+          reading: "Leitura",
+          listening: "Escuta",
+          Writing: "Escrita",
+        },
+      },
       softSkills: {
-        comunication: "Excelente comunicação",
-        adaptability: "Adaptabilidade",
-        fastLearning: "Aprendizado rápido",
-        ownership: "Postura de dono",
+        label: "SoftSkills",
+        details: {
+          comunication: "Excelente comunicação",
+          adaptability: "Adaptabilidade",
+          fastLearning: "Aprendizado rápido",
+          ownership: "Postura de dono",
+        },
       },
       technologies: {
-        title:
-          "Tecnologias que venho usando recentemente:",
+        title: "Tecnologias que venho usando recentemente:",
       },
     },
     sessions: {

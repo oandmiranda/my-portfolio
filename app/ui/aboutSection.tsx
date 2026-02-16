@@ -13,18 +13,25 @@ import dynamic from "next/dynamic";
 const Slider = dynamic(() => import("./slider"), { ssr: false });
 
 export default function AboutSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   // cada seção precisa do seu próprio ref
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const softSkillsList = Object.keys(translations.en.aboutMe.softSkills).map(
-    (key) => t(key, "aboutMe", "softSkills")
+  const englishSkills = Object.keys(
+    translations.en.aboutMe.englishLevel.traits,
+  ).map((key) => t(key, "aboutMe", "englishLevel.traits"));
+
+  const softSkillsList = Object.keys(translations.en.aboutMe.softSkills.details).map(
+    (key) => t(key, "aboutMe", "softSkills.details"),
   );
 
   return (
-    <section ref={sectionRef} className="flex flex-col w-full scroll-mt-20" id="about">
-      
+    <section
+      ref={sectionRef}
+      className="flex flex-col w-full scroll-mt-20"
+      id="about"
+    >
       <Animation type="slideUp" className="sticky top-[44%]">
         <ScrollTitle sectionRef={sectionRef}>
           {t("title", "aboutMe")}
@@ -33,7 +40,6 @@ export default function AboutSection() {
 
       <Animation type="fade">
         <div className="pt-[calc(78vh)] flex flex-col gap-base w-full mt-2 md:grid md:grid-cols-3">
-
           <Card
             mainLabel={t("content", "aboutMe")}
             className="md:col-span-2 h-full text-md leading-6 px-(--p-sm) md:px-(--p-base)"
@@ -61,10 +67,12 @@ export default function AboutSection() {
           />
 
           <Card
+            key={`english-${language}`}
             enableGlow
             centerItems
             icon={<Languages />}
-            mainLabel={t("englishLevel", "aboutMe")}
+            mainLabel={t("label", "aboutMe", "englishLevel")}
+            details={englishSkills}
             textType="specialTitle"
             className="md:col-span-1"
           />
@@ -73,7 +81,8 @@ export default function AboutSection() {
             enableGlow
             centerItems
             icon={<Lightbulb />}
-            softSkills={softSkillsList}
+            mainLabel={t("label", "aboutMe", "softSkills")}
+            details={softSkillsList}
             textType="specialTitle"
             className="md:col-span-1"
           />
