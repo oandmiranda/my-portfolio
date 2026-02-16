@@ -5,15 +5,13 @@ import { Circle } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import { useLanguage } from "../context/languageContext";
 
-// O Maestro que controla o tempo
 export const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      // AQUI ESTÁ A MÁGICA DO EFEITO DOMINÓ
-      staggerChildren: 0.2, // Espera 0.2s entre cada filho
-      delayChildren: 0.3, // (Opcional) Espera 0.3s antes de começar tudo
+      staggerChildren: 0.2, 
+      delayChildren: 0.3, 
     },
   },
 };
@@ -26,7 +24,7 @@ export const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 100 } /* molinha suave */,
+    transition: { type: "spring", stiffness: 100 }
   },
 };
 
@@ -34,14 +32,7 @@ export default function Header() {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen flex flex-col">
-      {/* <video
-                className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
-                src="/videos/video_draft.mov"
-                autoPlay
-                loop
-                muted
-            /> */}
+    <section className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/images/background.png')"}}>
       <NavBar />
       <div className="flex flex-col justify-center items-center w-full h-screen px-(--p-base) sm:px-10 md:px-30 lg:px-55 xl:px-90">
         <motion.div
