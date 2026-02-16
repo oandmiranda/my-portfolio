@@ -10,8 +10,6 @@ type ScrollTitleProps = {
 
 export default function ScrollTitle({ children, className, sectionRef }: ScrollTitleProps) {
   
-  // agora scrollYProgress usa a SECTION inteira,
-  // não um wrapper minúsculo
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],

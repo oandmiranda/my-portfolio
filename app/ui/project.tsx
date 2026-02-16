@@ -42,7 +42,6 @@ export default function Project({
   const [showVideo, setShowVideo] = useState(false);
   const { t } = useLanguage();
 
-  // referência para o elemento do modal
   const modalRef = useRef<HTMLDivElement>(null);
 
   // refereência para o elemento do video
@@ -51,7 +50,6 @@ export default function Project({
   // efeito para detectar cliques fora
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      // Se o modal existe (ref.current) e o clique NÃO foi dentro dele
       if (
         modalRef.current &&
         !modalRef.current.contains(event.target as Node)
@@ -60,12 +58,10 @@ export default function Project({
       }
     }
 
-    // Só adiciona o evento se o modal estiver aberto
     if (openModal) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
-    // Limpa o evento quando o componente desmontar ou o modal fechar
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -80,13 +76,11 @@ export default function Project({
 
   return (
     <section
-      // adiciona 'group' e 'relative' para o efeito funcionar
       className="group relative flex flex-col mb-40 w-full scroll-mt-50"
       id="projects"
       onMouseEnter={() => setShowVideo(true)}
       onMouseLeave={() => setShowVideo(false)}
     >
-      {/* adiciona icone de link externo no canto superior direito quando hover na imagem/video */}
       {showVideo && (
         <Link href={href} target="_blank" rel="noopener noreferrer">
           <Animation
@@ -98,7 +92,6 @@ export default function Project({
         </Link>
       )}
 
-      {/* div para o card com borda animada */}
       <Animation className="p-(--p-sm) md:p-(p-base) mx-2 md:mx-0">
         <div
           className="absolute -inset-3 rounded-2xl border border-[rgb(var(--secondary-rgb)/0.2)] group-hover:bg-background 

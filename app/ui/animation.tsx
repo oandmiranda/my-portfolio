@@ -79,7 +79,7 @@ export default function Animation({
     },
   };
 
-  // 🔥 Definição da lógica do trigger
+  // Definição da lógica do trigger
   const shouldAnimate =
     trigger === "mount" ? true : isInView;
 

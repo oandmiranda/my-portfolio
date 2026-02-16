@@ -81,10 +81,6 @@ export default function NavBar() {
           </HoverAnimationBox>
         </Link>
 
-        {/* 
-        'absolute', 'left-1/2' e '-translate-x-1/2' para garantir 
-         o centro matemático, independente dos vizinhos.
-      */}
         <Animation className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <div className="hidden lg:flex items-center gap-5 text-sm scale-[0.85] sm:scale-100 md:gap-8 md:text-sm">
             {navLink.map((link, index) => (
