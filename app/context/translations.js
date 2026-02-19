@@ -1,4 +1,3 @@
-import { details } from "framer-motion/client";
 
 export const translations = {
   en: {
@@ -13,7 +12,7 @@ export const translations = {
       welcome: "How’s it going ?",
       name: "I'm Miranda!",
       tagline: "I create fluid experiences and build modern web interfaces.",
-      bio: "Autonomous Front-end developer focused on product, performance, functional design, and consistent delivery.",
+      bio: "Front-End Developer with over 2 years of experience focused on product thinking, clean architecture, and building modern interfaces with quality and predictability.",
       status: "Available for work",
     },
 
@@ -70,6 +69,13 @@ export const translations = {
     projects: {
       github: "Code",
       findOutMore: "Find out more",
+      barberbox: {
+        title: "BarberBox",
+        description:
+          "→ Server-side authentication and validation\n→ Custom Design System\n→ Architecture with clear separation between Domain, Server Actions, and UI\n→ Reusable and decoupled components\n→ Professional GitFlow with clear separation between development and production\n→ Consistent UTC-based time handling with timezone conversion",
+        details:
+          "Barberbox is an online scheduling application developed with a focus on deliberate architectural decisions, predictable behavior, and structural organization from the very beginning of the project.\n\nThe project was structured with a clear separation of responsibilities (domain, actions, components, and infrastructure), prioritizing maintainability, readability, and scalability. The integration between front-end and back-end is handled cleanly and cohesively within Next.js using Server Actions. Typing was applied consistently, with a clear separation between domain and presentation types, along with the use of mappers to ensure safe data adaptation between layers. Business logic remains isolated from the interface, keeping critical responsibilities — such as authentication, availability control, UTC timezone handling, and scheduling validations — centralized on the server. This separation prevents unnecessary coupling with the UI and ensures integrity across application flows.\n\nThe interface was built with reusable and decoupled components, based on a custom Design System, with a strong focus on visual consistency, responsiveness, and structural clarity.\nVersion control follows a professional workflow, with separation between development and production environments, feature-based branching, and integration through Pull Requests from the beginning of the project.\n\nBarberbox reflects the learning and practical application of a product-oriented mindset combined with an engineering approach focused on code organization, separation of concerns, user experience, scalability, and version control best practices that I have been consolidating in professional environments.",
+      },
       miraflix: {
         title: "MiraFlix",
         description:
@@ -109,7 +115,7 @@ export const translations = {
       name: "Eu sou o Miranda!",
       tagline:
         "Crio experiências fluidas e desenvolvo interfaces web modernas.",
-      bio: "Desenvolvedor front-end autônomo com foco em produto, performance, design funcional e entrega consistente.",
+      bio: "Desenvolvedor Front-End com mais de 2 anos de experiência focado em produto, arquitetura limpa e construção de interfaces modernas com qualidade e previsibilidade.",
       status: "Disponível para trabalhar",
     },
     aboutMe: {
@@ -165,6 +171,13 @@ export const translations = {
     projects: {
       github: "Código",
       findOutMore: "Saiba mais",
+      barberbox: {
+        title: "BarberBox",
+        description:
+          "→ Autenticação com validação no servidor\n→ Design System próprio\n→ Arquitetura com separação clara entre domínio, Server Actions e UI\n→ Componentes reutilizáveis e desacoplados\n→ GitFlow profissional com separação entre desenvolvimento e produção \n→ Tratamento consistente de datas em UTC com conversão de timezone",
+        details:
+          "Barberbox é uma aplicação de agendamento online desenvolvida com foco em decisões arquiteturais conscientes, previsibilidade de comportamento e organização estrutural desde o início do projeto.\n\nO projeto foi estruturado com divisão clara de responsabilidades (domain, actions, components e infraestrutura), priorizando manutenção, legibilidade e escalabilidade. A integração entre front-end e back-end ocorre de forma limpa e coerente dentro do Next.js utilizando Server Actions. A tipagem foi aplicada de maneira consistente, com separação entre tipos de domínio e de interface, além do uso de mappers para adaptação segura de dados entre as camadas. A lógica permanece isolada da interface, mantendo responsabilidades críticas — como autenticação, controle de disponibilidade, tratamento de timezone em UTC e validações de agendamento — centralizadas no servidor. Essa separação evita acoplamento desnecessário com a UI e garante integridade nos fluxos.\n\nA interface foi construída com componentes reutilizáveis e desacoplados, baseados em um Design System próprio, com foco em consistência visual, responsividade e clareza estrutural.\nO versionamento segue um fluxo profissional, com separação entre ambiente de desenvolvimento e produção, uso de branches por funcionalidade e integração via Pull Requests desde o início do projeto.\n\nO projeto Barberbox reflete o aprendizado e a aplicação prática de uma orientação a produto aliada a uma abordagem de engenharia focada em organização do código, separação de responsabilidades, experiência do usuário, escalabilidade e boas práticas de versionamento que venho consolidando em ambientes profissionais.",
+      },
       miraflix: {
         title: "MiraFlix",
         description:
