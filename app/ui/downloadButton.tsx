@@ -7,7 +7,7 @@ export default function DownloadButton({ bgTransparent, justifyStart, shadowType
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/cv.pdf";
+    link.href = "/resume.pdf";
     link.download = "Curriculo-AndersonMiranda.pdf";
     link.click();
   };

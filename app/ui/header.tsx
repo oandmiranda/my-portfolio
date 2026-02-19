@@ -32,7 +32,7 @@ export default function Header() {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat" style={{backgroundImage: "url('/images/background.png')"}}>
+    <section className="min-h-screen flex flex-col bg-no-repeat lg:bg-cover lg:bg-center" style={{backgroundImage: "url('/images/background.png')"}}>
       <NavBar />
       <div className="flex flex-col justify-center items-center w-full h-screen px-(--p-base) sm:px-10 md:px-30 lg:px-55 xl:px-90">
         <motion.div

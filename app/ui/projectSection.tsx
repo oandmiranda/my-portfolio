@@ -32,8 +32,29 @@ export default function ProjectsSection() {
 
   const projectData: ProjectProps[] = [
     {
+      imageSrc: "/images/barberbox-image.png",
+      imageAlt: "",
+      videoSrc: "/videos/barberbox-video.mp4",
+      title: "BarberBox",
+      description: t("description", "projects", "barberbox"),
+      technologies: [
+        "React",
+        "TypeScript",
+        "Server Actions/Next.js",
+        "Tailwind",
+        "PostgreSQL",
+        "JWT Auth",
+      ],
+      reverse: false,
+      gitHubLink: "https://github.com/oandmiranda/BarberBox",
+      href: "https://barberbox-eight.vercel.app/home",
+      findOutMore:
+        "Find out more",
+      details: t("details", "projects", "barberbox"),
+    },
+    {
       imageSrc: "/images/miraflix-image.png",
-      imageAlt: "miraflix-image",
+      imageAlt: "",
       videoSrc: "/videos/miraflix-video.mp4",
       title: "Miraflix",
       description: t("description", "projects", "miraflix"),
@@ -57,7 +78,7 @@ export default function ProjectsSection() {
     },
     {
       imageSrc: "/images/coffeeshop-image.png",
-      imageAlt: "project-two",
+      imageAlt: "",
       videoSrc: "/videos/coffeeshop-video.mp4",
       title: "Coffee Shop",
       description: t("description", "projects", "coffeeShop"),
