@@ -26,7 +26,7 @@ export default function ExperienceSection() {
 
           <Link
             href={
-              "https://linktr.ee/aspromocoes?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnlCfIZrMnco_lYgrcS3Zf_f2r-Cp5nXvZ9JuZgi3GpOMweqQG33B_gxG0ILw_aem_0sTSZb6LuucqsU4JsOyZIQ"
+              "https://www.linkedin.com/company/as-promo%C3%A7%C3%B5es-comerciais/"
             }
             target="_blank"
             rel="noopener noreferrer"

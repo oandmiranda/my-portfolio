@@ -19,7 +19,7 @@ export const translations = {
     aboutMe: {
       title: "About Me",
       content:
-        "Since my first contact with code 3 years ago, I became fascinated by what was possible to create. Over time, that fascination evolved into the desire to build interfaces and experiences that truly make a difference for the user.\n\nMy journey didn’t happen by accident. I entered this field by choice — the choice to become very good over time and to build a career based on consistency, intention, and continuous learning.\n I’m the kind of developer who learns quickly, adapts easily, and solves problems with autonomy. I enjoy writing clean code, collaborating with product and design, and refining experiences.\n\nMy main differential is the constant pursuit of growth — both technically and in the way I think about product, user experience, and behavioral skills.",
+        "Since my first contact with code three years ago, I’ve been fascinated by what could be built. Over time, that fascination evolved into a desire to create modern interfaces and experiences that truly make a difference for users.\n\nMy journey didn’t begin by chance. I entered the tech world with the decision to develop technical excellence over time and build a career grounded in consistency and continuous learning. I’m the kind of developer committed to quality, connected to product thinking, who learns quickly and solves problems autonomously. I value writing clean code, collaborating with product and design, and continuously refining user experiences.\n\nMy main differentiator is the constant drive to improve, and that translates into added value, more thoughtful decisions, more sustainable code, and solutions that balance technical quality with real value for the user.",
       graduation: {
         status: "Graduaded",
         course: "Systems Analysis and Development",
@@ -53,11 +53,11 @@ export const translations = {
     },
     experience: {
       title: "Professional Experience",
-      jobStatus: "2025 - VOLUNTEER",
+      jobStatus: "2025/present - FREELANCER",
       slogan: "Company specialized in regulated promotions",
       job: "Front End Engineer",
       content:
-        "In this role, I work directly with products for major clients and handle demands that require responsibility and consistent delivery. I work closely with a senior developer, which has accelerated my technical growth and expanded my understanding of how a product should truly be built. During this time, I became familiar with important concepts and workflows such as UX-first development, clear communication in code reviews, Git Flow, strong typing, reusability, generic thinking, and working with greater autonomy.\n\nI was responsible for developing internal company components, including generic tables, dashboard data integration, debugging, refactoring parts of the system and others features. This experience has helped me improve the way I code, communicate effectively, collaborate within real product workflows, and always think about the end user of what I am building.",
+        "In this role, I work directly with products for major clients and handle demands that require responsibility and consistent delivery. I work closely with a senior developer, which has accelerated my technical growth and expanded my understanding of how a product should truly be built. During this time, I became familiar with important concepts and workflows such as UX-first development, clear communication in code reviews, Git Flow, strong typing, reusability, generic thinking, and working with greater autonomy.\n\nI was responsible for developing internal company components, including generic tables, API integration, debugging, refactoring parts of the system and others features. This experience has helped me improve the way I code, communicate effectivel and collaborate within real product workflows.",
       jobTechnologies: {
         react: "React",
         javaScript: "JavaScript",
@@ -121,7 +121,7 @@ export const translations = {
     aboutMe: {
       title: "Sobre mim",
       content:
-        "Desde meu primeiro contato com código há 3 anos, me tornei fascinado pelo que era possível criar. Com o tempo, esse fascínio evoluiu para o desejo de construir interfaces e experiências que realmente fazem diferença para o usuário. \n\n Minha trajetória não começou por acaso. Entrei nesse mundo por decisão — a decisão de me tornar muito bom com o tempo e de construir uma carreira baseada em consistência, intenção e aprendizado contínuo.\n Sou o tipo de desenvolvedor que aprende rápido, se adapta com facilidade e resolve problemas com autonomia. Gosto de escrever código limpo, colaborar com produto e design e aperfeiçoar experiências.\n\n Meu principal diferencial está na busca constante por evoluir — tanto tecnicamente quanto na forma de pensar produto, experiência do usuário e habilidades comportamentais.",
+        "Desde meu primeiro contato com código há 3 anos, me tornei fascinado pelo que era possível criar. Com o tempo, esse fascínio evoluiu para o desejo de construir interfaces e experiências modernas que realmente fazem diferença para o usuário. \n\n Minha trajetória não começou por acaso. Iniciei no mundo da tecnologia com a decisão de desenvolver excelência técnica ao longo do tempo e construir uma carreira pautada em consistência e aprendizado contínuo.\n Sou o tipo de desenvolvedor comprometido com qualidade, conectado ao produto, que aprende rápido e resolve problemas com autonomia. Prezo por escrever código limpo, colaborar com produto e design e aperfeiçoar experiências.\n\n Meu principal diferencial está na busca constante por evoluir e isso se traduz em valor agregado, decisões mais conscientes, código mais sustentável e soluções que equilibram qualidade técnica com valor real para o usuário.",
       graduation: {
         status: "Graduado",
         course: "Análise e Desenvolvimento de Sistemas",
@@ -155,11 +155,11 @@ export const translations = {
     },
     experience: {
       title: "Experiência Profissional",
-      jobStatus: "2025 - VOLUNTÁRIO",
+      jobStatus: "2025/atual - FREELANCER",
       job: "Desenvolvedor Front End",
       slogan: "Empresa especializada em promoções regulamentadas",
       content:
-        "Nessa experiência, tenho contato direto com produtos de grandes clientes e demandas que exigem responsabilidade e entregas consistentes. Trabalho lado a lado com um desenvolvedor sênior, o que acelerou minha evolução técnica e ampliou minha visão sobre como um produto deve realmente ser construído. Nesse período, me familiarizei com conceitos e fluxos importantes como UX-first, comunicação clara em code review, Git Flow, tipagem robusta, reutilização, pensamento genérico e desenvolvimento com mais autonomia.\n\nFui responsável pelo desenvolvimento de componentes internos da empresa — incluindo tabelas genéricas, alimentação de dashboards, debugging e refatoração de partes do sistema, entre outras features. Essa experiência tem me dado clareza sobre como desenvolver melhor, comunicar de forma eficiente, colaborar dentro de um fluxo real de produto e pensar sempre em quem vai usar o que estou construindo.",
+        "Nessa experiência, tenho contato direto com produtos de grandes clientes e demandas que exigem responsabilidade e entregas consistentes. Trabalho lado a lado com um desenvolvedor sênior, o que acelerou minha evolução técnica e ampliou minha visão sobre como um produto deve realmente ser construído. Nesse período, me familiarizei com conceitos e fluxos importantes como UX-first, comunicação clara em code review, Git Flow, tipagem robusta, reutilização, pensamento genérico e desenvolvimento com mais autonomia.\n\nFui responsável pelo desenvolvimento de componentes internos da empresa — incluindo tabelas genéricas, integração com API, debugging e refatoração de partes do sistema, entre outras features. Essa experiência tem me dado clareza sobre como desenvolver melhor, comunicar de forma eficiente e colaborar dentro de um fluxo real de produto.",
       jobTechnologies: {
         react: "React",
         javaScript: "JavaScript",
